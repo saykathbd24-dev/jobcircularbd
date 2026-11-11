@@ -6,6 +6,7 @@ circulars to you through your own Telegram bot.
 import html
 import json
 import os
+import sys
 import time
 import unicodedata
 import urllib.parse
@@ -24,7 +25,6 @@ urllib3.disable_warnings()
 SOURCES = [
     {"name": "Teletalk All Jobs", "url": "https://alljobs.teletalk.com.bd/", "filter": False},
     {"name": "BPSC", "url": "http://www.bpsc.gov.bd/", "filter": True},
-    {"name": "Bangladesh Bank", "url": "https://erecruitment.bb.org.bd/", "filter": False},
     {"name": "Bangladesh Army", "url": "https://joinbangladesharmy.army.mil.bd/", "filter": True},
 ]
 
@@ -138,7 +138,7 @@ def extract_links(source):
 def send_telegram(message):
     if not BOT_TOKEN or not CHAT_ID:
         print("[no Telegram keys set] would send:\n" + message)
-        return
+        return True
     url = f"https://api.telegram.org/bot{BOT_TOKEN}/sendMessage"
     data = {
         "chat_id": CHAT_ID,
@@ -149,6 +149,7 @@ def send_telegram(message):
     r = requests.post(url, data=data, timeout=40)
     print("Telegram:", r.status_code, "" if r.ok else r.text)
     time.sleep(1)  # stay well under Telegram's rate limit
+    return r.ok
 
 
 def main():
@@ -177,6 +178,7 @@ def main():
         # Keep the list from growing forever.
         seen[src["name"]] = (list(old) + [u for u, _ in fresh])[-2000:]
 
+    all_sent = True
     # Send in batches (Telegram allows up to 4096 characters per message).
     for i in range(0, len(new_jobs), 10):
         batch = new_jobs[i:i + 10]
@@ -188,7 +190,12 @@ def main():
                 f'🔗 <a href="{html.escape(url, quote=True)}">Open circular</a>',
                 "",
             ]
-        send_telegram("\n".join(lines))
+        all_sent = send_telegram("\n".join(lines)) and all_sent
+
+    if not all_sent:
+        # Don't save, so these circulars are sent again on the next run.
+        print("ERROR: Telegram message failed. Check TELEGRAM_BOT_TOKEN and TELEGRAM_CHAT_ID.")
+        sys.exit(1)
 
     save_seen(seen)
     print(f"Done. {len(new_jobs)} new circular(s) sent.")
