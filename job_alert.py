@@ -35,7 +35,11 @@ KEYWORDS = [
 SEEN_FILE = "seen.json"
 BOT_TOKEN = os.environ.get("TELEGRAM_BOT_TOKEN", "")
 CHAT_ID = os.environ.get("TELEGRAM_CHAT_ID", "")
-HEADERS = {"User-Agent": "Mozilla/5.0 (BD-Job-Alert)"}
+HEADERS = {
+    "User-Agent": ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
+                   "(KHTML, like Gecko) Chrome/124.0 Safari/537.36"),
+    "Accept-Language": "en-US,en;q=0.9,bn;q=0.8",
+}
 
 
 def load_seen():
@@ -51,20 +55,36 @@ def save_seen(seen):
         json.dump(seen, f, ensure_ascii=False, indent=1)
 
 
-def fetch(url):
+def fetch_simple(url):
     # Many .gov.bd sites have broken SSL certificates, so retry without verification.
     try:
         r = requests.get(url, headers=HEADERS, timeout=40)
     except requests.exceptions.SSLError:
         r = requests.get(url, headers=HEADERS, timeout=40, verify=False)
-    r.raise_for_status()
-    return r.text
+    return r.text, r.status_code
 
 
-def extract_links(source):
-    soup = BeautifulSoup(fetch(source["url"]), "html.parser")
+def fetch_browser(url):
+    """Open the page in a real (headless) Chrome so JavaScript-built pages load."""
+    from playwright.sync_api import sync_playwright
+    with sync_playwright() as p:
+        browser = p.chromium.launch()
+        page = browser.new_page(user_agent=HEADERS["User-Agent"], ignore_https_errors=True)
+        try:
+            page.goto(url, wait_until="domcontentloaded", timeout=90000)
+            page.wait_for_timeout(8000)  # give the job list time to load
+        except Exception as e:
+            print(f"    browser warning: {e}")
+        content = page.content()
+        browser.close()
+    return content
+
+
+def parse_links(page_html, source):
+    soup = BeautifulSoup(page_html, "html.parser")
+    anchors = soup.find_all("a", href=True)
     jobs = {}
-    for a in soup.find_all("a", href=True):
+    for a in anchors:
         text = " ".join(a.get_text(" ", strip=True).split())
         href = a["href"].strip()
         if len(text) < 6 or href.startswith(("#", "javascript:", "mailto:", "tel:")):
@@ -73,6 +93,22 @@ def extract_links(source):
             continue
         full = urllib.parse.urljoin(source["url"], href)
         jobs[full] = text[:150]
+    title = soup.title.get_text(strip=True)[:60] if soup.title else "(no title)"
+    return jobs, len(anchors), title
+
+
+def extract_links(source):
+    page_html, status = fetch_simple(source["url"])
+    jobs, total, title = parse_links(page_html, source)
+    print(f"    simple fetch: HTTP {status}, {len(page_html)} bytes, "
+          f"{total} links on page, title: {title}")
+
+    # Page looks empty -> probably built by JavaScript, so use the browser.
+    if total < 5:
+        page_html = fetch_browser(source["url"])
+        jobs, total, title = parse_links(page_html, source)
+        print(f"    browser fetch: {len(page_html)} bytes, "
+              f"{total} links on page, title: {title}")
     return jobs
 
 
@@ -97,6 +133,7 @@ def main():
     new_jobs = []
 
     for src in SOURCES:
+        print(f"[{src['name']}] {src['url']}")
         try:
             links = extract_links(src)
         except Exception as e:
@@ -104,9 +141,11 @@ def main():
             continue
 
         old = set(seen.get(src["name"], []))
-        first_run = src["name"] not in seen
+        # Nothing saved yet for this site -> treat as first run.
+        first_run = not old
         fresh = [(u, t) for u, t in links.items() if u not in old]
-        print(f"[{src['name']}] {len(links)} links, {len(fresh)} new")
+        print(f"[{src['name']}] {len(links)} job links, {len(fresh)} new"
+              + (" (first run: saving only, no alert)" if first_run and fresh else ""))
 
         # First run: just remember what's there, don't spam old circulars.
         if not first_run:
