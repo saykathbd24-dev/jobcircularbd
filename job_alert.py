@@ -7,6 +7,7 @@ import html
 import json
 import os
 import time
+import unicodedata
 import urllib.parse
 
 import requests
@@ -28,9 +29,17 @@ SOURCES = [
 ]
 
 KEYWORDS = [
-    "circular", "recruitment", "job", "vacancy", "notice", "advertisement",
-    "নিয়োগ", "বিজ্ঞপ্তি", "নিয়োগ", "শূন্য পদ", "চাকরি",
+    "circular", "recruitment", "job", "vacancy", "notice", "advertisement", "application",
+    "নিয়োগ", "বিজ্ঞপ্তি", "বিজ্ঞপ্তি", "শূন্য পদ", "শূন্যপদ", "চাকরি", "আবেদন", "পরীক্ষা", "নোটিশ",
 ]
+
+
+def norm(text):
+    # Bangla letters like য় can be typed two different ways; make them match.
+    return unicodedata.normalize("NFC", text).lower()
+
+
+NORM_KEYWORDS = [norm(k) for k in KEYWORDS]
 
 SEEN_FILE = "seen.json"
 BOT_TOKEN = os.environ.get("TELEGRAM_BOT_TOKEN", "")
@@ -89,26 +98,40 @@ def parse_links(page_html, source):
         href = a["href"].strip()
         if len(text) < 6 or href.startswith(("#", "javascript:", "mailto:", "tel:")):
             continue
-        if source["filter"] and not any(k.lower() in text.lower() for k in KEYWORDS):
+        if source["filter"] and not any(k in norm(text) for k in NORM_KEYWORDS):
             continue
         full = urllib.parse.urljoin(source["url"], href)
         jobs[full] = text[:150]
     title = soup.title.get_text(strip=True)[:60] if soup.title else "(no title)"
-    return jobs, len(anchors), title
+    return jobs, len(anchors), title, soup
+
+
+def show_sample(soup):
+    """Print what the bot sees, to help fix sites that give 0 job links."""
+    texts = []
+    for a in soup.find_all("a", href=True):
+        t = " ".join(a.get_text(" ", strip=True).split())
+        if len(t) >= 6:
+            texts.append(t[:60])
+    print("    sample links:", " | ".join(texts[:15]) or "(none)")
+    body = " ".join(soup.get_text(" ", strip=True).split())
+    print("    page text:", body[:300] or "(empty)")
 
 
 def extract_links(source):
     page_html, status = fetch_simple(source["url"])
-    jobs, total, title = parse_links(page_html, source)
+    jobs, total, title, soup = parse_links(page_html, source)
     print(f"    simple fetch: HTTP {status}, {len(page_html)} bytes, "
           f"{total} links on page, title: {title}")
 
     # Page looks empty -> probably built by JavaScript, so use the browser.
     if total < 5:
         page_html = fetch_browser(source["url"])
-        jobs, total, title = parse_links(page_html, source)
+        jobs, total, title, soup = parse_links(page_html, source)
         print(f"    browser fetch: {len(page_html)} bytes, "
               f"{total} links on page, title: {title}")
+    if not jobs:
+        show_sample(soup)
     return jobs
 
 
