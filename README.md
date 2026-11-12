@@ -1,46 +1,47 @@
 # BD Govt Job Alert → Telegram
 
 Checks Bangladesh government job circular websites every 2 hours and sends
-new circulars to your Telegram. Runs free on GitHub Actions — no server needed.
+new circulars to your Telegram. Runs free on GitHub Actions.
 
-## Setup (about 10 minutes)
+## Files
+```
+job_alert.py
+requirements.txt
+README.md
+.github/workflows/job_alert.yml
+```
+Do not upload `seen.json` — the bot creates it.
 
-**1. Create your Telegram bot**
-- In Telegram, search for **@BotFather** (blue tick) and open it.
-- Send `/newbot`, choose a name (e.g. `BD Job Alert`) and a username ending in `bot` (e.g. `myjobalert_bd_bot`).
-- BotFather replies with a **token** like `123456789:AAH...`. Copy it and keep it secret.
+## Setup
+1. Make a Telegram bot with **@BotFather** (`/newbot`) and copy the token.
+2. Open your bot, press **Start**, then open
+   `https://api.telegram.org/bot<YOUR_TOKEN>/getUpdates` and copy the `"chat":{"id":...}` number.
+3. In the GitHub repo: Settings → Secrets and variables → Actions → New repository secret
+   - `TELEGRAM_BOT_TOKEN` = token
+   - `TELEGRAM_CHAT_ID` = chat id
+4. Actions tab → enable workflows.
 
-**2. Get your chat ID**
-- Open your new bot in Telegram and press **Start** (or send it any message, like `hi`).
-- In a browser, open: `https://api.telegram.org/bot<YOUR_TOKEN>/getUpdates`
-  (replace `<YOUR_TOKEN>` with your token).
-- Find `"chat":{"id":123456789` — that number is your **chat ID**.
-  If you see `"result":[]`, send the bot another message and refresh the page.
+## Manual run (choose dates)
+Actions → **BD Govt Job Alert** → **Run workflow**
+- **From date**: e.g. `05-11-2026` (empty = today)
+- **To date**: e.g. `12-11-2026` (empty = same as From date)
 
-**3. Put the code on GitHub**
-- Create a free account at https://github.com and make a new repository (private is fine).
-- Upload all these files, keeping the `.github/workflows/` folder structure.
+You get:
+1. "🔎 Checking job sites…" right away (shows Telegram works)
+2. One message per circular published in that range, with posts and their links
+3. "🤖 Manual check finished" with a status line for every site
 
-**4. Add your secrets**
-In the repo: Settings → Secrets and variables → Actions → New repository secret
-- `TELEGRAM_BOT_TOKEN` = the token from step 1
-- `TELEGRAM_CHAT_ID` = the number from step 2
+## Automatic runs
+Every 2 hours, only circulars that are new since the last run are sent.
+The very first run only saves what is already there (no flood of old circulars).
 
-**5. Start it**
-Go to the **Actions** tab → enable workflows → "BD Govt Job Alert" → **Run workflow**.
-The first run only saves the current circulars (so you aren't flooded with old ones).
-After that, you'll get a Telegram message whenever something new appears.
-
-## Send alerts to a group or channel (optional)
-- **Group:** add the bot to the group, send a message there, then use `getUpdates` again — group IDs start with `-`.
-- **Channel:** add the bot as an admin, and use `@yourchannelname` as the chat ID.
+## If something goes wrong
+- Run is red with "secret is missing" → check the secret names in step 3.
+- Run is red with "Telegram message failed" → wrong token/chat id, or you didn't press Start in the bot.
+- Report shows ❌ or "0 links" → open the run, download **Artifacts → debug-pages**,
+  it contains the pages the bot downloaded.
 
 ## Customise
-- **Add more sites:** edit `SOURCES` in `job_alert.py` (any ministry or department site works).
-- **Change how often:** edit the `cron` line in the workflow (`0 */1 * * *` = every hour).
-- **Keywords:** edit `KEYWORDS` to match Bangla/English words used on those sites.
-
-## Notes
-- GitHub pauses scheduled jobs in repos with no activity for 60 days; if alerts stop, open the Actions tab and re-enable it.
-- If a site changes its layout or goes down, that site is skipped and the others still work. Check the Actions log to see which sites are working.
-- Test locally: `pip install -r requirements.txt && python job_alert.py` (without keys, it prints messages instead of sending).
+- Sites: edit `SOURCES` in `job_alert.py`.
+- How often: edit the `cron` line in the workflow.
+- GitHub pauses schedules after 60 days without repo activity; re-enable in the Actions tab.

@@ -486,11 +486,20 @@ def build_message(source_name, item, details):
 
 
 def main():
+    if os.environ.get("GITHUB_ACTIONS") and (not BOT_TOKEN or not CHAT_ID):
+        print("ERROR: TELEGRAM_BOT_TOKEN or TELEGRAM_CHAT_ID secret is missing or empty.\n"
+              "Add them in Settings -> Secrets and variables -> Actions (exact names).")
+        sys.exit(1)
+
     seen = load_seen()
     start, end = date_range()
     period = fmt_range(start, end)
     if MANUAL_RUN:
         print(f"Manual run: sending all circulars published {period} (plus anything new).")
+        # Tell the user right away, so they know Telegram works even if a site fails later.
+        if not send_telegram(f"🔎 Checking job sites for circulars published {period}…"):
+            print("ERROR: Telegram message failed. Check TELEGRAM_BOT_TOKEN and TELEGRAM_CHAT_ID.")
+            sys.exit(1)
 
     to_send = []  # (source, item)
     report = []   # one status line per site, sent to Telegram on manual runs
