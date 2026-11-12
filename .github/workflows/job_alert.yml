@@ -5,12 +5,12 @@ on:
     - cron: "0 */2 * * *"   # every 2 hours
   workflow_dispatch:         # "Run workflow" button
     inputs:
-      send_today:
-        description: "Send all of today's circulars (not only new ones)"
-        type: boolean
-        default: true
-      date:
-        description: "Other date instead of today (YYYY-MM-DD), leave empty for today"
+      from_date:
+        description: "From date (e.g. 05-11-2026). Empty = today"
+        required: false
+        default: ""
+      to_date:
+        description: "To date (e.g. 12-11-2026). Empty = same as From date"
         required: false
         default: ""
 
@@ -41,8 +41,9 @@ jobs:
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-          SEND_TODAY: ${{ github.event_name == 'workflow_dispatch' && inputs.send_today }}
-          TARGET_DATE: ${{ inputs.date }}
+          MANUAL_RUN: ${{ github.event_name == 'workflow_dispatch' }}
+          DATE_FROM: ${{ inputs.from_date }}
+          DATE_TO: ${{ inputs.to_date }}
         run: python job_alert.py
 
       - name: Save seen.json
