@@ -4,8 +4,8 @@ Checks Bangladesh government job circular websites and sends new
 circulars to you through your own Telegram bot.
 
 Scheduled run: sends only circulars that are new since the last run.
-Manual run (SEND_TODAY=true): also sends every circular dated today
-(Bangladesh time), or the date given in TARGET_DATE (YYYY-MM-DD).
+Manual run (MANUAL_RUN=true): also sends every circular published between
+DATE_FROM and DATE_TO (empty = today, Bangladesh time).
 For sites with details=True, each circular page is opened and every
 post is listed with its own link.
 """
@@ -91,7 +91,7 @@ INFO_WORDS = [norm(w) for w in [
 
 BOT_TOKEN = os.environ.get("TELEGRAM_BOT_TOKEN", "")
 CHAT_ID = os.environ.get("TELEGRAM_CHAT_ID", "")
-SEND_TODAY = os.environ.get("SEND_TODAY", "").strip().lower() == "true"
+MANUAL_RUN = os.environ.get("MANUAL_RUN", "").strip().lower() == "true"
 BD_TZ = timezone(timedelta(hours=6))
 HEADERS = {
     "User-Agent": ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
@@ -112,11 +112,34 @@ DATE_PATTERNS = [
 ]
 
 
-def target_day():
-    s = os.environ.get("TARGET_DATE", "").strip()
-    if s:
-        return datetime.strptime(s, "%Y-%m-%d").date()
-    return datetime.now(BD_TZ).date()
+def date_range():
+    """Dates typed in the Run workflow form. Accepts 10-11-2026, 2026-11-10, 10 Nov 2026..."""
+    today = datetime.now(BD_TZ).date()
+
+    def read(name):
+        s = os.environ.get(name, "").strip()
+        if not s:
+            return None
+        d = find_dates(s)
+        if not d:
+            print(f"WARNING: could not read {name}='{s}', using today instead.")
+            return None
+        return d[0]
+
+    start = read("DATE_FROM") or today
+    end = read("DATE_TO") or (start if os.environ.get("DATE_FROM", "").strip() else today)
+    if start > end:
+        start, end = end, start
+    return start, end
+
+
+def published(item):
+    """The circular's publish date = earliest date in its row (deadline comes later)."""
+    return min(item["dates"]) if item["dates"] else None
+
+
+def fmt_range(start, end):
+    return f"{start:%d %b %Y}" if start == end else f"{start:%d %b %Y} – {end:%d %b %Y}"
 
 
 def find_dates(text):
@@ -181,12 +204,30 @@ def save_debug(name, page_html):
 
 
 def fetch_simple(url):
-    # Many .gov.bd sites have broken SSL certificates, so retry without verification.
-    try:
-        r = requests.get(url, headers=HEADERS, timeout=40)
-    except requests.exceptions.SSLError:
-        r = requests.get(url, headers=HEADERS, timeout=40, verify=False)
-    return r.text, r.status_code, r.headers.get("Content-Type", "")
+    """Normal download, with retries. Many .gov.bd sites have broken SSL certificates
+    or only work on http:// (or only on https://), so all of that is tried."""
+    other = (url.replace("https://", "http://", 1) if url.startswith("https://")
+             else url.replace("http://", "https://", 1))
+    errors = []
+    for attempt in range(3):
+        for u in (url, other):
+            for verify in (True, False):
+                try:
+                    r = requests.get(u, headers=HEADERS, timeout=40, verify=verify)
+                    if r.status_code < 500:
+                        if u != url:
+                            print(f"    (worked with {u})")
+                        return r.text, r.status_code, r.headers.get("Content-Type", "")
+                    errors.append(f"{u}: HTTP {r.status_code}")
+                    break
+                except requests.exceptions.SSLError as e:
+                    errors.append(f"{u}: SSL {str(e)[:80]}")
+                    continue  # try again without certificate check
+                except requests.exceptions.RequestException as e:
+                    errors.append(f"{u}: {type(e).__name__}")
+                    break
+        time.sleep(5)
+    raise RuntimeError("could not download page -> " + "; ".join(errors[-4:]))
 
 
 def fetch_browser(url, wait_ms=8000):
@@ -253,18 +294,37 @@ def show_sample(soup):
 
 
 def extract_links(source):
-    page_html, status, _ = fetch_simple(source["url"])
-    jobs, total, title, soup = parse_links(page_html, source)
-    print(f"    simple fetch: HTTP {status}, {len(page_html)} bytes, "
-          f"{total} links on page, title: {title}")
+    """Try a normal download and (if needed) a real browser; use whichever finds more.
+    One method failing never stops the other."""
+    results, errors = [], []
 
-    # Page looks empty (or site is marked browser=True) -> it is built by
-    # JavaScript, so open it in a real browser.
-    if source.get("browser") or total < 5:
-        page_html = fetch_browser(source["url"])
+    try:
+        page_html, status, _ = fetch_simple(source["url"])
         jobs, total, title, soup = parse_links(page_html, source)
-        print(f"    browser fetch: {len(page_html)} bytes, "
-              f"{total} links on page, title: {title}")
+        print(f"    simple fetch: HTTP {status}, {len(page_html)} bytes, "
+              f"{total} links on page, {len(jobs)} job links, title: {title}")
+        results.append((len(jobs), jobs, soup, page_html))
+    except Exception as e:
+        print(f"    simple fetch failed: {e}")
+        errors.append(f"simple: {e}")
+        total = 0
+
+    # Page looks empty (or site is marked browser=True) -> it may be built by
+    # JavaScript, so also open it in a real browser.
+    if source.get("browser") or total < 5:
+        try:
+            page_html = fetch_browser(source["url"])
+            jobs, total_b, title, soup = parse_links(page_html, source)
+            print(f"    browser fetch: {len(page_html)} bytes, "
+                  f"{total_b} links on page, {len(jobs)} job links, title: {title}")
+            results.append((len(jobs), jobs, soup, page_html))
+        except Exception as e:
+            print(f"    browser fetch failed: {str(e)[:200]}")
+            errors.append(f"browser: {str(e)[:100]}")
+
+    if not results:
+        raise RuntimeError(" | ".join(errors))
+    _, jobs, soup, page_html = max(results, key=lambda r: r[0])
     save_debug("list_" + source["name"], page_html)
     if not jobs:
         show_sample(soup)
@@ -351,8 +411,13 @@ def get_details(url, label):
                 "info": [], "total_posts": 0}
     d = parse_details(page_html, url)
     if status >= 400 or (not d["posts"] and not d["post_names"]):
-        page_html = fetch_browser(url, wait_ms=5000)  # maybe a JavaScript page
-        d = parse_details(page_html, url)
+        try:
+            b_html = fetch_browser(url, wait_ms=5000)  # maybe a JavaScript page
+            b = parse_details(b_html, url)
+            if b["total_posts"] >= d["total_posts"]:
+                page_html, d = b_html, b
+        except Exception as e:
+            print(f"    browser failed on circular page: {str(e)[:150]}")
     save_debug("circular_" + label, page_html)
     print(f"    details: {d['total_posts']} posts, {len(d['pdfs'])} pdf, {len(d['info'])} date lines")
     return d
@@ -390,9 +455,9 @@ def send_lines(lines):
     return ok
 
 
-def build_message(source_name, item, details, today):
+def build_message(source_name, item, details):
     e = html.escape
-    tag = "📢 Today's circular" if today in item["dates"] else "🆕 New circular"
+    tag = "🆕 New circular" if not MANUAL_RUN else "📢 Circular"
     lines = [f"🇧🇩 <b>{tag}</b>", "", f"📌 <b>{e(tidy(item['text']))}</b>", f"🏢 {e(source_name)}"]
     if item["dates"]:
         lines.append("📅 " + ", ".join(d.strftime("%d %b %Y") for d in item["dates"]))
@@ -422,9 +487,10 @@ def build_message(source_name, item, details, today):
 
 def main():
     seen = load_seen()
-    today = target_day()
-    if SEND_TODAY:
-        print(f"Manual run: sending all circulars dated {today:%d %b %Y} (plus anything new).")
+    start, end = date_range()
+    period = fmt_range(start, end)
+    if MANUAL_RUN:
+        print(f"Manual run: sending all circulars published {period} (plus anything new).")
 
     to_send = []  # (source, item)
     report = []   # one status line per site, sent to Telegram on manual runs
@@ -448,18 +514,19 @@ def main():
         if not first_run:
             for k in fresh:
                 chosen[k] = links[k]
-        if SEND_TODAY:
-            todays = {k: v for k, v in links.items() if today in v["dates"]}
+        if MANUAL_RUN:
+            todays = {k: v for k, v in links.items()
+                      if published(v) and start <= published(v) <= end}
             with_dates = sum(1 for v in links.values() if v["dates"])
-            print(f"[{src['name']}] {len(todays)} dated {today} "
+            print(f"[{src['name']}] {len(todays)} published {period} "
                   f"({with_dates} of {len(links)} links show a date)")
             if links and not with_dates:
                 print(f"[{src['name']}] WARNING: no dates found on this page, "
-                      "so today's circulars can't be picked out. Send the debug artifact.")
+                      "so circulars can't be picked by date. Send the debug artifact.")
             chosen.update(todays)
         status = f"{len(links)} links, {len(fresh)} new"
-        if SEND_TODAY:
-            status += f", {len(todays)} dated {today:%d %b}"
+        if MANUAL_RUN:
+            status += f", {len(todays)} in date range"
             if links and not with_dates:
                 status += " ⚠️ no dates on page"
         if first_run and fresh:
@@ -483,11 +550,11 @@ def main():
                 details = get_details(item["url"], f"{n}_{item['text'][:30]}")
             except Exception as e:
                 print(f"    details failed: {e}")
-        all_sent = send_lines(build_message(src["name"], item, details, today)) and all_sent
+        all_sent = send_lines(build_message(src["name"], item, details)) and all_sent
 
-    if SEND_TODAY:
+    if MANUAL_RUN:
         # Manual run: always send a short report, so you can see the bot works.
-        lines = [f"🤖 <b>Manual check finished</b> ({today:%d %b %Y})",
+        lines = [f"🤖 <b>Manual check finished</b> ({period})",
                  f"Circulars sent: {len(to_send)}", ""]
         lines += [html.escape(r) for r in report]
         all_sent = send_lines(lines) and all_sent
