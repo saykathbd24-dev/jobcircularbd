@@ -427,12 +427,14 @@ def main():
         print(f"Manual run: sending all circulars dated {today:%d %b %Y} (plus anything new).")
 
     to_send = []  # (source, item)
+    report = []   # one status line per site, sent to Telegram on manual runs
     for src in SOURCES:
         print(f"[{src['name']}] {src['url']}")
         try:
             links = extract_links(src)
         except Exception as e:
             print(f"[{src['name']}] failed: {e}")
+            report.append(f"❌ {src['name']}: could not open site ({str(e)[:120]})")
             continue
 
         old_list = seen.get(src["name"], [])
@@ -455,6 +457,14 @@ def main():
                 print(f"[{src['name']}] WARNING: no dates found on this page, "
                       "so today's circulars can't be picked out. Send the debug artifact.")
             chosen.update(todays)
+        status = f"{len(links)} links, {len(fresh)} new"
+        if SEND_TODAY:
+            status += f", {len(todays)} dated {today:%d %b}"
+            if links and not with_dates:
+                status += " ⚠️ no dates on page"
+        if first_run and fresh:
+            status += " (first run: saved only)"
+        report.append(("⚠️ " if not links else "✅ ") + f"{src['name']}: {status}")
         to_send += [(src, v) for v in chosen.values()]
 
         # Keep the list from growing forever (oldest entries are dropped first).
@@ -474,6 +484,13 @@ def main():
             except Exception as e:
                 print(f"    details failed: {e}")
         all_sent = send_lines(build_message(src["name"], item, details, today)) and all_sent
+
+    if SEND_TODAY:
+        # Manual run: always send a short report, so you can see the bot works.
+        lines = [f"🤖 <b>Manual check finished</b> ({today:%d %b %Y})",
+                 f"Circulars sent: {len(to_send)}", ""]
+        lines += [html.escape(r) for r in report]
+        all_sent = send_lines(lines) and all_sent
 
     if not all_sent:
         # Don't save, so these circulars are sent again on the next run.
