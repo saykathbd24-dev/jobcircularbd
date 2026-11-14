@@ -416,6 +416,9 @@ def daily_summary(seen, today):
     if ok and due:
         seen["_daily"] = {"date": today.isoformat(), "counts": stats}
     return ok
+
+
+def save_api_json(store, response):
     """Keep the site's own data (JSON) so a later version can read it directly."""
     try:
         if len(store) >= 15 or "json" not in response.headers.get("content-type", ""):
