@@ -1,0 +1,274 @@
+[
+ {
+  "url": "https://alljobs.teletalk.com.bd/api/v1/notices/no-of-new-item",
+  "data": {
+   "status": "success",
+   "statusCode": 200,
+   "message": {
+    "en": "New notice fetched successfully",
+    "bn": "নতুন বিজ্ঞপ্তি গণনা সফল হয়েছে"
+   },
+   "details": {
+    "noOfNewNotice": 0,
+    "noOfUrgentNotice": 0,
+    "noOfNewNotification": 0
+   }
+  }
+ },
+ {
+  "url": "https://alljobs.teletalk.com.bd/api/v1/govt-jobs/public-details?id=15307",
+  "data": {
+   "status": "success",
+   "statusCode": 200,
+   "message": {
+    "en": "Government job fetch successful",
+    "bn": "সরকারি চাকরির তথ্য সফলভাবে আনা হয়েছে"
+   },
+   "details": {
+    "id": 15307,
+    "job_title": "Stenographer-Cum-Computer Operator",
+    "job_title_bn": "সাঁটলিপিকার-কাম-কম্পিউটার অপারেটর",
+    "job_id": "GJOB15307",
+    "job_type": 1,
+    "vacancy": "09",
+    "gender": 3,
+    "min_age": 18,
+    "max_age": 32,
+    "application_site": "https://dam.teletalk.com.bd/",
+    "advertisement_file": "public/uploads/governments/jobs/advertisement-1794475776859.pdf",
+    "published_date": "2026-11-16T04:00:00.000Z",
+    "deadline_date": "2026-12-10T10:00:00.000Z",
+    "advertisement_no": " 12.02.0000.002.11.291.26.1026",
+    "advertisement_published_date": "2026-11-09",
+    "admit_card": false,
+    "is_result": false,
+    "is_notice": false,
+    "job_source": "https://dam.teletalk.com.bd/",
+    "admit_card_upload": null,
+    "download_url": null,
+    "download_start_date": null,
+    "download_end_date": null,
+    "admit_card_text": null,
+    "result_upload": null,
+    "notice_upload": null,
+    "notice_download_url": null,
+    "notice_text": null,
+    "vacancy_not_specific": false,
+    "view_count": 1751,
+    "status": 5,
+    "job_utilities_govtorganization": {
+     "id": 656,
+     "name": "Department of Agricultural Marketing (DAM)",
+     "name_bn": null,
+     "short_name": "DAM",
+     "logo": "recruiter/organization/logo/new_logo_dam.png",
+     "website": "http://www.dam.gov.bd/",
+     "details": "কৃষি বিপণন অধিদপ্তরের সংক্ষিপ্ত ইতিহাস \r\n\r\nবিপণন ব্যবস্থা অর্থনৈতিক উন্নয়নের সকল পর্যায়ে একটি কেন্দ্রীয় ভূমিকা পালন করিয়। বিপণন বিবেচনা শুরু হয় উৎপাদন সিদ্ধান্ত এবং উৎপাদন প্রযুক্তি নির্ধারণের  আগেই। সুতরাং, কৃষি উৎপাদন বৃদ্ধি করা এবং বর্ধিত উৎপাদন বজায় রাখার ক্ষেত্রে  বিপণনের ভুমিকা খাটো করে দেখার উপায় নাই। \r\n\r\nখামারবাড়ি, ঢাকা \r\n১৯৩৪ সাল থেকে ...\r\n\r\n১৯৩৪ সালে কৃষি বিপণন উপদেষ্টা বিপণন বিভাগ তৈরি করার জন্য বাংলাদেশ সরকারের কাছে একটি প্রকল্প জমা দেন। সরকার প্রকল্পটি গ্রহণ করে এবং ১৯৩৫ সালে কেন্দ্রীয় ও প্রাদেশিক বিপণন কর্মী নিয়োগ করে। \r\nবিপণনের গুরুত্ব ও সম্ভাবনা বুঝতে পেরে, অবিভক্ত বাংলার সরকার ১৯৪৩ সালে স্থায়ী ভিত্তিতে কৃষি ও শিল্প অধিদপ্তরের অধীনে কৃষি বিপণন বিভাগ গঠন করে. \r\nউপমহাদেশের স্বাধীনতার পর, ১৯৫৪ সালে, পূর্ব পাকিস্তান সরকার কৃষি, সমবায়, এবং ত্রাণ অধিদপ্তরের অধীনে কৃষি বিপণন পরিদপ্তরের অনুমোদন দেয়।  \r\n১৯৬০ সালে, প্রাদেশিক পুনরগঠন কমিটি কৃষি বিপণন পরিদপ্তরের উপ-বিভাগ এবং জেলা পর্যায়ে লোকবল নিয়োগের অনুমদন দেয়। \r\n১৯৮২ সালে, বাংলাদেশ সরকার ব্রিগেডিয়ার এনামুল হক খানের নেতৃত্বে গঠিত সাংগঠনিক কমিটির সুপারিশ অনুযায়ী বিভিন্ন মন্ত্রণালয় / বিভাগ পুনর্গঠন করে। তখন, কৃষি বিপণন পরিদপ্তরের গুরুত্ব, অবস্থা, এবং কর্মপরিধি বিবেচনা করে এর নাম পরিবর্তন করে কৃষি বিপণন অধিদপ্তর রাখা হয়।"
+    },
+    "package_wise_govt_jobs": [
+     {
+      "id": 15320,
+      "job_id": 15307,
+      "package_id": 2,
+      "start_date": "2026-11-16",
+      "end_date": "2026-12-10",
+      "govt_job_package": {
+       "name": "Hot Job",
+       "description": "Hot Job"
+      }
+     }
+    ]
+   }
+  }
+ },
+ {
+  "url": "https://alljobs.teletalk.com.bd/api/v1/govt-jobs/list?orgId=656&skipLimit=YES",
+  "data": {
+   "status": "success",
+   "statusCode": 200,
+   "message": {
+    "en": "Government job list fetch successful",
+    "bn": "সরকারি চাকরির তালিকা সফলভাবে আনা হয়েছে"
+   },
+   "count": 8,
+   "govtJobs": [
+    {
+     "id": 15313,
+     "job_title": "Office Support Staff",
+     "job_title_bn": "অফিস সহায়ক",
+     "job_id": "GJOB15313",
+     "application_site": "https://dam.teletalk.com.bd/",
+     "vacancy": "38",
+     "vacancy_not_specific": false,
+     "published_date": "2026-11-16T04:00:00.000Z",
+     "deadline_date": "2026-12-10T10:00:00.000Z",
+     "view_count": 2306,
+     "organization_id": 656,
+     "created_at": "2026-11-12T09:36:51.580Z",
+     "job_utilities_govtorganization": {
+      "id": 656,
+      "name": "Department of Agricultural Marketing (DAM)",
+      "name_bn": null,
+      "short_name": "DAM",
+      "logo": "recruiter/organization/logo/new_logo_dam.png",
+      "website": "http://www.dam.gov.bd/"
+     }
+    },
+    {
+     "id": 15312,
+     "job_title": "Cashier",
+     "job_title_bn": "ক্যাশিয়ার",
+     "job_id": "GJOB15312",
+     "application_site": "https://dam.teletalk.com.bd/",
+     "vacancy": "01",
+     "vacancy_not_specific": false,
+     "published_date": "2026-11-16T04:00:00.000Z",
+     "deadline_date": "2026-12-10T10:00:00.000Z",
+     "view_count": 1068,
+     "organization_id": 656,
+     "created_at": "2026-11-12T09:35:44.259Z",
+     "job_utilities_govtorganization": {
+      "id": 656,
+      "name": "Department of Agricultural Marketing (DAM)",
+      "name_bn": null,
+      "short_name": "DAM",
+      "logo": "recruiter/organization/logo/new_logo_dam.png",
+      "website": "http://www.dam.gov.bd/"
+     }
+    },
+    {
+     "id": 15311,
+     "job_title": "Office Assistant-Cum-Computer Typist",
+     "job_title_bn": "অফিস সহকারী-কাম-কম্পিউটার মুদ্রাক্ষরিক",
+     "job_id": "GJOB15311",
+     "application_site": "https://dam.teletalk.com.bd/",
+     "vacancy": "39",
+     "vacancy_not_specific": false,
+     "published_date": "2026-11-16T04:00:00.000Z",
+     "deadline_date": "2026-12-10T10:00:00.000Z",
+     "view_count": 1185,
+     "organization_id": 656,
+     "created_at": "2026-11-12T09:34:39.558Z",
+     "job_utilities_govtorganization": {
+      "id": 656,
+      "name": "Department of Agricultural Marketing (DAM)",
+      "name_bn": null,
+      "short_name": "DAM",
+      "logo": "recruiter/organization/logo/new_logo_dam.png",
+      "website": "http://www.dam.gov.bd/"
+     }
+    },
+    {
+     "id": 15310,
+     "job_title": "Driver (Heavy)",
+     "job_title_bn": "গাড়ী চালক (ভারী)",
+     "job_id": "GJOB15310",
+     "application_site": "https://dam.teletalk.com.bd/",
+     "vacancy": "01",
+     "vacancy_not_specific": false,
+     "published_date": "2026-11-16T04:00:00.000Z",
+     "deadline_date": "2026-12-10T10:00:00.000Z",
+     "view_count": 730,
+     "organization_id": 656,
+     "created_at": "2026-11-12T09:33:09.777Z",
+     "job_utilities_govtorganization": {
+      "id": 656,
+      "name": "Department of Agricultural Marketing (DAM)",
+      "name_bn": null,
+      "short_name": "DAM",
+      "logo": "recruiter/organization/logo/new_logo_dam.png",
+      "website": "http://www.dam.gov.bd/"
+     }
+    },
+    {
+     "id": 15309,
+     "job_title": "Accountant",
+     "job_title_bn": "হিসাব রক্ষক",
+     "job_id": "GJOB15309",
+     "application_site": "https://dam.teletalk.com.bd/",
+     "vacancy": "03",
+     "vacancy_not_specific": false,
+     "published_date": "2026-11-16T04:00:00.000Z",
+     "deadline_date": "2026-12-10T10:00:00.000Z",
+     "view_count": 787,
+     "organization_id": 656,
+     "created_at": "2026-11-12T09:31:59.068Z",
+     "job_utilities_govtorganization": {
+      "id": 656,
+      "name": "Department of Agricultural Marketing (DAM)",
+      "name_bn": null,
+      "short_name": "DAM",
+      "logo": "recruiter/organization/logo/new_logo_dam.png",
+      "website": "http://www.dam.gov.bd/"
+     }
+    },
+    {
+     "id": 15308,
+     "job_title": "Computer Operator",
+     "job_title_bn": "কম্পিউটার অপারেটর",
+     "job_id": "GJOB15308",
+     "application_site": "https://dam.teletalk.com.bd/",
+     "vacancy": "01",
+     "vacancy_not_specific": false,
+     "published_date": "2026-11-16T04:00:00.000Z",
+     "deadline_date": "2026-12-10T10:00:00.000Z",
+     "view_count": 788,
+     "organization_id": 656,
+     "created_at": "2026-11-12T09:30:45.314Z",
+     "job_utilities_govtorganization": {
+      "id": 656,
+      "name": "Department of Agricultural Marketing (DAM)",
+      "name_bn": null,
+      "short_name": "DAM",
+      "logo": "recruiter/organization/logo/new_logo_dam.png",
+      "website": "http://www.dam.gov.bd/"
+     }
+    },
+    {
+     "id": 15307,
+     "job_title": "Stenographer-Cum-Computer Operator",
+     "job_title_bn": "সাঁটলিপিকার-কাম-কম্পিউটার অপারেটর",
+     "job_id": "GJOB15307",
+     "application_site": "https://dam.teletalk.com.bd/",
+     "vacancy": "09",
+     "vacancy_not_specific": false,
+     "published_date": "2026-11-16T04:00:00.000Z",
+     "deadline_date": "2026-12-10T10:00:00.000Z",
+     "view_count": 1750,
+     "organization_id": 656,
+     "created_at": "2026-11-12T09:29:36.879Z",
+     "job_utilities_govtorganization": {
+      "id": 656,
+      "name": "Department of Agricultural Marketing (DAM)",
+      "name_bn": null,
+      "short_name": "DAM",
+      "logo": "recruiter/organization/logo/new_logo_dam.png",
+      "website": "http://www.dam.gov.bd/"
+     }
+    },
+    {
+     "id": 15306,
+     "job_title": "Field & Market Inspector",
+     "job_title_bn": "মাঠ ও বাজার পরিদর্শক",
+     "job_id": "GJOB15306",
+     "application_site": "https://dam.teletalk.com.bd/",
+     "vacancy": "05",
+     "vacancy_not_specific": false,
+     "published_date": "2026-11-16T04:00:00.000Z",
+     "deadline_date": "2026-12-10T10:00:00.000Z",
+     "view_count": 4634,
+     "organization_id": 656,
+     "created_at": "2026-11-12T09:28:23.023Z",
+     "job_utilities_govtorganization": {
+      "id": 656,
+      "name": "Department of Agricultural Marketing (DAM)",
+      "name_bn": null,
+      "short_name": "DAM",
+      "logo": "recruiter/organization/logo/new_logo_dam.png",
+      "website": "http://www.dam.gov.bd/"
+     }
+    }
+   ]
+  }
+ }
+]

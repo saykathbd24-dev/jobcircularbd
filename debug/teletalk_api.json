@@ -1,0 +1,2502 @@
+[
+ {
+  "page": 1,
+  "data": {
+   "status": "success",
+   "statusCode": 200,
+   "message": {
+    "en": "Government organization job list fetch successful",
+    "bn": "সরকারি প্রতিষ্ঠানের চাকরির তালিকা সফলভাবে আনা হয়েছে"
+   },
+   "count": 40,
+   "govtOrgJobs": [
+    {
+     "id": 656,
+     "name": "Department of Agricultural Marketing (DAM)",
+     "name_bn": null,
+     "short_name": "DAM",
+     "logo": "recruiter/organization/logo/new_logo_dam.png",
+     "website": "http://www.dam.gov.bd/",
+     "created_at": "2022-11-03T03:00:12.340Z",
+     "job_created_at": "2026-11-12T09:36:51.623Z",
+     "govt_jobs": [
+      {
+       "id": 15307,
+       "job_title": "Stenographer-Cum-Computer Operator",
+       "job_title_bn": "সাঁটলিপিকার-কাম-কম্পিউটার অপারেটর",
+       "organization_id": 656
+      },
+      {
+       "id": 15308,
+       "job_title": "Computer Operator",
+       "job_title_bn": "কম্পিউটার অপারেটর",
+       "organization_id": 656
+      },
+      {
+       "id": 15311,
+       "job_title": "Office Assistant-Cum-Computer Typist",
+       "job_title_bn": "অফিস সহকারী-কাম-কম্পিউটার মুদ্রাক্ষরিক",
+       "organization_id": 656
+      },
+      {
+       "id": 15312,
+       "job_title": "Cashier",
+       "job_title_bn": "ক্যাশিয়ার",
+       "organization_id": 656
+      },
+      {
+       "id": 15309,
+       "job_title": "Accountant",
+       "job_title_bn": "হিসাব রক্ষক",
+       "organization_id": 656
+      },
+      {
+       "id": 15306,
+       "job_title": "Field & Market Inspector",
+       "job_title_bn": "মাঠ ও বাজার পরিদর্শক",
+       "organization_id": 656
+      },
+      {
+       "id": 15313,
+       "job_title": "Office Support Staff",
+       "job_title_bn": "অফিস সহায়ক",
+       "organization_id": 656
+      },
+      {
+       "id": 15310,
+       "job_title": "Driver (Heavy)",
+       "job_title_bn": "গাড়ী চালক (ভারী)",
+       "organization_id": 656
+      }
+     ]
+    },
+    {
+     "id": 985,
+     "name": "Taxes Zone-18, Dhaka(TAX18)",
+     "name_bn": "কর অঞ্চল-১৮, ঢাকা",
+     "short_name": "TAX18",
+     "logo": "public/recruiter/organization/logo/gov-job-organization-logo-1715229872246.png",
+     "website": "https://www.taxeszone18dhaka.gov.bd/",
+     "created_at": "2024-05-09T04:44:32.255Z",
+     "job_created_at": "2026-11-12T06:18:15.181Z",
+     "govt_jobs": [
+      {
+       "id": 15301,
+       "job_title": "Head Assistant",
+       "job_title_bn": "প্রধান সহকারী",
+       "organization_id": 985
+      },
+      {
+       "id": 15303,
+       "job_title": "Steno-Typist Cum-Computer Operator",
+       "job_title_bn": "সাঁট-মুদ্রাক্ষরিক কাম-কম্পিউটার অপারেটর",
+       "organization_id": 985
+      },
+      {
+       "id": 15305,
+       "job_title": "Office Support Staff",
+       "job_title_bn": "অফিস সহায়ক",
+       "organization_id": 985
+      },
+      {
+       "id": 15304,
+       "job_title": "Office Assistant Cum-Computer Typist",
+       "job_title_bn": "অফিস সহকারী কাম-কম্পিউটার মুদ্রাক্ষরিক",
+       "organization_id": 985
+      },
+      {
+       "id": 15302,
+       "job_title": "Upper Division Assistant",
+       "job_title_bn": "উচ্চমান সহকারী",
+       "organization_id": 985
+      },
+      {
+       "id": 15299,
+       "job_title": "Computer Operator",
+       "job_title_bn": "কম্পিউটার অপারেটর",
+       "organization_id": 985
+      },
+      {
+       "id": 15300,
+       "job_title": "Personal Assistant",
+       "job_title_bn": "ব্যক্তিগত সহকারী",
+       "organization_id": 985
+      }
+     ]
+    },
+    {
+     "id": 580,
+     "name": "Dhaka Metropolitan Police (DMP)",
+     "name_bn": null,
+     "short_name": "DMP",
+     "logo": "recruiter/organization/logo/Insignia_of_Dhaka_Metropolitan_Police_DMP.svg.png",
+     "website": "https://dmp.gov.bd/",
+     "created_at": "2022-07-14T06:16:52.087Z",
+     "job_created_at": "2026-11-11T09:04:35.888Z",
+     "govt_jobs": [
+      {
+       "id": 15294,
+       "job_title": "Stenographer-cum-Computer Operator",
+       "job_title_bn": "সাঁটলিপিকার কাম-কম্পিউটার অপারেটর",
+       "organization_id": 580
+      },
+      {
+       "id": 15296,
+       "job_title": "Steno Typist-cum-Computer Operator",
+       "job_title_bn": "সাঁট-মুদ্রাক্ষরিক কাম-কম্পিউটার অপারেটর",
+       "organization_id": 580
+      },
+      {
+       "id": 15297,
+       "job_title": "Office Assistant-cum-Computer Typist",
+       "job_title_bn": "অফিস সহকারী কাম-কম্পিউটার মুদ্রাক্ষরিক",
+       "organization_id": 580
+      },
+      {
+       "id": 15298,
+       "job_title": "Office Support Staff",
+       "job_title_bn": "অফিস সহায়ক",
+       "organization_id": 580
+      },
+      {
+       "id": 15295,
+       "job_title": "Computer Operator",
+       "job_title_bn": "কম্পিউটার অপারেটর",
+       "organization_id": 580
+      }
+     ]
+    },
+    {
+     "id": 436,
+     "name": "DC Office khagrachhari ( DCKC )",
+     "name_bn": null,
+     "short_name": "DCKC",
+     "logo": "recruiter/organization/logo/DGFPMAG_fmcw1Wq.png",
+     "website": "http://www.khagrachhari.gov.bd/",
+     "created_at": "2022-01-03T02:03:56.239Z",
+     "job_created_at": "2026-11-11T05:39:59.191Z",
+     "govt_jobs": [
+      {
+       "id": 15290,
+       "job_title": "Certificate Assistant",
+       "job_title_bn": "সার্টিফিকেট সহকারী",
+       "organization_id": 436
+      },
+      {
+       "id": 15291,
+       "job_title": "Credit Checking Cum Sayrat Assistant",
+       "job_title_bn": "ক্রেডিট চেকিং কাম সায়রাত সহকারী",
+       "organization_id": 436
+      },
+      {
+       "id": 15292,
+       "job_title": "Nazir cum-Cashier",
+       "job_title_bn": "নাজির কাম-ক্যাশিয়ার",
+       "organization_id": 436
+      },
+      {
+       "id": 15289,
+       "job_title": "Certificate Peshkar",
+       "job_title_bn": "সার্টিফিকেট পেশকার",
+       "organization_id": 436
+      },
+      {
+       "id": 15293,
+       "job_title": "Office Assistant Cum-Computer Typist",
+       "job_title_bn": "অফিস সহকারী কাম-কম্পিউটার মুদ্রাক্ষরিক",
+       "organization_id": 436
+      }
+     ]
+    },
+    {
+     "id": 482,
+     "name": "Ministry of Defence (MOD)",
+     "name_bn": null,
+     "short_name": "MOD",
+     "logo": "recruiter/organization/logo/DGFPMAG_I2MJpft.png",
+     "website": "http://www.mod.gov.bd/",
+     "created_at": "2022-03-09T06:15:03.412Z",
+     "job_created_at": "2026-11-11T04:58:10.517Z",
+     "govt_jobs": [
+      {
+       "id": 15287,
+       "job_title": "Office Assistant Cum Computer Typist",
+       "job_title_bn": "অফিস সহকারী কাম কম্পিউটার মুদ্রাক্ষরিক",
+       "organization_id": 482
+      },
+      {
+       "id": 15288,
+       "job_title": "Office Support Staff",
+       "job_title_bn": "অফিস সহায়ক",
+       "organization_id": 482
+      },
+      {
+       "id": 15286,
+       "job_title": "Steno-Typist Cum Computer Operator",
+       "job_title_bn": "সাঁট-মুদ্রাক্ষরিক কাম কম্পিউটার অপারেটর",
+       "organization_id": 482
+      }
+     ]
+    },
+    {
+     "id": 1173,
+     "name": "Bangladesh Parliament Secretariat(BPS)",
+     "name_bn": "বাংলাদেশ জাতীয় সংসদ সচিবালয়",
+     "short_name": "BPS",
+     "logo": "public/recruiter/organization/logo/gov-job-organization-logo-1794369814900.png",
+     "website": "www.parliament.gov.bd",
+     "created_at": "2026-11-11T04:03:34.905Z",
+     "job_created_at": "2026-11-11T04:43:19.454Z",
+     "govt_jobs": [
+      {
+       "id": 15260,
+       "job_title": "Legislative Assistant",
+       "job_title_bn": "লেজিসলেটিভ অ্যাসিস্ট্যান্ট",
+       "organization_id": 1173
+      },
+      {
+       "id": 15261,
+       "job_title": "Photographer Still",
+       "job_title_bn": "ফটোগ্রাফার স্টিল",
+       "organization_id": 1173
+      },
+      {
+       "id": 15262,
+       "job_title": "Technician (Network)",
+       "job_title_bn": "টেকনিশিয়ান (নেটওয়ার্ক)",
+       "organization_id": 1173
+      },
+      {
+       "id": 15264,
+       "job_title": "TV Technician",
+       "job_title_bn": "টিভি টেকনিশিয়ান",
+       "organization_id": 1173
+      },
+      {
+       "id": 15265,
+       "job_title": "Steno-Typist cum-Computer Operator",
+       "job_title_bn": "সাঁট-মুদ্রাক্ষরিক কাম কম্পিউটার অপারেটর",
+       "organization_id": 1173
+      },
+      {
+       "id": 15266,
+       "job_title": "Data Entry/Control Operator",
+       "job_title_bn": "ডাটা এন্ট্রি/কন্ট্রোল অপারেটর",
+       "organization_id": 1173
+      },
+      {
+       "id": 15267,
+       "job_title": "Library Assistant",
+       "job_title_bn": "গ্রন্থাগার সহকারী",
+       "organization_id": 1173
+      },
+      {
+       "id": 15268,
+       "job_title": "Assistant Security Inspector",
+       "job_title_bn": "সহকারী সিকিউরিটি ইন্সপেক্টর",
+       "organization_id": 1173
+      },
+      {
+       "id": 15273,
+       "job_title": "Offset Printer Technician",
+       "job_title_bn": "অফসেট প্রিন্টার্স টেকনিশিয়ান",
+       "organization_id": 1173
+      },
+      {
+       "id": 15274,
+       "job_title": "Protocol Assistant",
+       "job_title_bn": "প্রটোকল অ্যাসিস্ট্যান্ট",
+       "organization_id": 1173
+      },
+      {
+       "id": 15276,
+       "job_title": "Cameraman Assistant",
+       "job_title_bn": "ক্যামেরাম্যান সহকারী",
+       "organization_id": 1173
+      },
+      {
+       "id": 15277,
+       "job_title": "Security Assistant",
+       "job_title_bn": "সিকিউরিটি অ্যাসিস্ট্যান্ট",
+       "organization_id": 1173
+      },
+      {
+       "id": 15278,
+       "job_title": "Muezzin",
+       "job_title_bn": "মোয়াজ্জিন",
+       "organization_id": 1173
+      },
+      {
+       "id": 15279,
+       "job_title": "Mechanic Grade-C",
+       "job_title_bn": "মেকানিক গ্রেড-সি",
+       "organization_id": 1173
+      },
+      {
+       "id": 15280,
+       "job_title": "Office Assistant-cum-Cleaner",
+       "job_title_bn": "অফিস সহায়ক কাম পরিচ্ছন্নতা কর্মী",
+       "organization_id": 1173
+      },
+      {
+       "id": 15281,
+       "job_title": "Assistant Dispatch Rider",
+       "job_title_bn": "সহকারী ডেসপাচ রাইডার",
+       "organization_id": 1173
+      },
+      {
+       "id": 15282,
+       "job_title": "Room Attendant (Male/Female)",
+       "job_title_bn": "কামরা পরিচারক/পরিচারিকা",
+       "organization_id": 1173
+      },
+      {
+       "id": 15284,
+       "job_title": "Cleaner (Formerly known as Sweeper)",
+       "job_title_bn": "পরিচ্ছন্নতাকর্মী (পূর্বনাম ঝাড়ুদার)",
+       "organization_id": 1173
+      },
+      {
+       "id": 15285,
+       "job_title": "Cleaner/Helper",
+       "job_title_bn": "ক্লীনার/হেল্পার",
+       "organization_id": 1173
+      },
+      {
+       "id": 15270,
+       "job_title": "Driver",
+       "job_title_bn": "ড্রাইভার",
+       "organization_id": 1173
+      },
+      {
+       "id": 15272,
+       "job_title": "Legal Assistant",
+       "job_title_bn": "আইন সহকারী",
+       "organization_id": 1173
+      },
+      {
+       "id": 15283,
+       "job_title": "Security Guard",
+       "job_title_bn": "নিরাপত্তাপ্রহরী",
+       "organization_id": 1173
+      },
+      {
+       "id": 15263,
+       "job_title": "Technician (Hardware)",
+       "job_title_bn": "টেকনিশিয়ান (হার্ডওয়্যার)",
+       "organization_id": 1173
+      },
+      {
+       "id": 15258,
+       "job_title": "Guide",
+       "job_title_bn": "গাইড",
+       "organization_id": 1173
+      },
+      {
+       "id": 15259,
+       "job_title": "Cataloger",
+       "job_title_bn": "ক্যাটালগার",
+       "organization_id": 1173
+      },
+      {
+       "id": 15269,
+       "job_title": "Ambulance driver",
+       "job_title_bn": "অ্যাম্বুলেন্স ড্রাইভার",
+       "organization_id": 1173
+      },
+      {
+       "id": 15275,
+       "job_title": "Lineman",
+       "job_title_bn": "লাইনম্যান",
+       "organization_id": 1173
+      },
+      {
+       "id": 15271,
+       "job_title": "Office Assistant-cum-Computer Operator",
+       "job_title_bn": "অফিস সহকারী কাম কম্পিউটার অপারেটর",
+       "organization_id": 1173
+      }
+     ]
+    },
+    {
+     "id": 635,
+     "name": "Dhaka South City Corporation (DSCC)",
+     "name_bn": null,
+     "short_name": "DSCC",
+     "logo": "recruiter/organization/logo/DGFPMAG_gjrffie.png",
+     "website": "http://dscc.gov.bd/",
+     "created_at": "2022-09-21T09:45:47.890Z",
+     "job_created_at": "2026-11-10T04:36:40.775Z",
+     "govt_jobs": [
+      {
+       "id": 15249,
+       "job_title": "Medical Officer (ENT-2)",
+       "job_title_bn": "মেডিকেল অফিসার (নাক-কান-গলা-২)",
+       "organization_id": 635
+      },
+      {
+       "id": 15113,
+       "job_title": "Sub-Assistant Engineer (Civil)",
+       "job_title_bn": "উপসহকারী প্রকৌশলী (পুর)",
+       "organization_id": 635
+      },
+      {
+       "id": 15110,
+       "job_title": "Assistant Engineer (Civil)",
+       "job_title_bn": "সহকারী প্রকৌশলী (পুর)",
+       "organization_id": 635
+      },
+      {
+       "id": 15251,
+       "job_title": "Medical Officer (Skin & VD-02)",
+       "job_title_bn": "মেডিকেল অফিসার (চর্ম ও যৌন-২)",
+       "organization_id": 635
+      },
+      {
+       "id": 15253,
+       "job_title": "Medical Officer (Emergency Department-02)",
+       "job_title_bn": "মেডিকেল অফিসার (জরুরী বিভাগ-২)",
+       "organization_id": 635
+      },
+      {
+       "id": 15112,
+       "job_title": "Assistant Engineer (Electrical)",
+       "job_title_bn": "সহকারী প্রকৌশলী (বিদ্যুৎ)",
+       "organization_id": 635
+      },
+      {
+       "id": 15114,
+       "job_title": "Sub-Assistant Engineer (Mechanical)",
+       "job_title_bn": "উপসহকারী প্রকৌশলী (যান্ত্রিক)",
+       "organization_id": 635
+      },
+      {
+       "id": 15115,
+       "job_title": "Sub-Assistant Engineer (Electrical)",
+       "job_title_bn": "উপসহকারী প্রকৌশলী (বিদ্যুৎ)",
+       "organization_id": 635
+      },
+      {
+       "id": 15254,
+       "job_title": "Medical Officer (Pathology)",
+       "job_title_bn": "মেডিকেল অফিসার (প্যাথলজী)",
+       "organization_id": 635
+      },
+      {
+       "id": 15252,
+       "job_title": "Medical Officer (Out-patient Department (OPD) and In-patient Department (IPD)-06)",
+       "job_title_bn": "মেডিকেল অফিসার (বহি: বিভাগ ও ইনডোর-৬)",
+       "organization_id": 635
+      },
+      {
+       "id": 15255,
+       "job_title": "Dental Surgeon",
+       "job_title_bn": "ডেন্টাল সার্জন",
+       "organization_id": 635
+      },
+      {
+       "id": 15256,
+       "job_title": "Pest Control Officer",
+       "job_title_bn": "কীট নিয়ন্ত্রণ কর্মকর্তা",
+       "organization_id": 635
+      },
+      {
+       "id": 15257,
+       "job_title": "Veterinary Officer",
+       "job_title_bn": "ভেটেরিনারী কর্মকর্তা",
+       "organization_id": 635
+      },
+      {
+       "id": 15111,
+       "job_title": "Assistant Engineer (Mechanical)",
+       "job_title_bn": "সহকারী প্রকৌশলী (যান্ত্রিক)",
+       "organization_id": 635
+      },
+      {
+       "id": 15250,
+       "job_title": "Medical Officer (Blood Bank-1)",
+       "job_title_bn": "মেডিকেল অফিসার (ব্লাড ব্যাংক-১)",
+       "organization_id": 635
+      }
+     ]
+    },
+    {
+     "id": 1172,
+     "name": "Office of the Director General, Bangladesh Post Office (DGBPO)",
+     "name_bn": "ডাক অধিদপ্তর",
+     "short_name": "DGBPO",
+     "logo": "public/recruiter/organization/logo/gov-job-organization-logo-1794216525410.png",
+     "website": "https://bdpost.gov.bd/",
+     "created_at": "2026-11-09T09:28:45.415Z",
+     "job_created_at": "2026-11-09T10:16:15.019Z",
+     "govt_jobs": [
+      {
+       "id": 15214,
+       "job_title": "Inspector of Post Offices / Inspector of Railway Mail Service / Inspector of PLI / Instructor, PTC (Inspector of Post Offices) / Instructor, PTC (Inspector of RMS)",
+       "job_title_bn": "ইন্সপেক্টর অব পোস্ট অফিসেস/ইন্সপেক্টর অব রেলওয়ে মেইল সার্ভিস/ইন্সপেক্টর অব পিএলআই/ইন্সট্রাক্টর, পিটিসি (ইন্সপেক্টর অব পোস্ট অফিসেস)/ইন্সট্রাক্টর, পিটিসি (ইন্সপেক্টর অব আরএমএস)",
+       "organization_id": 1172
+      },
+      {
+       "id": 15230,
+       "job_title": "Assistant Machineman",
+       "job_title_bn": "সহকারী মেশিনম্যান",
+       "organization_id": 1172
+      },
+      {
+       "id": 15243,
+       "job_title": "Sanitation Worker (Formerly Cleaner)",
+       "job_title_bn": "পরিচ্ছন্নতা কর্মী (পূর্বের পদবী ক্লিনার)",
+       "organization_id": 1172
+      },
+      {
+       "id": 15235,
+       "job_title": "Assistant Photo Compositor",
+       "job_title_bn": "সহকারী ফটো কম্পোজিটর",
+       "organization_id": 1172
+      },
+      {
+       "id": 15222,
+       "job_title": "Monotype Caster Operator",
+       "job_title_bn": "মনোটাইপ কাস্টার অপারেটর",
+       "organization_id": 1172
+      },
+      {
+       "id": 15232,
+       "job_title": "Postal Operator",
+       "job_title_bn": "পোস্টাল অপারেটর",
+       "organization_id": 1172
+      },
+      {
+       "id": 15231,
+       "job_title": "Assistant Graining Machineman",
+       "job_title_bn": "সহকারী গ্রেনিং মেশিনম্যান",
+       "organization_id": 1172
+      },
+      {
+       "id": 15224,
+       "job_title": "Accounts Assistant",
+       "job_title_bn": "একাউন্টস এ্যাসিসট্যান্ট",
+       "organization_id": 1172
+      },
+      {
+       "id": 15247,
+       "job_title": "Security Guard",
+       "job_title_bn": "নিরাপত্তা প্রহরী",
+       "organization_id": 1172
+      },
+      {
+       "id": 15238,
+       "job_title": "Wireman",
+       "job_title_bn": "ওয়্যারম্যান",
+       "organization_id": 1172
+      },
+      {
+       "id": 15244,
+       "job_title": "Sanitation Worker (Sweeper)",
+       "job_title_bn": "পরিচ্ছন্নতা কর্মী (সুইপার)",
+       "organization_id": 1172
+      },
+      {
+       "id": 15220,
+       "job_title": "Technician",
+       "job_title_bn": "টেকনিশিয়ান",
+       "organization_id": 1172
+      },
+      {
+       "id": 15216,
+       "job_title": "Assistant (Directorate of Posts)",
+       "job_title_bn": "সহকারী (ডাক অধিদপ্তর)",
+       "organization_id": 1172
+      },
+      {
+       "id": 15223,
+       "job_title": "Machineman (Offset Printing/Laser Printing)",
+       "job_title_bn": "মেশিনম্যান (অফসেট প্রিন্টিং/লেজার প্রিন্টিং)",
+       "organization_id": 1172
+      },
+      {
+       "id": 15242,
+       "job_title": "Office Assistant (formerly MLSS)",
+       "job_title_bn": "অফিস সহায়ক (পূর্বের পদবী এমএলএসএস)",
+       "organization_id": 1172
+      },
+      {
+       "id": 15245,
+       "job_title": "Search Peon",
+       "job_title_bn": "সার্চ পিয়ন",
+       "organization_id": 1172
+      },
+      {
+       "id": 15228,
+       "job_title": "Carpenter",
+       "job_title_bn": "কার্পেন্টার",
+       "organization_id": 1172
+      },
+      {
+       "id": 15218,
+       "job_title": "Stenotypist-cum-Computer Operator (Stenotypist)",
+       "job_title_bn": "সাঁট মুদ্রাক্ষরিক কাম কম্পিউটার অপারেটর (স্টেনোটাইপিস্ট)",
+       "organization_id": 1172
+      },
+      {
+       "id": 15229,
+       "job_title": "Machinist",
+       "job_title_bn": "মেশিনিস্ট",
+       "organization_id": 1172
+      },
+      {
+       "id": 15221,
+       "job_title": "Mechanic",
+       "job_title_bn": "মেকানিক",
+       "organization_id": 1172
+      },
+      {
+       "id": 15233,
+       "job_title": "Assistant Plate Maker",
+       "job_title_bn": "সহকারী প্লেট মেকার",
+       "organization_id": 1172
+      },
+      {
+       "id": 15226,
+       "job_title": "Junior Proofreader",
+       "job_title_bn": "জুনিয়র প্রুফ রীডার",
+       "organization_id": 1172
+      },
+      {
+       "id": 15241,
+       "job_title": "Inkman",
+       "job_title_bn": "ইনকম্যান",
+       "organization_id": 1172
+      },
+      {
+       "id": 15240,
+       "job_title": "Packer",
+       "job_title_bn": "প্যাকার",
+       "organization_id": 1172
+      },
+      {
+       "id": 15219,
+       "job_title": "Upper Division Assistant",
+       "job_title_bn": "উচ্চমান সহকারী",
+       "organization_id": 1172
+      },
+      {
+       "id": 15234,
+       "job_title": "Compositor",
+       "job_title_bn": "কম্পোজিটর",
+       "organization_id": 1172
+      },
+      {
+       "id": 15239,
+       "job_title": "Armed Guard",
+       "job_title_bn": "আর্মড গার্ড",
+       "organization_id": 1172
+      },
+      {
+       "id": 15213,
+       "job_title": "Junior Accountant",
+       "job_title_bn": "জুনিয়র একাউন্ট্যান্ট",
+       "organization_id": 1172
+      },
+      {
+       "id": 15237,
+       "job_title": "Counter",
+       "job_title_bn": "কাউন্টার",
+       "organization_id": 1172
+      },
+      {
+       "id": 15236,
+       "job_title": "Checker",
+       "job_title_bn": "চেকার",
+       "organization_id": 1172
+      },
+      {
+       "id": 15248,
+       "job_title": "Porter",
+       "job_title_bn": "পোর্টার",
+       "organization_id": 1172
+      },
+      {
+       "id": 15225,
+       "job_title": "Draftsman",
+       "job_title_bn": "ড্রাফটসম্যান",
+       "organization_id": 1172
+      },
+      {
+       "id": 15217,
+       "job_title": "Assistant Inspector",
+       "job_title_bn": "সহকারী পরিদর্শক",
+       "organization_id": 1172
+      },
+      {
+       "id": 15227,
+       "job_title": "Driver (Light)",
+       "job_title_bn": "ড্রাইভার (হালকা)",
+       "organization_id": 1172
+      },
+      {
+       "id": 15246,
+       "job_title": "Coolie",
+       "job_title_bn": "কুলি",
+       "organization_id": 1172
+      },
+      {
+       "id": 15215,
+       "job_title": "Upazila Postmaster",
+       "job_title_bn": "উপজেলা পোস্টমাস্টার",
+       "organization_id": 1172
+      }
+     ]
+    },
+    {
+     "id": 1000,
+     "name": "Taxes Zone-17, Dhaka( TAX17)",
+     "name_bn": "কর অঞ্চল ১৭, ঢাকা",
+     "short_name": " TAX17",
+     "logo": "public/recruiter/organization/logo/gov-job-organization-logo-1716430489597.png",
+     "website": "https://www.taxeszone17.gov.bd/",
+     "created_at": "2024-05-23T02:14:49.606Z",
+     "job_created_at": "2026-11-09T08:06:11.606Z",
+     "govt_jobs": [
+      {
+       "id": 15209,
+       "job_title": "Upper Division Assistant",
+       "job_title_bn": "উচ্চমান সহকারী",
+       "organization_id": 1000
+      },
+      {
+       "id": 15206,
+       "job_title": "Computer Operator",
+       "job_title_bn": "কম্পিউটার অপারেটর",
+       "organization_id": 1000
+      },
+      {
+       "id": 15212,
+       "job_title": "Office Support Staff",
+       "job_title_bn": "অফিস সহায়ক",
+       "organization_id": 1000
+      },
+      {
+       "id": 15208,
+       "job_title": "Head Assistant",
+       "job_title_bn": "প্রধান সহকারী",
+       "organization_id": 1000
+      },
+      {
+       "id": 15210,
+       "job_title": "Steno-Typist Cum-Computer Operator",
+       "job_title_bn": "সাঁট-মুদ্রাক্ষরিক কাম-কম্পিউটার অপারেটর",
+       "organization_id": 1000
+      },
+      {
+       "id": 15211,
+       "job_title": "Office Assistant Cum-Computer Typist",
+       "job_title_bn": "অফিস সহকারী কাম-কম্পিউটার মুদ্রাক্ষরিক",
+       "organization_id": 1000
+      },
+      {
+       "id": 15207,
+       "job_title": "Personal Assistant",
+       "job_title_bn": "ব্যক্তিগত সহকারী",
+       "organization_id": 1000
+      }
+     ]
+    },
+    {
+     "id": 435,
+     "name": "DC Office Chandpur ( DCCHANDPUR )",
+     "name_bn": null,
+     "short_name": "DCCHANDPUR",
+     "logo": "recruiter/organization/logo/DGFPMAG_HWVAejV.png",
+     "website": "http://www.chandpur.gov.bd/",
+     "created_at": "2022-01-02T06:08:15.064Z",
+     "job_created_at": "2026-11-09T06:49:55.636Z",
+     "govt_jobs": [
+      {
+       "id": 15202,
+       "job_title": "Office Support Staff",
+       "job_title_bn": "অফিস সহায়ক",
+       "organization_id": 435
+      },
+      {
+       "id": 15204,
+       "job_title": "Security Guard(Circuit House)",
+       "job_title_bn": "নিরাপত্তা প্রহরী(সার্কিট হাউস)",
+       "organization_id": 435
+      },
+      {
+       "id": 15205,
+       "job_title": "Cleaner",
+       "job_title_bn": "পরিচ্ছন্নতাকর্মী",
+       "organization_id": 435
+      },
+      {
+       "id": 15203,
+       "job_title": "Security Guard",
+       "job_title_bn": "নিরাপত্তা প্রহরী",
+       "organization_id": 435
+      }
+     ]
+    },
+    {
+     "id": 1002,
+     "name": "Agriculture Information Service( AIS)",
+     "name_bn": "কৃষি তথ্য সার্ভিস (এআইএস)",
+     "short_name": " AIS",
+     "logo": "public/recruiter/organization/logo/gov-job-organization-logo-1717465393841.png",
+     "website": "http://www.ais.gov.bd/",
+     "created_at": "2024-06-04T01:43:13.849Z",
+     "job_created_at": "2026-11-09T05:57:26.056Z",
+     "govt_jobs": [
+      {
+       "id": 15197,
+       "job_title": "Audio-Visual Unit Operator",
+       "job_title_bn": "অডিও ভিস্যুয়েল ইউনিট অপারেটর",
+       "organization_id": 1002
+      },
+      {
+       "id": 15200,
+       "job_title": "Offset Printer",
+       "job_title_bn": "অফসেট প্রিন্টার",
+       "organization_id": 1002
+      },
+      {
+       "id": 15201,
+       "job_title": "Office Support Staff",
+       "job_title_bn": "অফিস সহায়ক",
+       "organization_id": 1002
+      },
+      {
+       "id": 15199,
+       "job_title": "Calligraphist",
+       "job_title_bn": "ক্যালিগ্রাফিস্ট",
+       "organization_id": 1002
+      },
+      {
+       "id": 15196,
+       "job_title": "Assistant Exhibit Specialist",
+       "job_title_bn": "সহকারী প্রদর্শনী বিশেষজ্ঞ",
+       "organization_id": 1002
+      },
+      {
+       "id": 15198,
+       "job_title": "Office Assistant Cum Computer Typist",
+       "job_title_bn": "অফিস সহকারী কাম কম্পিউটার মুদ্রাক্ষরিক",
+       "organization_id": 1002
+      }
+     ]
+    },
+    {
+     "id": 646,
+     "name": "Magura District (DCMAGURA)",
+     "name_bn": null,
+     "short_name": "DCMAGURA",
+     "logo": "recruiter/organization/logo/DGFPMAG_S2lIqfU.png",
+     "website": "http://magura.gov.bd/",
+     "created_at": "2022-10-20T06:24:37.583Z",
+     "job_created_at": "2026-11-09T05:34:02.360Z",
+     "govt_jobs": [
+      {
+       "id": 15189,
+       "job_title": "Draftsman",
+       "job_title_bn": "ড্রাফটসম্যান",
+       "organization_id": 646
+      },
+      {
+       "id": 15194,
+       "job_title": "Certificate Assistant",
+       "job_title_bn": "সার্টিফিকেট সহকারী",
+       "organization_id": 646
+      },
+      {
+       "id": 15192,
+       "job_title": "Office Assistant-cum-Computer Typist",
+       "job_title_bn": "অফিস সহকারী কাম কম্পিউটার মুদ্রাক্ষরিক",
+       "organization_id": 646
+      },
+      {
+       "id": 15193,
+       "job_title": "Certificate Clerk",
+       "job_title_bn": "সার্টিফিকেট পেশকার",
+       "organization_id": 646
+      },
+      {
+       "id": 15195,
+       "job_title": "Credit Checking-cum-Sairat Assistant",
+       "job_title_bn": "ক্রেডিট চেকিং কাম সায়রাত সহকারী",
+       "organization_id": 646
+      },
+      {
+       "id": 15190,
+       "job_title": "Nazir-cum-Cashier",
+       "job_title_bn": "নাজির কাম-ক্যাশিয়ার",
+       "organization_id": 646
+      },
+      {
+       "id": 15191,
+       "job_title": "Tracer",
+       "job_title_bn": "ট্রেসার",
+       "organization_id": 646
+      }
+     ]
+    },
+    {
+     "id": 1171,
+     "name": "Bangladesh Fisheries Research Institute( FRI)",
+     "name_bn": "বাংলাদেশ মৎস্য গবেষণা ইনস্টিটিউট",
+     "short_name": " FRI",
+     "logo": "public/recruiter/organization/logo/gov-job-organization-logo-1794128407740.png",
+     "website": "https://fri.gov.bd/",
+     "created_at": "2026-11-08T09:00:07.750Z",
+     "job_created_at": "2026-11-08T09:33:12.273Z",
+     "govt_jobs": [
+      {
+       "id": 15178,
+       "job_title": "Scientific Officer",
+       "job_title_bn": "বৈজ্ঞানিক কর্মকর্তা",
+       "organization_id": 1171
+      },
+      {
+       "id": 15181,
+       "job_title": "Photographer",
+       "job_title_bn": "ফটোগ্রাফার",
+       "organization_id": 1171
+      },
+      {
+       "id": 15187,
+       "job_title": "Driver (Light)",
+       "job_title_bn": "মটর চালক (হালকা)",
+       "organization_id": 1171
+      },
+      {
+       "id": 15185,
+       "job_title": "Driver (Heavy)",
+       "job_title_bn": "মটর চালক (ভারী)",
+       "organization_id": 1171
+      },
+      {
+       "id": 15184,
+       "job_title": "Cashier",
+       "job_title_bn": "ক্যাশিয়ার",
+       "organization_id": 1171
+      },
+      {
+       "id": 15179,
+       "job_title": "Librarian",
+       "job_title_bn": "গ্রন্থাগারিক",
+       "organization_id": 1171
+      },
+      {
+       "id": 15188,
+       "job_title": "Office Assistant",
+       "job_title_bn": "অফিস সহায়ক",
+       "organization_id": 1171
+      },
+      {
+       "id": 15180,
+       "job_title": "Sub-Assistant Engineer (Civil Engineering)",
+       "job_title_bn": "উপ-সহকারী প্রকৌশলী (পুরকৌশল)",
+       "organization_id": 1171
+      },
+      {
+       "id": 15186,
+       "job_title": "Speed Boat Driver",
+       "job_title_bn": "স্পীডবোট চালক",
+       "organization_id": 1171
+      },
+      {
+       "id": 15182,
+       "job_title": "Computer Operator",
+       "job_title_bn": "কম্পিউটার অপারেটর",
+       "organization_id": 1171
+      },
+      {
+       "id": 15183,
+       "job_title": "Accountant",
+       "job_title_bn": "হিসাবরক্ষক",
+       "organization_id": 1171
+      }
+     ]
+    },
+    {
+     "id": 754,
+     "name": "Supreme Court of Bangladesh (HCD)",
+     "name_bn": null,
+     "short_name": "HCD",
+     "logo": "recruiter/organization/logo/800px-বলদশ_সপরম_করটর_সলমহর.svg.png",
+     "website": "https://supremecourt.gov.bd/web/",
+     "created_at": "2023-04-25T07:07:18.750Z",
+     "job_created_at": "2026-11-08T05:09:40.314Z",
+     "govt_jobs": [
+      {
+       "id": 15176,
+       "job_title": "Office Assistant Cum-Computer Typist",
+       "job_title_bn": "অফিস সহকারী কাম-কম্পিউটার মুদ্রাক্ষরিক",
+       "organization_id": 754
+      },
+      {
+       "id": 15175,
+       "job_title": "Steno-Typist",
+       "job_title_bn": "স্টেনো-টাইপিস্ট",
+       "organization_id": 754
+      },
+      {
+       "id": 15177,
+       "job_title": "Photostat Machine Operator",
+       "job_title_bn": "ফটোস্ট্যাট মেশিন অপারেটর",
+       "organization_id": 754
+      }
+     ]
+    },
+    {
+     "id": 609,
+     "name": "Bangladesh Cable Shilpa Limited (BCSL)",
+     "name_bn": null,
+     "short_name": "BCSL",
+     "logo": "recruiter/organization/logo/download_FjfPjjs.jpg",
+     "website": "http://www.bcsl.gov.bd/",
+     "created_at": "2022-08-17T06:56:05.170Z",
+     "job_created_at": "2026-11-08T03:02:19.515Z",
+     "govt_jobs": [
+      {
+       "id": 15165,
+       "job_title": "Finance Assistant/Costing Assistant",
+       "job_title_bn": "অর্থ সহকারী/ মূল্যায়ন সহকারী",
+       "organization_id": 609
+      },
+      {
+       "id": 15173,
+       "job_title": "Driver(For Dhaka City Office)",
+       "job_title_bn": "গাড়ীচালক(ঢাকা সিটি অফিসের জন্য)",
+       "organization_id": 609
+      },
+      {
+       "id": 15160,
+       "job_title": "Assistant Manager (Coordinator)",
+       "job_title_bn": "সহকারী ব্যবস্থাপক (সমন্বয়)",
+       "organization_id": 609
+      },
+      {
+       "id": 15166,
+       "job_title": "Auditor-cum-Computer Operator",
+       "job_title_bn": "অডিটর-কাম-কম্পিউটার অপারেটর",
+       "organization_id": 609
+      },
+      {
+       "id": 15170,
+       "job_title": "Fitter",
+       "job_title_bn": "ফিটার",
+       "organization_id": 609
+      },
+      {
+       "id": 15167,
+       "job_title": "Office Assistant-cum-Computer Operator (For Dhaka City Office)",
+       "job_title_bn": "অফিস সহকারী কাম-কম্পিউটার অপারেটর ( ঢাকা সিটি অফিসের জন্য)",
+       "organization_id": 609
+      },
+      {
+       "id": 15174,
+       "job_title": "Assistant Cook",
+       "job_title_bn": "সহকারী বাবুর্চি",
+       "organization_id": 609
+      },
+      {
+       "id": 15163,
+       "job_title": "Accounts Officer (Cash)",
+       "job_title_bn": "হিসাব রক্ষণ কর্মকর্তা ( ক্যাশ )",
+       "organization_id": 609
+      },
+      {
+       "id": 15172,
+       "job_title": "Technician (Motor Garage)",
+       "job_title_bn": "প্রকর্মী ( মটর গ্যারেজ)",
+       "organization_id": 609
+      },
+      {
+       "id": 15162,
+       "job_title": "Administrative Officer",
+       "job_title_bn": "প্রশাসনিক কর্মকর্তা",
+       "organization_id": 609
+      },
+      {
+       "id": 15171,
+       "job_title": "Plumber",
+       "job_title_bn": "পাইপ মিস্ত্রি",
+       "organization_id": 609
+      },
+      {
+       "id": 15161,
+       "job_title": "Assistant Manager (Security)",
+       "job_title_bn": "সহকারী ব্যবস্থাপক ( নিরাপত্তা )",
+       "organization_id": 609
+      },
+      {
+       "id": 15164,
+       "job_title": "Sub-Assistant Engineer (Production)",
+       "job_title_bn": "উপসহকারী প্রকৌশলী (উৎপাদন)",
+       "organization_id": 609
+      },
+      {
+       "id": 15168,
+       "job_title": "Technician (Lab)",
+       "job_title_bn": "প্রকর্মী (ল্যাব)",
+       "organization_id": 609
+      },
+      {
+       "id": 15159,
+       "job_title": "Assistant Manager (Production / Maintenance / Production Planning)",
+       "job_title_bn": "[সহকারী ব্যবস্থাপক (উৎপাদন / রক্ষণাবেক্ষণ / উৎপাদন পরিকল্পনা)]",
+       "organization_id": 609
+      },
+      {
+       "id": 15169,
+       "job_title": "Machine Operator",
+       "job_title_bn": "মেশিন চালক",
+       "organization_id": 609
+      }
+     ]
+    },
+    {
+     "id": 1150,
+     "name": "Office of the Deputy Commissioner,Bagerhat(DCBAGERHAT)",
+     "name_bn": "জেলা প্রশাসকের কার্যালয়, বাগেরহাট",
+     "short_name": "DCBAGERHAT",
+     "logo": "public/recruiter/organization/logo/gov-job-organization-logo-1784692565168.png",
+     "website": "https://bagerhat.gov.bd/",
+     "created_at": "2026-07-22T03:56:05.176Z",
+     "job_created_at": "2026-11-08T02:35:34.401Z",
+     "govt_jobs": [
+      {
+       "id": 15151,
+       "job_title": "Draftsman",
+       "job_title_bn": "ড্রাফটসম্যান",
+       "organization_id": 1150
+      },
+      {
+       "id": 15152,
+       "job_title": "Office Assistant Cum-Computer Typist",
+       "job_title_bn": "অফিস সহকারী কাম-কম্পিউটার মুদ্রাক্ষরিক",
+       "organization_id": 1150
+      },
+      {
+       "id": 15156,
+       "job_title": "Credit Checking Cum-Sayrat Assistant",
+       "job_title_bn": "ক্রেডিট চেকিং কাম- সায়রাত সহকারী",
+       "organization_id": 1150
+      },
+      {
+       "id": 15157,
+       "job_title": "Mutation Cum Certificate Assistant",
+       "job_title_bn": "মিউটেশন কাম-সার্টিফিকেট সহকারী",
+       "organization_id": 1150
+      },
+      {
+       "id": 15153,
+       "job_title": "Nazir Cum-Cashier",
+       "job_title_bn": "নাজির কাম-ক্যাশিয়ার",
+       "organization_id": 1150
+      },
+      {
+       "id": 15154,
+       "job_title": "Certificate Peshkar",
+       "job_title_bn": "সার্টিফিকেট পেশকার",
+       "organization_id": 1150
+      },
+      {
+       "id": 15155,
+       "job_title": "Certificate Assistant",
+       "job_title_bn": "সার্টিফিকেট সহকারী",
+       "organization_id": 1150
+      },
+      {
+       "id": 15158,
+       "job_title": "Security Guard",
+       "job_title_bn": "নিরাপত্তা প্রহরী",
+       "organization_id": 1150
+      }
+     ]
+    },
+    {
+     "id": 994,
+     "name": "Bangladesh Hi-Tech Park Authorit(BHTPA)",
+     "name_bn": "বাংলাদেশ হাই টেক পার্ক কর্তৃপক্ষ",
+     "short_name": "BHTPA",
+     "logo": "public/recruiter/organization/logo/gov-job-organization-logo-1716090663752.png",
+     "website": "https://bhtpa.gov.bd/",
+     "created_at": "2024-05-19T03:51:03.758Z",
+     "job_created_at": "2026-11-08T02:17:45.266Z",
+     "govt_jobs": [
+      {
+       "id": 15150,
+       "job_title": "Personal Assistant",
+       "job_title_bn": "ব্যক্তিগত সহকারী",
+       "organization_id": 994
+      },
+      {
+       "id": 15149,
+       "job_title": "Computer Typist-cum-Office Assistant",
+       "job_title_bn": "কম্পিউটার মুদ্রাক্ষরিক-কাম-অফিস সহকারী",
+       "organization_id": 994
+      },
+      {
+       "id": 15148,
+       "job_title": "Accountant",
+       "job_title_bn": "হিসাবরক্ষক",
+       "organization_id": 994
+      }
+     ]
+    },
+    {
+     "id": 740,
+     "name": "DC OFFICE JAMALPUR (DCJAMALPUR)",
+     "name_bn": null,
+     "short_name": "DCJAMALPUR",
+     "logo": "recruiter/organization/logo/DGFPMAG_ztDi1q7.png",
+     "website": "https://www.jamalpur.gov.bd/en",
+     "created_at": "2023-03-30T04:46:15.088Z",
+     "job_created_at": "2026-11-03T05:43:19.673Z",
+     "govt_jobs": [
+      {
+       "id": 15142,
+       "job_title": "Accounts Assistant",
+       "job_title_bn": "হিসাব সহকারী",
+       "organization_id": 740
+      },
+      {
+       "id": 15147,
+       "job_title": "Gardener",
+       "job_title_bn": "মালী",
+       "organization_id": 740
+      },
+      {
+       "id": 15137,
+       "job_title": "Computer Operator",
+       "job_title_bn": "কম্পিউটার  অপারেটর",
+       "organization_id": 740
+      },
+      {
+       "id": 15146,
+       "job_title": "Cleaner",
+       "job_title_bn": "পরিচ্ছন্নতাকর্মী",
+       "organization_id": 740
+      },
+      {
+       "id": 15144,
+       "job_title": "Security Guard",
+       "job_title_bn": "নিরাপত্তা প্রহরী",
+       "organization_id": 740
+      },
+      {
+       "id": 15141,
+       "job_title": "Certificate Assistant",
+       "job_title_bn": "সার্টিফিকেট সহকারী",
+       "organization_id": 740
+      },
+      {
+       "id": 15140,
+       "job_title": "Copyist",
+       "job_title_bn": "কপিস্ট",
+       "organization_id": 740
+      },
+      {
+       "id": 15139,
+       "job_title": "Bench Assistant",
+       "job_title_bn": "বেঞ্চ সহকারী",
+       "organization_id": 740
+      },
+      {
+       "id": 15138,
+       "job_title": "Library Assistant",
+       "job_title_bn": "লাইব্রেরী সহকারী",
+       "organization_id": 740
+      },
+      {
+       "id": 15143,
+       "job_title": "Office Support Staff",
+       "job_title_bn": "অফিস সহায়ক",
+       "organization_id": 740
+      },
+      {
+       "id": 15145,
+       "job_title": "Bearer",
+       "job_title_bn": "বেয়ারার",
+       "organization_id": 740
+      }
+     ]
+    },
+    {
+     "id": 459,
+     "name": "Directorate General of Medical Service (DGMS)",
+     "name_bn": null,
+     "short_name": "DGMS",
+     "logo": "recruiter/organization/logo/DGFPMAG_cT5y25X.png",
+     "website": "https://mod.gov.bd/",
+     "created_at": "2022-02-13T08:05:01.584Z",
+     "job_created_at": "2026-11-03T04:27:35.274Z",
+     "govt_jobs": [
+      {
+       "id": 15131,
+       "job_title": "Maid",
+       "job_title_bn": "আয়া",
+       "organization_id": 459
+      },
+      {
+       "id": 15135,
+       "job_title": "Mess waiter",
+       "job_title_bn": "মেসওয়েটার",
+       "organization_id": 459
+      },
+      {
+       "id": 15133,
+       "job_title": "Gardener",
+       "job_title_bn": "মালী",
+       "organization_id": 459
+      },
+      {
+       "id": 15136,
+       "job_title": "Cleaner",
+       "job_title_bn": "পরিচ্ছন্নতাকর্মী",
+       "organization_id": 459
+      },
+      {
+       "id": 15134,
+       "job_title": "Assistant Cook",
+       "job_title_bn": "সহকারী বাবুর্চি",
+       "organization_id": 459
+      },
+      {
+       "id": 15128,
+       "job_title": "F W A (Family Welfare Assistant)",
+       "job_title_bn": "এফ ডব্লিউ এ  (ফ্যামিলি ওয়েলফেয়ার এ্যাসিসটেন্ট)",
+       "organization_id": 459
+      },
+      {
+       "id": 15127,
+       "job_title": "Computer Typist",
+       "job_title_bn": "কম্পিউটার মুদ্রাক্ষরিক",
+       "organization_id": 459
+      },
+      {
+       "id": 15126,
+       "job_title": "Draftsman",
+       "job_title_bn": "ড্রাফটসম্যান",
+       "organization_id": 459
+      },
+      {
+       "id": 15132,
+       "job_title": "Cook",
+       "job_title_bn": "বাবুর্চি",
+       "organization_id": 459
+      },
+      {
+       "id": 15129,
+       "job_title": "Fireman",
+       "job_title_bn": "অগ্নিনির্বাপক",
+       "organization_id": 459
+      },
+      {
+       "id": 15130,
+       "job_title": "Office Support Staff",
+       "job_title_bn": "অফিস সহায়ক",
+       "organization_id": 459
+      }
+     ]
+    },
+    {
+     "id": 1170,
+     "name": "Comptroller and Auditor General of Bangladesh(CAG)",
+     "name_bn": "বাংলাদেশের কম্পট্রোলার অ্যান্ড অডিটর জেনারেল",
+     "short_name": "CAG",
+     "logo": "public/recruiter/organization/logo/gov-job-organization-logo-1793675420423.png",
+     "website": "https://cag.org.bd/",
+     "created_at": "2026-11-03T03:10:20.429Z",
+     "job_created_at": "2026-11-03T03:23:21.484Z",
+     "govt_jobs": [
+      {
+       "id": 15125,
+       "job_title": "Driver",
+       "job_title_bn": "গাড়ী চালক",
+       "organization_id": 1170
+      },
+      {
+       "id": 15123,
+       "job_title": "Computer Typist",
+       "job_title_bn": "কম্পিউটার মুদ্রাক্ষরিক",
+       "organization_id": 1170
+      },
+      {
+       "id": 15124,
+       "job_title": "Office Support Staff",
+       "job_title_bn": "অফিস সহায়ক",
+       "organization_id": 1170
+      },
+      {
+       "id": 15122,
+       "job_title": "Junior Auditor",
+       "job_title_bn": "জুনিয়র অডিটর",
+       "organization_id": 1170
+      }
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "page": 2,
+  "data": {
+   "status": "success",
+   "statusCode": 200,
+   "message": {
+    "en": "Government organization job list fetch successful",
+    "bn": "সরকারি প্রতিষ্ঠানের চাকরির তালিকা সফলভাবে আনা হয়েছে"
+   },
+   "count": 40,
+   "govtOrgJobs": [
+    {
+     "id": 632,
+     "name": "DC OFFICE RAJBARI (DCRAJBARI)",
+     "name_bn": null,
+     "short_name": "DCRAJBARI",
+     "logo": "recruiter/organization/logo/DGFPMAG_dVaJgim.png",
+     "website": "http://www.rajbari.gov.bd/",
+     "created_at": "2022-09-21T03:49:30.885Z",
+     "job_created_at": "2026-11-03T02:01:39.445Z",
+     "govt_jobs": [
+      {
+       "id": 15121,
+       "job_title": "Union Parishad Administrative Officer",
+       "job_title_bn": "ইউনিয়ন পরিষদ প্রশাসনিক কর্মকর্তা",
+       "organization_id": 632
+      }
+     ]
+    },
+    {
+     "id": 397,
+     "name": "Coal Power Generation Company Bangladesh Limited (CPGCBL)",
+     "name_bn": null,
+     "short_name": "CPGCBL",
+     "logo": "recruiter/organization/logo/th_2_1N6TqBP.jpg",
+     "website": "http://cpgcbl.gov.bd/",
+     "created_at": "2021-10-28T10:33:15.371Z",
+     "job_created_at": "2026-11-01T09:41:20.981Z",
+     "govt_jobs": [
+      {
+       "id": 15107,
+       "job_title": "Sub-Assistant Engineer (Electrical)",
+       "job_title_bn": "উপ-সহকারী প্রকৌশলী (ইলেকট্রিক্যাল)",
+       "organization_id": 397
+      },
+      {
+       "id": 15103,
+       "job_title": "Assistant Engineer (Electrical)",
+       "job_title_bn": "সহকারী প্রকৌশলী (ইলেকট্রিক্যাল)",
+       "organization_id": 397
+      },
+      {
+       "id": 15106,
+       "job_title": "Assistant Manager (Security)",
+       "job_title_bn": "সহকারী ব্যবস্থাপক (নিরাপত্তা)",
+       "organization_id": 397
+      },
+      {
+       "id": 15109,
+       "job_title": "Junior Assistant Manager (HR/Admin/Stores)",
+       "job_title_bn": "জুনিয়র সহকারী ব্যবস্থাপক (মানবসম্পদ/প্রশাসন/স্টোরস)",
+       "organization_id": 397
+      },
+      {
+       "id": 15105,
+       "job_title": "Assistant Manager (HR/Admin/Stores)",
+       "job_title_bn": "সহকারী ব্যবস্থাপক (মানবসম্পদ/প্রশাসন/স্টোরস)",
+       "organization_id": 397
+      },
+      {
+       "id": 15104,
+       "job_title": "Assistant Engineer (Mechanical)",
+       "job_title_bn": "সহকারী প্রকৌশলী (মেকানিক্যাল)",
+       "organization_id": 397
+      },
+      {
+       "id": 15108,
+       "job_title": "Sub-Assistant Engineer (Mechanical)",
+       "job_title_bn": "উপ-সহকারী প্রকৌশলী (মেকানিক্যাল)",
+       "organization_id": 397
+      }
+     ]
+    },
+    {
+     "id": 1151,
+     "name": "DC Office Jhenaidah(dcjhenaidah)",
+     "name_bn": "জেলা প্রশাসকের কার্যালয় ঝিনাইদহ",
+     "short_name": "dcjhenaidah",
+     "logo": "public/recruiter/organization/logo/gov-job-organization-logo-1785125058132.png",
+     "website": "https://jhenaidah.gov.bd/",
+     "created_at": "2026-07-27T04:04:18.142Z",
+     "job_created_at": "2026-11-01T09:28:20.963Z",
+     "govt_jobs": [
+      {
+       "id": 15101,
+       "job_title": "Office Assistant",
+       "job_title_bn": "অফিস সহায়ক",
+       "organization_id": 1151
+      },
+      {
+       "id": 15102,
+       "job_title": "Security Guard",
+       "job_title_bn": "নিরাপত্তা প্রহরী",
+       "organization_id": 1151
+      }
+     ]
+    },
+    {
+     "id": 289,
+     "name": "Ashuganj Power Station Company Ltd. (APSCL)",
+     "name_bn": "আশুগঞ্জ পাওয়ার স্টেশন কোম্পানী লিঃ",
+     "short_name": "APSCL",
+     "logo": "recruiter/organization/logo/apscl.png",
+     "website": "http://www.apscl.com/",
+     "created_at": "2021-08-17T04:30:54.452Z",
+     "job_created_at": "2026-11-01T08:05:45.627Z",
+     "govt_jobs": [
+      {
+       "id": 15094,
+       "job_title": "Sub-Assistant Engineer (Electrical)",
+       "job_title_bn": "উপ-সহকারী প্রকৌশলী (বৈদ্যুতিক)",
+       "organization_id": 289
+      },
+      {
+       "id": 15097,
+       "job_title": "Junior Assistant Cum Computer Operator",
+       "job_title_bn": "জুনিয়র এসিস্ট্যান্ট কাম কম্পিউটার অপারেটর",
+       "organization_id": 289
+      },
+      {
+       "id": 15096,
+       "job_title": "Junior Assistant (Finance/Accounts/Internal Audit)",
+       "job_title_bn": "জুনিয়র এসিস্ট্যান্ট (অর্থ/হিসাব/ইন্টারনাল অডিট)",
+       "organization_id": 289
+      },
+      {
+       "id": 15090,
+       "job_title": "Assistant Manager (Chemical)",
+       "job_title_bn": "সহকারী ব্যবস্থাপক (কেমিকেল)",
+       "organization_id": 289
+      },
+      {
+       "id": 15086,
+       "job_title": "Assistant Engineer (Electrical)",
+       "job_title_bn": "সহকারী প্রকৌশলী (বৈদ্যুতিক)",
+       "organization_id": 289
+      },
+      {
+       "id": 15100,
+       "job_title": "Store Helper",
+       "job_title_bn": "স্টোর হেলপার",
+       "organization_id": 289
+      },
+      {
+       "id": 15089,
+       "job_title": "Assistant Manager (Store)",
+       "job_title_bn": "সহকারী ব্যবস্থাপক (স্টোর)",
+       "organization_id": 289
+      },
+      {
+       "id": 15098,
+       "job_title": "Fireman",
+       "job_title_bn": "ফায়ারম্যান",
+       "organization_id": 289
+      },
+      {
+       "id": 15093,
+       "job_title": "Assistant Manager (HR & Administration)",
+       "job_title_bn": "সহকারী ব্যবস্থাপক (এইচআর ও প্রশাসন)",
+       "organization_id": 289
+      },
+      {
+       "id": 15092,
+       "job_title": "Assistant Manager (Finance/Accounts/Internal Audit)",
+       "job_title_bn": "সহকারী ব্যবস্থাপক (অর্থ/হিসাব/ইন্টারনাল অডিট)",
+       "organization_id": 289
+      },
+      {
+       "id": 15088,
+       "job_title": "Assistant Manager (Procurement)",
+       "job_title_bn": "সহকারী ব্যবস্থাপক (প্রকিউরমেন্ট)",
+       "organization_id": 289
+      },
+      {
+       "id": 15099,
+       "job_title": "Security Guard",
+       "job_title_bn": "নিরাপত্তা প্রহরী",
+       "organization_id": 289
+      },
+      {
+       "id": 15095,
+       "job_title": "Sub-Assistant Engineer (Mechanical)",
+       "job_title_bn": "উপ-সহকারী প্রকৌশলী (যান্ত্রিক)",
+       "organization_id": 289
+      },
+      {
+       "id": 15087,
+       "job_title": "Assistant Engineer (Mechanical)",
+       "job_title_bn": "সহকারী প্রকৌশলী (যান্ত্রিক)",
+       "organization_id": 289
+      },
+      {
+       "id": 15091,
+       "job_title": "Assistant Manager (Health, Safety & Environment)",
+       "job_title_bn": "সহকারী ব্যবস্থাপক (হেলথ, সেফটি এন্ড এনভায়রনমেন্ট)",
+       "organization_id": 289
+      }
+     ]
+    },
+    {
+     "id": 1125,
+     "name": "Bangladesh Armed Services Board(BASB)",
+     "name_bn": "বাংলাদেশ সশস্ত্র বাহিনী বোর্ড",
+     "short_name": "BASB",
+     "logo": "public/recruiter/organization/logo/gov-job-organization-logo-1773629600804.png",
+     "website": "https://www.basb.gov.bd/",
+     "created_at": "2026-03-16T02:53:20.810Z",
+     "job_created_at": "2026-11-01T06:15:31.946Z",
+     "govt_jobs": [
+      {
+       "id": 15085,
+       "job_title": "Verification/ Investigation Officer",
+       "job_title_bn": "ভেরিফিকেশন/ ইনভেস্টিগেশন অফিসার",
+       "organization_id": 1125
+      }
+     ]
+    },
+    {
+     "id": 974,
+     "name": "Income Tax Intelligence and Investigation Unit(ITIIU)",
+     "name_bn": "আয়কর গোয়েন্দা ও তদন্ত ইউনিট",
+     "short_name": "ITIIU",
+     "logo": "public/recruiter/organization/logo/gov-job-organization-logo-1714617685169.png",
+     "website": "https://itiiu.org/",
+     "created_at": "2024-05-02T02:41:25.177Z",
+     "job_created_at": "2026-11-01T06:02:19.094Z",
+     "govt_jobs": [
+      {
+       "id": 15082,
+       "job_title": "Personal Assistant",
+       "job_title_bn": "ব্যক্তিগত সহকারী",
+       "organization_id": 974
+      },
+      {
+       "id": 15084,
+       "job_title": "Office Support Staff",
+       "job_title_bn": "অফিস সহায়ক",
+       "organization_id": 974
+      },
+      {
+       "id": 15083,
+       "job_title": "Office Assistant-Cum-Computer Typist",
+       "job_title_bn": "অফিস সহকারী-কাম-কম্পিউটার মুদ্রাক্ষরিক",
+       "organization_id": 974
+      }
+     ]
+    },
+    {
+     "id": 993,
+     "name": "Taxes Zone-19, Dhaka(TAX19)",
+     "name_bn": "কর অঞ্চল 19",
+     "short_name": "TAX19",
+     "logo": "public/recruiter/organization/logo/gov-job-organization-logo-1715834883805.png",
+     "website": "www.taxeszone19.dhaka.gov.bd",
+     "created_at": "2024-05-16T04:48:03.812Z",
+     "job_created_at": "2026-11-01T02:25:14.680Z",
+     "govt_jobs": [
+      {
+       "id": 15078,
+       "job_title": "Upper Division Assistant",
+       "job_title_bn": "উচ্চমান সহকারী",
+       "organization_id": 993
+      },
+      {
+       "id": 15076,
+       "job_title": "Personal Assistant",
+       "job_title_bn": "ব্যক্তিগত সহকারী",
+       "organization_id": 993
+      },
+      {
+       "id": 15080,
+       "job_title": "Office Assistant Cum-Computer Typist",
+       "job_title_bn": "অফিস সহকারী কাম-কম্পিউটার মুদ্রাক্ষরিক",
+       "organization_id": 993
+      },
+      {
+       "id": 15077,
+       "job_title": "Head Assistant",
+       "job_title_bn": "প্রধান সহকারী",
+       "organization_id": 993
+      },
+      {
+       "id": 15075,
+       "job_title": "Computer Operator",
+       "job_title_bn": "কম্পিউটার অপারেটর",
+       "organization_id": 993
+      },
+      {
+       "id": 15079,
+       "job_title": "Stenotypist Cum-Computer Operator",
+       "job_title_bn": "সাঁটমুদ্রাক্ষরিক কাম-কম্পিউটার অপারেটর",
+       "organization_id": 993
+      },
+      {
+       "id": 15081,
+       "job_title": "Office Support Staff",
+       "job_title_bn": "অফিস সহায়ক",
+       "organization_id": 993
+      }
+     ]
+    },
+    {
+     "id": 559,
+     "name": "Narail Distric (DCNARAIL)",
+     "name_bn": null,
+     "short_name": "DCNARAIL",
+     "logo": "recruiter/organization/logo/DGFPMAG_2gMnZsV.png",
+     "website": "http://narail.gov.bd/",
+     "created_at": "2022-06-08T04:54:16.511Z",
+     "job_created_at": "2026-10-29T08:59:28.379Z",
+     "govt_jobs": [
+      {
+       "id": 15072,
+       "job_title": "Cleaner (Circuit House)",
+       "job_title_bn": "পরিচ্ছন্নতাকর্মী (সার্কিট হাউজ)",
+       "organization_id": 559
+      },
+      {
+       "id": 15073,
+       "job_title": "Security Guard (Circuit House)",
+       "job_title_bn": "নিরাপত্তা প্রহরী  (সার্কিট হাউজ)",
+       "organization_id": 559
+      },
+      {
+       "id": 15074,
+       "job_title": "Gardener (Circuit House)",
+       "job_title_bn": "মালি (সার্কিট হাউজ)",
+       "organization_id": 559
+      },
+      {
+       "id": 15069,
+       "job_title": "Certificate Assistant",
+       "job_title_bn": "সার্টিফিকেট সহকারী",
+       "organization_id": 559
+      },
+      {
+       "id": 15068,
+       "job_title": "Accounts Assistant",
+       "job_title_bn": "হিসাব সহকারী",
+       "organization_id": 559
+      },
+      {
+       "id": 15070,
+       "job_title": "Office Support Staff (General Administration)",
+       "job_title_bn": "অফিস সহায়ক ( সাধারণ প্রশাসন)",
+       "organization_id": 559
+      },
+      {
+       "id": 15071,
+       "job_title": "Security Guard (General Administration)",
+       "job_title_bn": "নিরাপত্তা প্রহরী ( সাধারণ প্রশাসন)",
+       "organization_id": 559
+      }
+     ]
+    },
+    {
+     "id": 1168,
+     "name": "Department of National Savings(NSD)",
+     "name_bn": "জাতীয় সঞ্চয় অধিদপ্তর",
+     "short_name": "NSD",
+     "logo": "public/recruiter/organization/logo/gov-job-organization-logo-1793163254055.png",
+     "website": "https://nationalsavings.gov.bd/",
+     "created_at": "2026-10-28T04:54:14.062Z",
+     "job_created_at": "2026-10-28T05:05:34.321Z",
+     "govt_jobs": [
+      {
+       "id": 15061,
+       "job_title": "Stenographer-cum-Computer Operator",
+       "job_title_bn": "সাঁটলিপিকার-কাম-কম্পিউটার অপারেটর",
+       "organization_id": 1168
+      },
+      {
+       "id": 15066,
+       "job_title": "Data Entry Operator",
+       "job_title_bn": "ডাটা এন্ট্রি অপারেটর",
+       "organization_id": 1168
+      },
+      {
+       "id": 15065,
+       "job_title": "Office Assistant-cum-Computer Typist",
+       "job_title_bn": "অফিস সহকারী-কাম-কম্পিউটার মুদ্রাক্ষরিক",
+       "organization_id": 1168
+      },
+      {
+       "id": 15062,
+       "job_title": "Upper Division Assistant",
+       "job_title_bn": "উচ্চমান সহকারী",
+       "organization_id": 1168
+      },
+      {
+       "id": 15060,
+       "job_title": "Accountant",
+       "job_title_bn": "হিসাব রক্ষক",
+       "organization_id": 1168
+      },
+      {
+       "id": 15064,
+       "job_title": "Driver",
+       "job_title_bn": "গাড়ী চালক",
+       "organization_id": 1168
+      },
+      {
+       "id": 15067,
+       "job_title": "Office Support Staff",
+       "job_title_bn": "অফিস সহায়ক",
+       "organization_id": 1168
+      },
+      {
+       "id": 15063,
+       "job_title": "Steno-Typist-cum-Computer Operator",
+       "job_title_bn": "সাঁট মুদ্রাক্ষরিক-কাম-কম্পিউটার অপারেটর",
+       "organization_id": 1168
+      }
+     ]
+    },
+    {
+     "id": 1167,
+     "name": "Taxes Zone-Narayanganj(TAXNAR)",
+     "name_bn": "কর কমিশনারের কার্যালয় কর অঞ্চল নারায়ণগঞ্জ",
+     "short_name": "TAXNAR",
+     "logo": "public/recruiter/organization/logo/gov-job-organization-logo-1793079418058.png",
+     "website": "http://www.taxeszone-narayanganj.gov.bd/",
+     "created_at": "2026-10-27T05:36:58.064Z",
+     "job_created_at": "2026-10-27T05:50:17.924Z",
+     "govt_jobs": [
+      {
+       "id": 15059,
+       "job_title": "Office Support Staff",
+       "job_title_bn": "অফিস সহায়ক",
+       "organization_id": 1167
+      },
+      {
+       "id": 15058,
+       "job_title": "Driver",
+       "job_title_bn": "গাড়ী চালক",
+       "organization_id": 1167
+      },
+      {
+       "id": 15054,
+       "job_title": "Head Assistant",
+       "job_title_bn": "প্রধান সহকারী",
+       "organization_id": 1167
+      },
+      {
+       "id": 15057,
+       "job_title": "Office Assistant-Cum-Computer Typist",
+       "job_title_bn": "অফিস সহকারী-কাম-কম্পিউটার মুদ্রাক্ষরিক",
+       "organization_id": 1167
+      },
+      {
+       "id": 15056,
+       "job_title": "Stenotypist-Cum-Computer Operator",
+       "job_title_bn": "সাঁটমুদ্রাক্ষরিক-কাম-কম্পিউটার অপারেটর",
+       "organization_id": 1167
+      },
+      {
+       "id": 15055,
+       "job_title": "Upper Division Assistant",
+       "job_title_bn": "উচ্চমান সহকারী",
+       "organization_id": 1167
+      }
+     ]
+    },
+    {
+     "id": 760,
+     "name": "DC Office Chuadanga (DCCHUADANGA)",
+     "name_bn": null,
+     "short_name": "DCCHUADANGA",
+     "logo": "recruiter/organization/logo/DGFPMAG_N1gLhAR.png",
+     "website": "https://www.chuadanga.gov.bd/",
+     "created_at": "2023-05-08T10:44:44.917Z",
+     "job_created_at": "2026-10-27T04:33:37.008Z",
+     "govt_jobs": [
+      {
+       "id": 15051,
+       "job_title": "Mutation Cum Certificate Assistant",
+       "job_title_bn": "মিউটেশন কাম সার্টিফিকেট সহকারী",
+       "organization_id": 760
+      },
+      {
+       "id": 15050,
+       "job_title": "Credit Checking Cum-Sayrat Assistant",
+       "job_title_bn": "ক্রেডিট চেকিং কাম-সায়রাত সহকারী",
+       "organization_id": 760
+      },
+      {
+       "id": 15049,
+       "job_title": "Certificate Assistant",
+       "job_title_bn": "সার্টিফিকেট সহকারী",
+       "organization_id": 760
+      },
+      {
+       "id": 15047,
+       "job_title": "Office Assistant Cum-Computer Typist",
+       "job_title_bn": "অফিস সহকারী কাম-কম্পিউটার মুদ্রাক্ষরিক",
+       "organization_id": 760
+      },
+      {
+       "id": 15053,
+       "job_title": "Security Guard",
+       "job_title_bn": "নিরাপত্তা প্রহরী",
+       "organization_id": 760
+      },
+      {
+       "id": 15052,
+       "job_title": "Office Support Staff",
+       "job_title_bn": "অফিস সহায়ক",
+       "organization_id": 760
+      },
+      {
+       "id": 15048,
+       "job_title": "Certificate Peshkar",
+       "job_title_bn": "সার্টিফিকেট পেশকার",
+       "organization_id": 760
+      }
+     ]
+    },
+    {
+     "id": 1166,
+     "name": "Office of the Superintendent of Police, Sherpur(SPOSHERPUR)",
+     "name_bn": "পুলিশ সুপারের কার্যালয় শেরপুর",
+     "short_name": "SPOSHERPUR",
+     "logo": "public/recruiter/organization/logo/gov-job-organization-logo-1792989599355.png",
+     "website": "https://police.sherpur.gov.bd/",
+     "created_at": "2026-10-26T04:39:59.376Z",
+     "job_created_at": "2026-10-26T04:45:59.293Z",
+     "govt_jobs": [
+      {
+       "id": 15044,
+       "job_title": "Stenographer Cum Computer Operator",
+       "job_title_bn": "সাঁটলিপিকার কাম কম্পিউটার অপারেটর",
+       "organization_id": 1166
+      },
+      {
+       "id": 15046,
+       "job_title": "Office Assistant Cum Computer Typist",
+       "job_title_bn": "অফিস সহকারী কাম কম্পিউটার মুদ্রাক্ষরিক",
+       "organization_id": 1166
+      },
+      {
+       "id": 15045,
+       "job_title": "Steno-Typist Cum Computer Operator",
+       "job_title_bn": "সাঁট-মুদ্রাক্ষরিক কাম কম্পিউটার অপারেটর",
+       "organization_id": 1166
+      }
+     ]
+    },
+    {
+     "id": 761,
+     "name": "Taxes Zone-9, Dhaka (TAX9)",
+     "name_bn": null,
+     "short_name": "TAX9",
+     "logo": "recruiter/organization/logo/bangladesh-govt-logo-A2C7688845-seeklogo.com_QWZOOQ6.png",
+     "website": "http://www.taxeszone9dhaka.gov.bd/",
+     "created_at": "2023-05-14T15:50:53.549Z",
+     "job_created_at": "2026-10-25T03:54:15.529Z",
+     "govt_jobs": [
+      {
+       "id": 15038,
+       "job_title": "Office Assistant-Cum-Computer Typist",
+       "job_title_bn": "অফিস সহকারী-কাম-কম্পিউটার মুদ্রাক্ষরিক",
+       "organization_id": 761
+      },
+      {
+       "id": 15041,
+       "job_title": "Notice Server",
+       "job_title_bn": "নোটিশ সার্ভার",
+       "organization_id": 761
+      },
+      {
+       "id": 15042,
+       "job_title": "Office Support Staff",
+       "job_title_bn": "অফিস সহায়ক",
+       "organization_id": 761
+      },
+      {
+       "id": 15039,
+       "job_title": "Driver",
+       "job_title_bn": "গাড়ি চালক",
+       "organization_id": 761
+      },
+      {
+       "id": 15037,
+       "job_title": "Stenotypist-Cum-Computer Operator",
+       "job_title_bn": "সাঁটমুদ্রাক্ষরিক-কাম-কম্পিউটার অপারেটর",
+       "organization_id": 761
+      },
+      {
+       "id": 15040,
+       "job_title": "Machine Operator",
+       "job_title_bn": "মেশিন অপারেটর",
+       "organization_id": 761
+      },
+      {
+       "id": 15036,
+       "job_title": "Upper Division Assistant",
+       "job_title_bn": "উচ্চমান সহকারী",
+       "organization_id": 761
+      },
+      {
+       "id": 15043,
+       "job_title": "Security Guard",
+       "job_title_bn": "নিরাপত্তা প্রহরী",
+       "organization_id": 761
+      },
+      {
+       "id": 15035,
+       "job_title": "Stenographer-Cum-Computer Operator",
+       "job_title_bn": "সাঁট লিপিকার-কাম-কম্পিউটার অপারেটর",
+       "organization_id": 761
+      }
+     ]
+    },
+    {
+     "id": 610,
+     "name": "Deputy Commissioner Office, Noakhali (DCNOAKHALI)",
+     "name_bn": null,
+     "short_name": "DCNOAKHALI",
+     "logo": "recruiter/organization/logo/DGFPMAG_jvsxhed.png",
+     "website": "http://www.noakhali.gov.bd",
+     "created_at": "2022-08-17T11:19:36.383Z",
+     "job_created_at": "2026-10-19T09:39:48.042Z",
+     "govt_jobs": [
+      {
+       "id": 15031,
+       "job_title": "Office Support Staff",
+       "job_title_bn": "অফিস সহায়ক",
+       "organization_id": 610
+      },
+      {
+       "id": 15032,
+       "job_title": "Security Guard",
+       "job_title_bn": "নিরাপত্তা প্রহরী",
+       "organization_id": 610
+      },
+      {
+       "id": 15033,
+       "job_title": "Cleaner",
+       "job_title_bn": "পরিচ্ছন্নতাকর্মী",
+       "organization_id": 610
+      },
+      {
+       "id": 15034,
+       "job_title": "Bearer (Circuit House)",
+       "job_title_bn": "বেয়ারার (সার্কিট হাউজ)",
+       "organization_id": 610
+      }
+     ]
+    },
+    {
+     "id": 1165,
+     "name": "Office of The Commissioner of Taxes Taxes Zone-6, Dhaka(TAX6)",
+     "name_bn": "কর কমিশনারের কার্যালয় কর অঞ্চল-৬, ঢাকা",
+     "short_name": "TAX6",
+     "logo": "public/recruiter/organization/logo/gov-job-organization-logo-1792313658946.png",
+     "website": "https://www.taxeszone6.gov.bd/",
+     "created_at": "2026-10-18T08:54:18.954Z",
+     "job_created_at": "2026-10-18T09:04:49.873Z",
+     "govt_jobs": [
+      {
+       "id": 15030,
+       "job_title": "Office Support Staff",
+       "job_title_bn": "অফিস সহায়ক",
+       "organization_id": 1165
+      },
+      {
+       "id": 15024,
+       "job_title": "Computer Operator",
+       "job_title_bn": "কম্পিউটার অপারেটর",
+       "organization_id": 1165
+      },
+      {
+       "id": 15026,
+       "job_title": "Stenographer Cum-Computer Operator",
+       "job_title_bn": "সাঁটলিপিকার কাম-কম্পিউটার অপারেটর",
+       "organization_id": 1165
+      },
+      {
+       "id": 15029,
+       "job_title": "Driver",
+       "job_title_bn": "গাড়ি চালক",
+       "organization_id": 1165
+      },
+      {
+       "id": 15027,
+       "job_title": "Stenotypist-Cum-Computer Operator",
+       "job_title_bn": "সাঁটমুদ্রাক্ষরিক-কাম-কম্পিউটার অপারেটর",
+       "organization_id": 1165
+      },
+      {
+       "id": 15028,
+       "job_title": "Office Assistant-Cum-Computer Typist",
+       "job_title_bn": "অফিস সহকারী-কাম-কম্পিউটার মুদ্রাক্ষরিক",
+       "organization_id": 1165
+      },
+      {
+       "id": 15025,
+       "job_title": "Head Assistant",
+       "job_title_bn": "প্রধান সহকারী",
+       "organization_id": 1165
+      }
+     ]
+    },
+    {
+     "id": 445,
+     "name": "Bangladesh Oil, Gas & Mineral Corporation (Petrobangla) BOGMC",
+     "name_bn": null,
+     "short_name": "BOGMC",
+     "logo": "recruiter/organization/logo/DGFPMAG_3tgZ01Q.png",
+     "website": "http://petrobangla.org.bd/",
+     "created_at": "2022-01-12T11:11:40.906Z",
+     "job_created_at": "2026-10-18T04:42:13.048Z",
+     "govt_jobs": [
+      {
+       "id": 15011,
+       "job_title": "Assistant Librarian",
+       "job_title_bn": "অ্যাসিস্ট্যান্ট লাইব্রেরিয়ান",
+       "organization_id": 445
+      },
+      {
+       "id": 15023,
+       "job_title": "Assistant Officer(Technical)/Sub-Assistant Technical Officer",
+       "job_title_bn": "সহকারী কর্মকর্তা (কারিগরি)/উপ-সহকারী কারিগরি কর্মকর্তা",
+       "organization_id": 445
+      },
+      {
+       "id": 15013,
+       "job_title": "Sub Assistant Engineer/Assistant Technical Officer(Only for BGFCL) (Mechanical)",
+       "job_title_bn": "উপ-সহকারী প্রকৌশলী/সহকারী কারিগরি কর্মকর্তা(শুধুমাত্র বিজিএফসিএল এর জন্য) (মেকানিক্যাল)",
+       "organization_id": 445
+      },
+      {
+       "id": 14993,
+       "job_title": "Assistant Manager(Civil)",
+       "job_title_bn": "সহকারী ব্যবস্থাপক(সিভিল)",
+       "organization_id": 445
+      },
+      {
+       "id": 15019,
+       "job_title": "Assistant Technical Officer (Chemical)",
+       "job_title_bn": "সহকারী কারিগরি কর্মকর্তা (কেমিক্যাল)",
+       "organization_id": 445
+      },
+      {
+       "id": 15014,
+       "job_title": "Sub Assistant Engineer/Assistant Technical Officer(Only for BGFCL) (Electrical)",
+       "job_title_bn": "উপ-সহকারী প্রকৌশলী/সহকারী কারিগরি কর্মকর্তা(শুধুমাত্র বিজিএফসিএল এর জন্য) (ইলেক্ট্রিক্যাল)",
+       "organization_id": 445
+      },
+      {
+       "id": 15009,
+       "job_title": "Assistant Officer(Administration)",
+       "job_title_bn": "সহকারী কর্মকর্তা(প্রশাসন)",
+       "organization_id": 445
+      },
+      {
+       "id": 14994,
+       "job_title": "Assistant Manager(CSE/IT)",
+       "job_title_bn": "সহকারী ব্যবস্থাপক(সিএসই/আইটি)",
+       "organization_id": 445
+      },
+      {
+       "id": 15007,
+       "job_title": "Assistant Driller",
+       "job_title_bn": "সহকারী ড্রিলার",
+       "organization_id": 445
+      },
+      {
+       "id": 15008,
+       "job_title": "Assistant Manager(Technical)",
+       "job_title_bn": "সহকারী ব্যবস্থাপক(কারিগরি)",
+       "organization_id": 445
+      },
+      {
+       "id": 15004,
+       "job_title": "Assistant Manager(Chemistry)",
+       "job_title_bn": "সহকারী ব্যবস্থাপক(কেমিস্ট্রি)",
+       "organization_id": 445
+      },
+      {
+       "id": 15022,
+       "job_title": "Trainee Driller",
+       "job_title_bn": "ট্রেইনী ড্রিলার",
+       "organization_id": 445
+      },
+      {
+       "id": 15021,
+       "job_title": "Sub Assistant Engineer (Telecom)",
+       "job_title_bn": "উপ-সহকারী প্রকৌশলী (টেলিকম)",
+       "organization_id": 445
+      },
+      {
+       "id": 15005,
+       "job_title": "Assistant Manager(Environment)",
+       "job_title_bn": "সহকারী ব্যবস্থাপক(এনভায়রনমেন্ট)",
+       "organization_id": 445
+      },
+      {
+       "id": 15017,
+       "job_title": "Sub Assistant Engineer (Electronics)",
+       "job_title_bn": "উপ-সহকারী প্রকৌশলী (ইলেক্ট্রনিক্স)",
+       "organization_id": 445
+      },
+      {
+       "id": 14992,
+       "job_title": "Assistant Manager(Electrical)",
+       "job_title_bn": "সহকারী ব্যবস্থাপক(ইলেক্ট্রিক্যাল)",
+       "organization_id": 445
+      },
+      {
+       "id": 15002,
+       "job_title": "Assistant Manager(Geophysics)",
+       "job_title_bn": "সহকারী ব্যবস্থাপক(জিওফিজিক্স)",
+       "organization_id": 445
+      },
+      {
+       "id": 14996,
+       "job_title": "Assistant Manager(Petroleum)",
+       "job_title_bn": "সহকারী ব্যবস্থাপক(পেট্রোলিয়াম)",
+       "organization_id": 445
+      },
+      {
+       "id": 15003,
+       "job_title": "Assistant Manager(Geochemical)",
+       "job_title_bn": "সহকারী ব্যবস্থাপক(জিওকেমিক্যাল)",
+       "organization_id": 445
+      },
+      {
+       "id": 15000,
+       "job_title": "Assistant Manager(Automobile)",
+       "job_title_bn": "সহকারী ব্যবস্থাপক(অটোমোবাইল)",
+       "organization_id": 445
+      },
+      {
+       "id": 14999,
+       "job_title": "Assistant Manager(Electronics)",
+       "job_title_bn": "সহকারী ব্যবস্থাপক(ইলেক্ট্রনিক্স)",
+       "organization_id": 445
+      },
+      {
+       "id": 15018,
+       "job_title": "Sub Assistant Engineer (Automobile)",
+       "job_title_bn": "উপ-সহকারী প্রকৌশলী (অটোমোবাইল)",
+       "organization_id": 445
+      },
+      {
+       "id": 15006,
+       "job_title": "Assistant Manager(Medical)",
+       "job_title_bn": "সহকারী ব্যবস্থাপক(চিকিৎসা)",
+       "organization_id": 445
+      },
+      {
+       "id": 15020,
+       "job_title": "Sub Assistant Engineer (Power)",
+       "job_title_bn": "উপ-সহকারী প্রকৌশলী (পাওয়ার)",
+       "organization_id": 445
+      },
+      {
+       "id": 15016,
+       "job_title": "Sub Assistant Engineer(Computer/IT)",
+       "job_title_bn": "উপ-সহকারী প্রকৌশলী (কম্পিউটার/আইটি)",
+       "organization_id": 445
+      },
+      {
+       "id": 15010,
+       "job_title": "Assistant Officer(Law)",
+       "job_title_bn": "সহকারী কর্মকর্তা(আইন)",
+       "organization_id": 445
+      },
+      {
+       "id": 14988,
+       "job_title": "Assistant Manager(Administration)",
+       "job_title_bn": "সহকারী ব্যবস্থাপক(প্রশাসন)",
+       "organization_id": 445
+      },
+      {
+       "id": 14995,
+       "job_title": "Assistant Manager(Chemical)",
+       "job_title_bn": "সহকারী ব্যবস্থাপক(কেমিক্যাল)",
+       "organization_id": 445
+      },
+      {
+       "id": 14997,
+       "job_title": "Assistant Manager(IPE)",
+       "job_title_bn": "সহকারী ব্যবস্থাপক(আইপিই)",
+       "organization_id": 445
+      },
+      {
+       "id": 15012,
+       "job_title": "Assistant Officer(Finance)",
+       "job_title_bn": "সহকারী কর্মকর্তা(অর্থ)",
+       "organization_id": 445
+      },
+      {
+       "id": 14990,
+       "job_title": "Assistant Manager(Finance)",
+       "job_title_bn": "সহকারী ব্যবস্থাপক(অর্থ)",
+       "organization_id": 445
+      },
+      {
+       "id": 14998,
+       "job_title": "Assistant Manager(Metallurgy/MME)",
+       "job_title_bn": "সহকারী ব্যবস্থাপক(মেটালার্জি/এমএমই)",
+       "organization_id": 445
+      },
+      {
+       "id": 14989,
+       "job_title": "Assistant Manager(Law)",
+       "job_title_bn": "সহকারী ব্যবস্থাপক(আইন)",
+       "organization_id": 445
+      },
+      {
+       "id": 15001,
+       "job_title": "Assistant Manager(Geology)",
+       "job_title_bn": "সহকারী ব্যবস্থাপক(জিওলজি)",
+       "organization_id": 445
+      },
+      {
+       "id": 15015,
+       "job_title": "Sub Assistant Engineer/Assistant Technical Officer(Only for BGFCL) (Civil)",
+       "job_title_bn": "উপ-সহকারী প্রকৌশলী/সহকারী কারিগরি কর্মকর্তা(শুধুমাত্র বিজিএফসিএল এর জন্য) (সিভিল)",
+       "organization_id": 445
+      },
+      {
+       "id": 14991,
+       "job_title": "Assistant Manager(Mechanical)",
+       "job_title_bn": "সহকারী ব্যবস্থাপক(মেকানিক্যাল)",
+       "organization_id": 445
+      }
+     ]
+    },
+    {
+     "id": 1164,
+     "name": "Office of the Superintendent of Police, Dinajpur(POLICEDINAJ)",
+     "name_bn": "পুলিশ সুপারের কার্যালয়, দিনাজপুর",
+     "short_name": " POLICEDINAJ",
+     "logo": "public/recruiter/organization/logo/gov-job-organization-logo-1792227820804.png",
+     "website": "https://police.dinajpur.gov.bd/",
+     "created_at": "2026-10-17T09:03:40.810Z",
+     "job_created_at": "2026-10-17T09:09:08.584Z",
+     "govt_jobs": [
+      {
+       "id": 14987,
+       "job_title": "Office Support Staff",
+       "job_title_bn": "অফিস সহায়ক",
+       "organization_id": 1164
+      }
+     ]
+    },
+    {
+     "id": 611,
+     "name": "DC Office Patuakhali (DCPATUAKHALI)",
+     "name_bn": null,
+     "short_name": "DCPATUAKHALI",
+     "logo": "recruiter/organization/logo/DGFPMAG_dYLseZi.png",
+     "website": "http://patuakhali.gov.bd/en",
+     "created_at": "2022-08-22T10:30:24.887Z",
+     "job_created_at": "2026-10-17T05:46:29.607Z",
+     "govt_jobs": [
+      {
+       "id": 14984,
+       "job_title": "Library Assistant",
+       "job_title_bn": "লাইব্রেরি সহকারী",
+       "organization_id": 611
+      },
+      {
+       "id": 14983,
+       "job_title": "Office Assistant Cum Computer Typist",
+       "job_title_bn": "অফিস সহকারী কাম কম্পিউটার মুদ্রাক্ষরিক",
+       "organization_id": 611
+      }
+     ]
+    },
+    {
+     "id": 795,
+     "name": "Housing & Building Research Institute(HBRI)",
+     "name_bn": null,
+     "short_name": "HBRI",
+     "logo": "recruiter/organization/logo/DGFPMAG_HL0Wy8K.png",
+     "website": "http://www.hbri.gov.bd/",
+     "created_at": "2023-06-26T03:40:31.161Z",
+     "job_created_at": "2026-10-14T04:27:58.471Z",
+     "govt_jobs": [
+      {
+       "id": 14967,
+       "job_title": "Computer Typist",
+       "job_title_bn": "কম্পিউটার মুদ্রাক্ষরিক",
+       "organization_id": 795
+      },
+      {
+       "id": 14969,
+       "job_title": "Plumber",
+       "job_title_bn": "প্লাম্বার",
+       "organization_id": 795
+      },
+      {
+       "id": 14972,
+       "job_title": "Cleaner",
+       "job_title_bn": "পরিচ্ছন্নতা কর্মী",
+       "organization_id": 795
+      },
+      {
+       "id": 14971,
+       "job_title": "Security Guard",
+       "job_title_bn": "নিরাপত্তা প্রহরী",
+       "organization_id": 795
+      },
+      {
+       "id": 14970,
+       "job_title": "Office Sohayok",
+       "job_title_bn": "অফিস সহায়ক",
+       "organization_id": 795
+      },
+      {
+       "id": 14966,
+       "job_title": "Sub Assistant Engineer",
+       "job_title_bn": "উপ-সহকারী প্রকৌশলী",
+       "organization_id": 795
+      },
+      {
+       "id": 14968,
+       "job_title": "Driver",
+       "job_title_bn": "ড্রাইভার",
+       "organization_id": 795
+      }
+     ]
+    },
+    {
+     "id": 964,
+     "name": "Civil Surgeon Office Rajshahi(CSRAJSHAHI)",
+     "name_bn": "সিভিল সার্জন কার্যালয় রাজবাড়ী",
+     "short_name": "CSRAJSHAH",
+     "logo": "public/recruiter/organization/logo/gov-job-organization-logo-1713692769243.png",
+     "website": "https://cs.rajbari.gov.bd/",
+     "created_at": "2024-04-21T09:46:09.249Z",
+     "job_created_at": "2025-11-23T10:00:40.525Z",
+     "govt_jobs": [
+      {
+       "id": 12949,
+       "job_title": "Steno Typist Cum Computer Operator",
+       "job_title_bn": "সাঁট মুদ্রাক্ষরিক কাম কম্পিউটার অপারেটর",
+       "organization_id": 964
+      }
+     ]
+    }
+   ]
+  }
+ }
+]

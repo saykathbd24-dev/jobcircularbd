@@ -1,0 +1,212 @@
+[
+ {
+  "url": "https://bpsc.gov.bd/ajax/get/office-type/6a55e0197e4bf711c06b81f2/levels",
+  "data": [
+   {
+    "_id": "626a41e552093d4768e64b10",
+    "code": "head_office",
+    "createdAt": "2024-06-24T10:05:45.650Z",
+    "geo_loc": [],
+    "geo_parent": [],
+    "row_status": 1,
+    "title_bn": "প্রধান কার্যালয়",
+    "title_en": "Head Office",
+    "updatedAt": "2024-06-24T10:05:45.650Z",
+    "sort_order": 2,
+    "is_geo_level": 0
+   },
+   {
+    "_id": "68ef33e2b74cbf429ba5968c",
+    "code": "regional_office",
+    "createdAt": "2024-06-24T10:05:45.650Z",
+    "geo_loc": [],
+    "geo_parent": [],
+    "row_status": 1,
+    "sort_order": 3,
+    "title_bn": "আঞ্চলিক অফিস",
+    "title_en": "Regional Office",
+    "updatedAt": "2024-06-24T10:05:45.650Z",
+    "is_geo_level": 1
+   },
+   {
+    "_id": "626a41e552093d4768e64b11",
+    "code": "divisional_level",
+    "createdAt": "2024-06-24T10:05:45.650Z",
+    "geo_loc": [],
+    "geo_parent": [],
+    "parent_id": "626a41e552093d4768e64b10",
+    "row_status": 1,
+    "title_bn": "বিভাগীয় পর্যায়ের অফিস",
+    "title_en": "Divisional Level Office",
+    "updatedAt": "2024-06-24T10:05:45.650Z",
+    "sort_order": 4,
+    "is_geo_level": 1
+   },
+   {
+    "_id": "626a41e552093d4768e64b13",
+    "code": "district_level",
+    "createdAt": "2024-06-24T10:05:45.650Z",
+    "geo_loc": [],
+    "geo_parent": [],
+    "parent_id": "626a41e552093d4768e64b11",
+    "row_status": 1,
+    "title_bn": "জেলা পর্যায়ের অফিস",
+    "title_en": "District Level Office",
+    "updatedAt": "2024-06-24T10:05:45.650Z",
+    "sort_order": 5,
+    "is_geo_level": 1
+   },
+   {
+    "_id": "626a41e552093d4768e64b14",
+    "code": "upazila_level",
+    "createdAt": "2024-06-24T10:05:45.650Z",
+    "geo_loc": [],
+    "geo_parent": [],
+    "parent_id": "626a41e552093d4768e64b13",
+    "row_status": 1,
+    "title_bn": "উপজেলা পর্যায়ের অফিস",
+    "title_en": "Upazila Level Office",
+    "updatedAt": "2024-06-24T10:05:45.650Z",
+    "sort_order": 7,
+    "is_geo_level": 1
+   }
+  ]
+ },
+ {
+  "url": "https://bpsc.gov.bd/ajax/get/office-level/626a41e552093d4768e64b10/offices?office_type_id=6a55e0197e4bf711c06b81f2",
+  "data": [
+   {
+    "_id": "687f4277a79706ab75fb110f",
+    "subdomain": "acc.org.bd",
+    "title_bn": "দুর্নীতি দমন কমিশন",
+    "title_en": "Anti-Corruption Commission",
+    "file_domain": "acc.portal.gov.bd",
+    "domain": "acc.org.bd"
+   },
+   {
+    "_id": "687f4277a79706ab75fb112b",
+    "subdomain": "baec.gov.bd",
+    "title_bn": "বাংলাদেশ পরমাণু শক্তি কমিশন",
+    "title_en": "Bangladesh Atomic Energy Commission",
+    "file_domain": "baec.portal.gov.bd",
+    "domain": "baec.gov.bd"
+   },
+   {
+    "_id": "687f4277a79706ab75fb1136",
+    "subdomain": "ccb.gov.bd",
+    "title_bn": "বাংলাদেশ প্রতিযোগিতা কমিশন",
+    "title_en": "Bangladesh Competition Commission",
+    "file_domain": "ccb.portal.gov.bd",
+    "domain": "ccb.gov.bd"
+   },
+   {
+    "_id": "6a964d301963bd7a700c89a2",
+    "subdomain": "app.ccb.gov.bd",
+    "title_en": "Bangladesh Competition Commission",
+    "title_bn": "বাংলাদেশ প্রতিযোগিতা কমিশন"
+   },
+   {
+    "_id": "687f4277a79706ab75fb1144",
+    "subdomain": "berc.portal.gov.bd",
+    "title_bn": "বাংলাদেশ এনার্জি রেগুলেটরি কমিশন",
+    "title_en": "Bangladesh Energy Regulatory Commission",
+    "file_domain": "berc.portal.gov.bd",
+    "domain": "berc.org.bd"
+   },
+   {
+    "_id": "687f4277a79706ab75fb1171",
+    "subdomain": "jscbd.portal.gov.bd",
+    "title_bn": "বাংলাদেশ জুডিসিয়াল সার্ভিস কমিশন",
+    "title_en": "Bangladesh Judicial Service Commission",
+    "file_domain": "jscbd.portal.gov.bd",
+    "domain": "jscbd.portal.gov.bd"
+   },
+   {
+    "_id": "687f4277a79706ab75fb1183",
+    "subdomain": "bncu.gov.bd",
+    "title_bn": "বাংলাদেশ ইউনেস্কো জাতীয় কমিশন",
+    "title_en": "Bangladesh National Commission for UNESCO",
+    "file_domain": "bncu.portal.gov.bd",
+    "domain": "bncu.gov.bd"
+   },
+   {
+    "_id": "689c2fefb83b3709f8cfd423",
+    "subdomain": "bpsc.gov.bd",
+    "title_bn": "বাংলাদেশ সরকারী কর্ম কমিশন",
+    "title_en": "Bangladesh Public Service Commission",
+    "file_domain": "bpsc.portal.gov.bd",
+    "domain": "bpsc.gov.bd"
+   },
+   {
+    "_id": "6a449038f2ad1a6cb440685d",
+    "subdomain": "sec.gov.bd",
+    "title_en": "Bangladesh Securities and Exchange Commission (BSEC)",
+    "title_bn": "বাংলাদেশ সিকিউরিটিজ এন্ড একচেঞ্জ কমিশন",
+    "domain": "sec.gov.bd"
+   },
+   {
+    "_id": "687f4277a79706ab75fb11bb",
+    "subdomain": "btrc.gov.bd",
+    "title_bn": "বাংলাদেশ টেলিযোগাযোগ রেগুলেটরি কমিশন",
+    "title_en": "Bangladesh Telecommunication Regulatory Commission",
+    "file_domain": "btrc.portal.gov.bd",
+    "domain": "btrc.gov.bd"
+   },
+   {
+    "_id": "687f4277a79706ab75fb11c0",
+    "subdomain": "btc.gov.bd",
+    "title_bn": "বাংলাদেশ ট্রেড এন্ড ট্যারিফ কমিশন",
+    "title_en": "Bangladesh Trade and Tariff Commission",
+    "file_domain": "btc.portal.gov.bd",
+    "domain": "btc.gov.bd"
+   },
+   {
+    "_id": "687f4277a79706ab75fb13ad",
+    "subdomain": "ged.portal.gov.bd",
+    "title_bn": "সাধারণ অর্থনীতি বিভাগ,পরিকল্পনা কমিশন",
+    "title_en": "General Economics Division,Planning Commission",
+    "file_domain": "ged.portal.gov.bd"
+   },
+   {
+    "_id": "687f4277a79706ab75fb127c",
+    "subdomain": "infocom.gov.bd",
+    "title_bn": "তথ্য কমিশন বাংলাদেশ",
+    "title_en": "Information Commission Bangladesh",
+    "file_domain": "infocom.portal.gov.bd",
+    "domain": "infocom.portal.gov.bd"
+   },
+   {
+    "_id": "687f4277a79706ab75fb1296",
+    "subdomain": "jrcb.gov.bd",
+    "title_bn": "যৌথ নদী কমিশন, বাংলাদেশ",
+    "title_en": "Joint Rivers Commission, Bangladesh",
+    "file_domain": "jrcb.portal.gov.bd",
+    "domain": "jrcb.portal.gov.bd"
+   },
+   {
+    "_id": "687f4277a79706ab75fb13b8",
+    "subdomain": "lc.portal.gov.bd",
+    "title_bn": "আইন কমিশন, বাংলাদেশ",
+    "title_en": "Law Commission, Bangladesh",
+    "file_domain": "lc.portal.gov.bd",
+    "domain": "lc.portal.gov.bd"
+   },
+   {
+    "_id": "687f4277a79706ab75fb12ce",
+    "subdomain": "nhrc.portal.gov.bd",
+    "title_bn": "জাতীয় মানবাধিকার কমিশন বাংলাদেশ",
+    "title_en": "National Human Rights Commission Bangladesh",
+    "file_domain": "nhrc.portal.gov.bd",
+    "domain": "nhrc.org.bd"
+   },
+   {
+    "_id": "687f4277a79706ab75fb1369",
+    "subdomain": "nrccb.portal.gov.bd",
+    "title_bn": "জাতীয় নদী রক্ষা কমিশন",
+    "title_en": "National River Conservation Commission.",
+    "file_domain": "nrccb.portal.gov.bd",
+    "domain": "nrcc.gov.bd"
+   }
+  ]
+ }
+]
