@@ -5,17 +5,24 @@ circulars to you through your own Telegram bot.
 
 Scheduled run: sends only circulars that are new since the last run.
 Manual run (MANUAL_RUN=true): also sends every circular published between
-DATE_FROM and DATE_TO (empty = today, Bangladesh time).
-For sites with details=True, each circular page is opened and every
-post is listed with its own link.
+DATE_FROM and DATE_TO (Bangladesh time).
+    DATE_FROM empty -> today          DATE_TO empty -> today
+    so "From = 01-11-2026, To = empty" means 1 November until today.
+
+How each site is read (written from the real pages, not guessed):
+  Teletalk  - the site's own data feed (organisations, posts, publish date)
+  Army      - "News & Updates" (date + title) and "CURRENT CIRCULARS"
+  BPSC      - not read yet: the circular lists are on sub-pages. On manual runs
+              those pages are saved in the debug folder so a reader can be written.
 """
 import html
 import json
+import math
 import os
 import re
+import shutil
 import sys
 import time
-import unicodedata
 import urllib.parse
 from datetime import datetime, timedelta, timezone
 
@@ -26,72 +33,38 @@ from bs4 import BeautifulSoup
 urllib3.disable_warnings()
 
 # ---------------------------------------------------------------
-# Websites to watch. Add or remove sites here.
-#   filter=True   -> only links whose text matches KEYWORDS count
-#   filter=False  -> every new link on the page counts as a new job
-#   browser=True  -> always open in headless Chrome (JavaScript-built page)
-#   details=True  -> open each circular's page and list its posts
-#   type="teletalk" -> alljobs.teletalk.com.bd job cards (see read_teletalk)
+# Websites to watch.
+#   type "teletalk" -> alljobs.teletalk.com.bd (see read_teletalk)
+#   type "army"     -> join.army.mil.bd        (see read_army)
+#   type "collect"  -> only save the pages (manual runs), nothing is sent
 # ---------------------------------------------------------------
 SOURCES = [
-    # alljobs is a React app: no job links, only cards -> special reader.
-    {"name": "Teletalk All Jobs", "url": "https://alljobs.teletalk.com.bd/jobs/government",
-     "type": "teletalk"},
-    {"name": "BPSC", "url": "http://www.bpsc.gov.bd/", "filter": True},
-    {"name": "Bangladesh Army", "url": "https://joinbangladesharmy.army.mil.bd/", "filter": True},
+    {"name": "Teletalk All Jobs", "type": "teletalk",
+     "url": "https://alljobs.teletalk.com.bd/jobs/government"},
+    {"name": "Bangladesh Army", "type": "army",
+     "url": "https://joinbangladesharmy.army.mil.bd/"},
+    {"name": "BPSC", "type": "collect", "pages": {
+        "notices": "https://bpsc.gov.bd/pages/notices",
+        "bcs_circulars": "https://bpsc.gov.bd/pages/psc-exams/6ab4f1d2a5bee3786104b263",
+        "noncadre_circulars": "https://bpsc.gov.bd/pages/static-pages/6ad5e44f3c97e6c4ab675017",
+        "bcs_exams": ("https://bpsc.gov.bd/pages/psc-exams?filters="
+                      "%7B%22exam_type%22%3A%20%22691995ee933eb65569ddc1ba%22%7D"),
+        "noncadre_exams": ("https://bpsc.gov.bd/pages/psc-exams?filters="
+                           "%7B%22exam_type%22%3A%20%22691995ee933eb65569ddc1bb%22%7D"),
+    }},
 ]
-
-KEYWORDS = [
-    "circular", "recruitment", "job", "vacancy", "notice", "advertisement", "application",
-    "নিয়োগ", "বিজ্ঞপ্তি", "বিজ্ঞপ্তি", "শূন্য পদ", "শূন্যপদ", "চাকরি", "আবেদন", "পরীক্ষা", "নোটিশ",
-]
-
-
-def norm(text):
-    # Bangla letters like য় can be typed two different ways; make them match.
-    return unicodedata.normalize("NFC", text).lower()
-
-
-def clean(text):
-    return " ".join(text.split())
-
-
-def tidy(text):
-    """Drop a leading serial number and trailing 'Apply'/'Details' words from row text."""
-    words = text.split()
-    while words and norm(words[-1]) in {"apply", "details", "view", "বিস্তারিত", "আবেদন"}:
-        words.pop()
-    if len(words) > 1 and words[0].rstrip(".)").translate(BN_DIGITS).isdigit():
-        words.pop(0)
-    return " ".join(words)
-
-
-NORM_KEYWORDS = [norm(k) for k in KEYWORDS]
 
 SEEN_FILE = "seen.json"
-SEEN_VERSION = 3  # bump when the way circulars are remembered changes
-DEBUG_DIR = "debug"  # downloaded pages are saved here (uploaded as a GitHub artifact)
-MAX_CIRCULARS = 40   # safety limit per run
+SEEN_VERSION = 4     # bump when the way circulars are remembered changes
+DEBUG_DIR = "debug"  # downloaded pages are saved here
+MAX_MESSAGES = 60    # safety limit per run
+MAX_POSTS = 60       # posts listed in one message
 DAILY_HOUR = 9       # daily Teletalk summary: first run after this hour (Bangladesh time)
-TELETALK_HOME = "https://alljobs.teletalk.com.bd/"
-MAX_POSTS = 60
 
-# Link texts that say nothing about the job; for these we use the whole row's text.
-GENERIC_TEXTS = {norm(t) for t in [
-    "apply", "apply now", "apply online", "details", "view", "view details", "click here",
-    "more", "read more", "download", "see more", "বিস্তারিত", "আবেদন করুন", "ডাউনলোড",
-]}
-# Menu links on circular pages that are not posts.
-NAV_TEXTS = {norm(t) for t in [
-    "home", "login", "log in", "sign in", "logout", "contact", "contact us", "help", "faq",
-    "faqs", "about", "about us", "user manual", "privacy policy", "terms", "terms of use",
-    "teletalk", "hotline", "হোম", "যোগাযোগ",
-]}
-PDF_WORDS = [norm(w) for w in ["circular", "advertisement", "বিজ্ঞপ্তি", "বিজ্ঞপ্তি"]]
-INFO_WORDS = [norm(w) for w in [
-    "deadline", "last date", "start", "published", "publish", "application", "vacancy",
-    "শেষ", "শুরু", "তারিখ",
-]]
+TELETALK_HOME = "https://alljobs.teletalk.com.bd/"
+TELETALK_API = "https://alljobs.teletalk.com.bd/api/v1/govt-jobs/org-list?page={page}&limit=20"
+TELETALK_API_PATH = "/govt-jobs/org-list"
+TELETALK_JOB = "https://alljobs.teletalk.com.bd/jobs/government/{org}?jobId={job}"
 
 BOT_TOKEN = os.environ.get("TELEGRAM_BOT_TOKEN", "")
 CHAT_ID = os.environ.get("TELEGRAM_CHAT_ID", "")
@@ -102,6 +75,14 @@ HEADERS = {
                    "(KHTML, like Gecko) Chrome/124.0 Safari/537.36"),
     "Accept-Language": "en-US,en;q=0.9,bn;q=0.8",
 }
+
+
+def clean(text):
+    return " ".join((text or "").split())
+
+
+def today_bd():
+    return datetime.now(BD_TZ).date()
 
 # ---------------------------------------------------------------- dates
 
@@ -116,39 +97,9 @@ DATE_PATTERNS = [
 ]
 
 
-def date_range():
-    """Dates typed in the Run workflow form. Accepts 10-11-2026, 2026-11-10, 10 Nov 2026..."""
-    today = datetime.now(BD_TZ).date()
-
-    def read(name):
-        s = os.environ.get(name, "").strip()
-        if not s:
-            return None
-        d = find_dates(s)
-        if not d:
-            print(f"WARNING: could not read {name}='{s}', using today instead.")
-            return None
-        return d[0]
-
-    start = read("DATE_FROM") or today
-    end = read("DATE_TO") or (start if os.environ.get("DATE_FROM", "").strip() else today)
-    if start > end:
-        start, end = end, start
-    return start, end
-
-
-def published(item):
-    """The circular's publish date = earliest date in its row (deadline comes later)."""
-    return min(item["dates"]) if item["dates"] else None
-
-
-def fmt_range(start, end):
-    return f"{start:%d %b %Y}" if start == end else f"{start:%d %b %Y} – {end:%d %b %Y}"
-
-
 def find_dates(text):
     """All dates written in the text (English or Bangla digits), in order, no repeats."""
-    text = text.translate(BN_DIGITS)
+    text = (text or "").translate(BN_DIGITS)
     found = []
     for rx, kind in DATE_PATTERNS:
         for m in rx.finditer(text):
@@ -173,6 +124,44 @@ def find_dates(text):
             out.append(d)
     return out
 
+
+def date_range():
+    """Dates typed in the Run workflow form. Accepts 10-11-2026, 2026-11-10, 10 Nov 2026...
+    From empty -> today.  To empty -> today.  (From = 01-11-2026 alone = 1 Nov until today.)"""
+    today = today_bd()
+
+    def read(name):
+        s = os.environ.get(name, "").strip()
+        if not s:
+            return None
+        d = find_dates(s)
+        if not d:
+            print(f"WARNING: could not read {name}='{s}', using today instead.")
+            return None
+        return d[0]
+
+    start = read("DATE_FROM") or today
+    end = read("DATE_TO") or today
+    if start > end:
+        start, end = end, start
+    return start, end
+
+
+def fmt_range(start, end):
+    return f"{start:%d %b %Y}" if start == end else f"{start:%d %b %Y} – {end:%d %b %Y}"
+
+
+def utc_to_bd_date(stamp):
+    """'2026-11-12T09:36:51.623Z' -> the date in Bangladesh (12 Nov 2026)."""
+    try:
+        dt = datetime.fromisoformat(str(stamp).replace("Z", "+00:00"))
+        if dt.tzinfo is None:
+            dt = dt.replace(tzinfo=timezone.utc)
+        return dt.astimezone(BD_TZ).date()
+    except (ValueError, TypeError):
+        d = find_dates(str(stamp)[:10])
+        return d[0] if d else None
+
 # ---------------------------------------------------------------- storage
 
 
@@ -195,14 +184,18 @@ def save_seen(seen):
         json.dump(seen, f, ensure_ascii=False, indent=1)
 
 
-def save_debug(name, page_html):
+def save_debug(name, content, ext="html"):
+    """Keep what the bot downloaded, so problems can be fixed from the real pages."""
     try:
         os.makedirs(DEBUG_DIR, exist_ok=True)
         safe = re.sub(r"[^A-Za-z0-9._-]+", "_", name)[:80]
-        with open(os.path.join(DEBUG_DIR, safe + ".html"), "w", encoding="utf-8") as f:
-            f.write(page_html)
-    except OSError as e:
-        print(f"    (could not save debug page: {e})")
+        with open(os.path.join(DEBUG_DIR, f"{safe}.{ext}"), "w", encoding="utf-8") as f:
+            if ext == "json":
+                json.dump(content, f, ensure_ascii=False, indent=1)
+            else:
+                f.write(content)
+    except (OSError, TypeError, ValueError) as e:
+        print(f"    (could not save debug file {name}: {e})")
 
 # ---------------------------------------------------------------- fetching
 
@@ -234,136 +227,229 @@ def fetch_simple(url):
     raise RuntimeError("could not download page -> " + "; ".join(errors[-4:]))
 
 
-def fetch_browser(url, wait_ms=8000):
+def get_json(url, referer=None):
+    """Download a JSON address. Returns the data, or raises RuntimeError."""
+    headers = dict(HEADERS, Accept="application/json, text/plain, */*")
+    if referer:
+        headers["Referer"] = referer
+    last = "no answer"
+    for verify in (True, False):
+        try:
+            r = requests.get(url, headers=headers, timeout=30, verify=verify)
+        except requests.exceptions.SSLError as e:
+            last = f"SSL {str(e)[:80]}"
+            continue  # try again without certificate check
+        except requests.exceptions.RequestException as e:
+            raise RuntimeError(type(e).__name__)
+        if r.status_code != 200:
+            raise RuntimeError(f"HTTP {r.status_code}")
+        try:
+            return r.json()
+        except ValueError:
+            raise RuntimeError("answer is not JSON")
+    raise RuntimeError(last)
+
+
+def keep_json(store, response):
+    """Remember JSON answers a page receives from its own site (not ads/analytics)."""
+    try:
+        if len(store) >= 25 or "json" not in response.headers.get("content-type", ""):
+            return
+        host = urllib.parse.urlparse(response.url).netloc
+        if any(w in host for w in ("google", "doubleclick", "facebook", "plausible")):
+            return
+        store.append({"url": response.url, "data": response.json()})
+    except Exception:
+        pass
+
+
+def fetch_browser(url, wait_ms=8000, json_store=None):
     """Open the page in a real (headless) Chrome so JavaScript-built pages load."""
     from playwright.sync_api import sync_playwright
     with sync_playwright() as p:
         browser = p.chromium.launch()
         page = browser.new_page(user_agent=HEADERS["User-Agent"], ignore_https_errors=True)
+        if json_store is not None:
+            page.on("response", lambda r: keep_json(json_store, r))
         try:
             page.goto(url, wait_until="domcontentloaded", timeout=90000)
-            page.wait_for_timeout(wait_ms)  # give the list time to load
+            page.wait_for_timeout(wait_ms)  # give the page time to load its data
         except Exception as e:
-            print(f"    browser warning: {e}")
+            print(f"    browser warning: {str(e)[:200]}")
         content, final_url = page.content(), page.url
         browser.close()
     return content, final_url
 
-
-def is_pdf_url(url):
-    return urllib.parse.urlparse(url).path.lower().endswith(".pdf")
-
-# ---------------------------------------------------------------- main list
-
-
-def parse_links(page_html, source, base_url=None):
-    soup = BeautifulSoup(page_html, "html.parser")
-    # Menus, header and footer are never job circulars.
-    for tag in soup(["nav", "header", "footer", "script", "style", "noscript"]):
-        tag.decompose()
-    anchors = soup.find_all("a", href=True)
-    jobs = {}
-    for a in anchors:
-        href = a["href"].strip()
-        if not href or href.startswith(("#", "javascript:", "mailto:", "tel:")):
-            continue
-        text = clean(a.get_text(" ", strip=True))
-        # Job tables: use the whole row (organisation + post + dates), so that
-        # "Apply" buttons and the title link in the same row become one entry.
-        row = a.find_parent("tr")
-        if row is None and (len(text) < 6 or norm(text) in GENERIC_TEXTS):
-            row = a.find_parent("li")
-        if row is not None:
-            text = clean(row.get_text(" ", strip=True))
-        if len(text) < 6:
-            continue
-        if source["filter"] and not any(k in norm(text) for k in NORM_KEYWORDS):
-            continue
-        full = urllib.parse.urljoin(base_url or source["url"], href)
-        # Remember link + text together: Teletalk often reuses the same link
-        # (e.g. an organisation's teletalk subdomain) for every new circular.
-        key = f"{full} | {text[:150]}"
-        jobs[key] = {"url": full, "text": text[:150], "dates": find_dates(text)}
-    title = soup.title.get_text(strip=True)[:60] if soup.title else "(no title)"
-    return jobs, len(anchors), title, soup
-
-
-def show_sample(soup):
-    """Print what the bot sees, to help fix sites that give 0 job links."""
-    texts = []
-    for a in soup.find_all("a", href=True):
-        t = clean(a.get_text(" ", strip=True))
-        if len(t) >= 6:
-            texts.append(t[:60])
-    print("    sample links:", " | ".join(texts[:15]) or "(none)")
-    body = clean(soup.get_text(" ", strip=True))
-    print("    page text:", body[:300] or "(empty)")
-
-
-def extract_links(source):
-    """Try a normal download and (if needed) a real browser; use whichever finds more.
-    One method failing never stops the other."""
-    results, errors = [], []
-
-    try:
-        page_html, status, _, final_url = fetch_simple(source["url"])
-        jobs, total, title, soup = parse_links(page_html, source, final_url)
-        print(f"    simple fetch: HTTP {status}, {len(page_html)} bytes, "
-              f"{total} links on page, {len(jobs)} job links, title: {title}")
-        results.append((len(jobs), jobs, soup, page_html))
-    except Exception as e:
-        print(f"    simple fetch failed: {e}")
-        errors.append(f"simple: {e}")
-        total = 0
-
-    # Page looks empty (or site is marked browser=True) -> it may be built by
-    # JavaScript, so also open it in a real browser.
-    if source.get("browser") or total < 5:
-        try:
-            page_html, final_url = fetch_browser(source["url"])
-            jobs, total_b, title, soup = parse_links(page_html, source, final_url)
-            print(f"    browser fetch: {len(page_html)} bytes, "
-                  f"{total_b} links on page, {len(jobs)} job links, title: {title}")
-            results.append((len(jobs), jobs, soup, page_html))
-        except Exception as e:
-            print(f"    browser fetch failed: {str(e)[:200]}")
-            errors.append(f"browser: {str(e)[:100]}")
-
-    if not results:
-        raise RuntimeError(" | ".join(errors))
-    _, jobs, soup, page_html = max(results, key=lambda r: r[0])
-    save_debug("list_" + source["name"], page_html)
-    if not jobs:
-        show_sample(soup)
-    else:
-        print("    first few:", " || ".join(j["text"][:70] for j in list(jobs.values())[:5]))
-    return jobs
-
 # ---------------------------------------------------------------- alljobs.teletalk
+# The site loads its list from TELETALK_API. One organisation looks like:
+#   {"id": 656, "name": "Department of Agricultural Marketing (DAM)",
+#    "website": "http://www.dam.gov.bd/", "job_created_at": "2026-11-12T09:36:51.623Z",
+#    "govt_jobs": [{"id": 15307, "job_title": "...", "job_title_bn": "..."}, ...]}
+# and the answer also has "count" = number of organisations in total (20 per page).
 
-OPENINGS_RX = re.compile(r"openings?\s*:?\s*(\d+)", re.I)
+
+def valid_org_page(data):
+    return isinstance(data, dict) and isinstance(data.get("govtOrgJobs"), list)
 
 
-def parse_teletalk_cards(page_html):
-    """Each job card = one organisation: name (h4) + 'Openings: N' (h6)."""
-    soup = BeautifulSoup(page_html, "html.parser")
-    cards = []
-    for card in soup.select("div.govt-job-card"):
-        h4 = card.find(["h4", "h3", "h5"])
-        org = clean(h4.get_text(" ", strip=True)) if h4 else ""
-        if not org and card.find("img", alt=True):
-            org = clean(card.find("img", alt=True)["alt"])
-        if not org:
-            continue
-        m = OPENINGS_RX.search(card.get_text(" ", strip=True))
-        if not m:
-            continue  # not a job card
-        cards.append({"org": org, "openings": int(m.group(1))})
-    # The same card can appear in two sections; keep one.
-    out = {}
-    for c in cards:
-        out.setdefault(c["org"], c)
-    return list(out.values())
+def page_count(first):
+    per_page = len(first["govtOrgJobs"]) or 20
+    total = first.get("count") or per_page
+    return min(max(1, math.ceil(total / per_page)), 30)
+
+
+def teletalk_by_requests(list_url):
+    """Read the data feed directly. Returns {page number: data}."""
+    pages = {1: get_json(TELETALK_API.format(page=1), list_url)}
+    if not valid_org_page(pages[1]):
+        raise RuntimeError("unexpected answer from the data feed")
+    for n in range(2, page_count(pages[1]) + 1):
+        data = get_json(TELETALK_API.format(page=n), list_url)
+        if not valid_org_page(data):
+            raise RuntimeError(f"unexpected answer for page {n}")
+        if not data["govtOrgJobs"]:
+            break
+        pages[n] = data
+    return pages
+
+
+def teletalk_by_browser(list_url):
+    """Fallback: open the list in Chrome and take the data the site loads for itself.
+    Further pages: ask for them the same way the site did; if that is refused,
+    click the 'next' button like a visitor. Returns {page number: data}."""
+    from playwright.sync_api import sync_playwright
+    pages, sent_headers = {}, {}
+
+    def on_response(r):
+        if TELETALK_API_PATH not in r.url:
+            return
+        try:
+            data = r.json()
+            if valid_org_page(data):
+                q = urllib.parse.parse_qs(urllib.parse.urlparse(r.url).query)
+                pages[int(q.get("page", ["1"])[0])] = data
+                sent_headers.update(r.request.headers)
+        except Exception:
+            pass
+
+    with sync_playwright() as p:
+        browser = p.chromium.launch()
+        context = browser.new_context(user_agent=HEADERS["User-Agent"], ignore_https_errors=True,
+                                      viewport={"width": 1366, "height": 900})
+        page = context.new_page()
+        page.on("response", on_response)
+
+        def wait_for(n, seconds):
+            for _ in range(seconds * 2):
+                if n in pages:
+                    return True
+                page.wait_for_timeout(500)
+            return n in pages
+
+        try:
+            page.goto(list_url, wait_until="domcontentloaded", timeout=90000)
+        except Exception as e:
+            print(f"    browser warning: {str(e)[:200]}")
+        if not wait_for(1, 45):
+            save_debug("teletalk_list_page", page.content())
+            browser.close()
+            raise RuntimeError("the list page opened but its data never arrived")
+
+        skip = ("host", "content-length", "cookie", "accept-encoding", "connection")
+        replay_headers = {k: v for k, v in sent_headers.items()
+                          if not k.startswith(":") and k.lower() not in skip}
+        can_replay, shown = True, 1  # shown = page number the browser is displaying
+        for n in range(2, page_count(pages[1]) + 1):
+            if can_replay:
+                try:
+                    r = context.request.get(TELETALK_API.format(page=n),
+                                            headers=replay_headers, timeout=40000)
+                    data = r.json() if r.ok else None
+                    if valid_org_page(data):
+                        pages[n] = data
+                except Exception:
+                    pass
+                can_replay = n in pages
+            try:
+                while n not in pages and shown < n:
+                    page.locator("ul.pagination li.next a").first.click(timeout=8000)
+                    shown += 1
+                    wait_for(shown, 25)
+            except Exception as e:
+                print(f"    could not click to page {n}: {str(e)[:120]}")
+            if n not in pages:
+                print(f"    WARNING: page {n} of the list could not be read")
+                break
+        save_debug("teletalk_list_page", page.content())
+        browser.close()
+    return pages
+
+
+def teletalk_items(pages):
+    """Turn the data feed into items: one per post, grouped by organisation."""
+    items, orgs_seen = {}, set()
+    for n in sorted(pages):
+        for org in pages[n]["govtOrgJobs"]:
+            org_id, name = org.get("id"), clean(org.get("name") or org.get("short_name"))
+            if org_id is None or not name or org_id in orgs_seen:
+                continue
+            orgs_seen.add(org_id)
+            jobs = [j for j in (org.get("govt_jobs") or []) if j.get("id") is not None]
+            first = jobs[0]["id"] if jobs else ""
+            links = []
+            if (org.get("website") or "").startswith("http"):
+                links.append(("🌐", "Organisation website", org["website"].strip()))
+            base = {
+                "title": name,
+                "url": TELETALK_JOB.format(org=org_id, job=first),
+                "url_label": "Job page (dates, circular, apply)",
+                "published": utc_to_bd_date(org.get("job_created_at")),
+                "info": [], "links": links,
+                "group": f"teletalk-org-{org_id}", "total_posts": len(jobs),
+            }
+            if not jobs:
+                items[f"teletalk | {org_id} | -"] = dict(base, post=None)
+            for j in jobs:
+                title = clean(j.get("job_title_bn")) or clean(j.get("job_title")) or f"Post {j['id']}"
+                link = TELETALK_JOB.format(org=org_id, job=j["id"])
+                items[f"teletalk | {org_id} | {j['id']}"] = dict(base, post=(title, link))
+    return items, len(orgs_seen)
+
+
+def read_teletalk(src):
+    pages, how = None, "data feed"
+    try:
+        pages = teletalk_by_requests(src["url"])
+    except Exception as e:
+        print(f"    direct read of the data feed failed ({e}); opening the site in Chrome instead")
+    if pages is None:
+        pages, how = teletalk_by_browser(src["url"]), "data feed via Chrome"
+    save_debug("teletalk_api", [{"page": n, "data": pages[n]} for n in sorted(pages)], "json")
+
+    items, orgs = teletalk_items(pages)
+    expected = pages[1].get("count") or orgs
+    note = f"{orgs} organisations, {len(items)} posts"
+    if orgs < expected:
+        note += f" (⚠️ only {orgs} of {expected} organisations could be read)"
+    print(f"    {how}: {note}")
+    if not items:
+        raise RuntimeError("the data feed answered but had no organisations in it")
+    return items, note
+
+
+def save_teletalk_sample(items):
+    """Manual runs: keep one job page (and the data it loads), so that deadline,
+    circular PDF and apply link can be added to the messages later."""
+    first = next((v for v in items.values() if v.get("post")), None)
+    if not first:
+        return
+    try:
+        store = []
+        page_html, _ = fetch_browser(first["post"][1], wait_ms=8000, json_store=store)
+        save_debug("teletalk_job_page", page_html)
+        save_debug("teletalk_job_page_api", store, "json")
+    except Exception as e:
+        print(f"    (could not save a sample job page: {str(e)[:120]})")
 
 
 STAT_ICONS = [("live", "🟢"), ("posted", "🆕"), ("deadline", "⏰"), ("expire", "⌛")]
@@ -417,448 +503,118 @@ def daily_summary(seen, today):
         seen["_daily"] = {"date": today.isoformat(), "counts": stats}
     return ok
 
-
-def save_api_json(store, response):
-    """Keep the site's own data (JSON) so a later version can read it directly."""
-    try:
-        if len(store) >= 15 or "json" not in response.headers.get("content-type", ""):
-            return
-        store.append({"url": response.url, "data": response.json()})
-    except Exception:
-        pass
+# ---------------------------------------------------------------- Bangladesh Army
+# Home page of join.army.mil.bd:
+#   News & Updates:     <div class="user-activity__item"> <span>12/11/2026</span>
+#                       <a href=".../news-view/XXXX">title</a> <span class="badge">@notice</span>
+#   CURRENT CIRCULARS:  one <div class="card"> per course: <h4>98TH BMA LONG COURSE</h4>,
+#                       "Publish Date: 29 July 2026", "Download Circular" link,
+#                       a table row "Starts: 13 November 2026 ... Ends: 21 November 2026 ..."
 
 
-def read_teletalk(source):
-    """Open alljobs in Chrome, load all cards, open every 'See Openings' list."""
-    from playwright.sync_api import sync_playwright
-    api = []
-    posts_by_org = {}
-    with sync_playwright() as p:
-        browser = p.chromium.launch()
-        page = browser.new_page(user_agent=HEADERS["User-Agent"], ignore_https_errors=True,
-                                viewport={"width": 1366, "height": 900})
-        page.on("response", lambda r: save_api_json(api, r))
-        try:
-            page.goto(source["url"], wait_until="domcontentloaded", timeout=90000)
-            page.wait_for_selector("div.govt-job-card", timeout=45000)
-        except Exception as e:
-            print(f"    browser warning: {str(e)[:200]}")
-        # Scroll until no new cards appear (the list may load while scrolling).
-        last = -1
-        for _ in range(30):
-            n = page.locator("div.govt-job-card").count()
-            if n == last:
-                break
-            last = n
-            page.mouse.wheel(0, 20000)
-            page.wait_for_timeout(1500)
-        print(f"    cards on page: {last}")
-
-        # Click every card's "See Openings" drop-down and read the post names.
-        cards = page.locator("div.govt-job-card")
-        for i in range(min(cards.count(), 150)):
-            card = cards.nth(i)
-            try:
-                org = clean(card.locator("h4").first.inner_text(timeout=3000))
-                box = card.locator("input[role='combobox']").first
-                box.click(timeout=5000)
-                page.wait_for_timeout(1200)
-                opts = page.locator("[id^='react-select-'][id*='-option-']")
-                names = [clean(t) for t in opts.all_inner_texts() if clean(t)]
-                if names:
-                    posts_by_org[org] = names
-                page.keyboard.press("Escape")
-                page.wait_for_timeout(200)
-            except Exception as e:
-                if i < 3:
-                    print(f"    could not open list on card {i}: {str(e)[:120]}")
-        page_html = page.content()
-        browser.close()
-
-    save_debug("list_" + source["name"], page_html)
-    try:
-        os.makedirs(DEBUG_DIR, exist_ok=True)
-        with open(os.path.join(DEBUG_DIR, "teletalk_api.json"), "w", encoding="utf-8") as f:
-            json.dump(api, f, ensure_ascii=False, indent=1)
-    except Exception as e:
-        print(f"    (could not save api json: {e})")
-
-    cards = parse_teletalk_cards(page_html)
-    print(f"    {len(cards)} organisations, post lists opened for {len(posts_by_org)}")
-    jobs = {}
-    for c in cards:
-        org, n = c["org"], c["openings"]
-        names = posts_by_org.get(org)
-        if names:
-            # One key per post: a new post from a known organisation is still new.
-            for name in names:
-                key = f"teletalk | {org} | {name}"
-                jobs[key] = {"url": source["url"], "org": org, "post": name,
-                             "text": f"{org} — {name}"[:150], "dates": find_dates(name)}
-        else:
-            key = f"teletalk | {org} | openings:{n}"
-            jobs[key] = {"url": source["url"], "org": org, "post": None, "openings": n,
-                         "text": f"{org} (Openings: {n})", "dates": []}
-    if jobs:
-        print("    first few:", " || ".join(j["text"][:70] for j in list(jobs.values())[:5]))
-    return jobs
+def days_left(day):
+    left = (day - today_bd()).days
+    if left < 0:
+        return " (closed)"
+    return " (today!)" if left == 0 else f" ({left} days left)"
 
 
-def teletalk_really_new(fresh, old, links):
-    """'Openings: N' keys change when posts expire. Only count it as new when the
-    organisation is new or its openings went UP."""
-    best = {}
-    for k in old:
-        parts = k.split(" | ")
-        if len(parts) == 3 and parts[2].startswith("openings:"):
-            n = int(parts[2].split(":")[1] or 0)
-            best[parts[1]] = max(best.get(parts[1], -1), n)
-    out = []
-    for k in fresh:
-        v = links[k]
-        if v.get("post") is None and v["org"] in best and v["openings"] <= best[v["org"]]:
-            continue
-        out.append(k)
-    return out
-
-
-def group_teletalk(items):
-    """Several new posts of one organisation -> one Telegram message."""
-    groups = {}
-    for v in items:
-        g = groups.setdefault(v["org"], {"url": v["url"], "org": v["org"], "text": v["org"],
-                                         "dates": [], "apply": [], "site": None, "pdfs": [],
-                                         "job": None})
-        g["site"] = g["site"] or v.get("site")
-        g["pdfs"] = g["pdfs"] or v.get("pdfs", [])
-        g["job"] = g["job"] or v.get("job")
-        if v.get("post"):
-            g["apply"].append((v["post"], v.get("link"), v.get("vacancies")))
-        else:
-            g["text"] = v["text"]
-    for g in groups.values():
-        job = g["job"]
-        if job:
-            g["dates"] = [d for d in (job.get("start_date"), job.get("end_date")) if d]
-            if job.get("details_url"):
-                g["url"] = job["details_url"]
-    return list(groups.values())
-
-
-def org_site(org):
-    """'Department of Agricultural Marketing (DAM)' -> http://dam.teletalk.com.bd/
-    Only used if the site really opens."""
-    codes = re.findall(r"\(\s*([A-Za-z0-9]+)\s*\)", org)
-    if not codes:
-        return None
-    url = f"http://{codes[-1].lower()}.teletalk.com.bd/"
-    try:
-        r = requests.get(url, headers=HEADERS, timeout=20, verify=False)
-        if r.status_code < 400 and ".teletalk.com.bd" in r.url:
-            return r.url
-    except requests.exceptions.RequestException:
-        pass
-    return None
-
-
-NOT_CIRCULAR = [norm(w) for w in ["admit", "result", "seat plan", "প্রবেশপত্র", "ফলাফল"]]
-
-
-def circular_pdfs(page_urls):
-    """Look at the organisation's Teletalk site for the circular PDF (fallback only).
-    Menus are kept here: Teletalk sites often put 'Job Circular' in the top menu."""
-    found = []
-    for u in [x for i, x in enumerate(page_urls) if x and x not in page_urls[:i]][:4]:
-        if is_pdf_url(u):
-            found.append(u)
-            continue
-        try:
-            page_html, _, ctype, final = fetch_simple(u)
-        except Exception as e:
-            print(f"    could not open {u} for PDF: {str(e)[:100]}")
-            continue
-        if "pdf" in ctype.lower():
-            found.append(final)
-            continue
-        soup = BeautifulSoup(page_html, "html.parser")
-        for a in soup.find_all("a", href=True):
-            href = a["href"].strip()
-            if not href or href.startswith(("#", "javascript:", "mailto:", "tel:")):
-                continue
-            full = urllib.parse.urljoin(final, href)
-            low = norm(clean(a.get_text(" ", strip=True)) + " " + full)
-            if any(w in low for w in NOT_CIRCULAR):
-                continue
-            if is_pdf_url(full) or any(w in low for w in PDF_WORDS):
-                found.append(full)
-    out = []
-    for u in found:
-        if u not in out:
-            out.append(u)
-    return out[:3]
-
-
-def unwrap_viewer(url):
-    """Google/Office viewer links hide the real file in ?url=... ; return the real file."""
-    q = urllib.parse.parse_qs(urllib.parse.urlparse(url).query)
-    for key in ("url", "file", "src"):
-        if q.get(key) and q[key][0].startswith("http"):
-            return q[key][0]
-    return url
-
-
-def parse_teletalk_job(page_html, page_url):
-    """A job page on alljobs (/jobs/government/<org>?jobId=<id>): dates, views,
-    advertisement number, apply link, circular, and every post of the organisation."""
+def parse_army(page_html, page_url):
     soup = BeautifulSoup(page_html, "html.parser")
-    job = {"details_url": page_url}
+    items = {}
 
-    for box in soup.select("div.application-action"):
-        label, value = box.find("h6"), box.find("span")
-        if not label or not value:
+    head = soup.find(lambda t: t.name in ("h2", "h3", "h4", "h5", "h6")
+                     and "current circular" in t.get_text(" ", strip=True).lower())
+    card = head.find_parent("div", class_="card") if head else None
+    body = card.find("div", class_="card-body", recursive=False) if card else None
+    for block in (body.find_all("div", class_="card", recursive=False) if body else []):
+        name = block.find(["h4", "h3", "h5"])
+        title = clean(name.get_text(" ", strip=True)) if name else ""
+        if not title:
             continue
-        label, value = norm(clean(label.get_text(" "))), clean(value.get_text(" "))
-        if "start" in label:
-            job["start"] = value
-        elif "end" in label or "deadline" in label:
-            job["end"] = value
-        elif "view" in label:
-            job["viewed"] = value
-    for key in ("start", "end"):
-        d = find_dates(job.get(key, ""))
-        job[key + "_date"] = d[0] if d else None
-
-    m = re.search(r"ADV\s*NO\s*:?\s*([^\n]+)", soup.get_text("\n"), re.I)
-    if m and clean(m.group(1)):
-        job["adv"] = clean(m.group(1))
-    badge = soup.select_one(".card-badge")
-    if badge:
-        job["status"] = clean(badge.get_text(" ")).replace("Status:", "").strip()
-
-    for a in soup.find_all("a", href=True):
-        t = norm(clean(a.get_text(" ")))
-        full = urllib.parse.urljoin(page_url, a["href"])
-        if "apply" in t and "alljobs.teletalk.com.bd/login" not in full:
-            job["apply"] = full
-            break
-
-    frame = soup.select_one(".iframe-wrapper iframe[src], iframe[src*='advertisement']")
-    if frame and frame["src"].startswith(("http", "/")):
-        job["circular"] = unwrap_viewer(urllib.parse.urljoin(page_url, frame["src"]))
-
-    # All posts of this organisation, each with its own page.
-    base = urllib.parse.urlparse(page_url)
-    job["posts"] = {}
-    for card in soup.select("div.job-card-container"):
-        name = card.find("h3")
-        idm = re.search(r"GJOB(\d+)", card.get_text(" "))
-        vac = re.search(r"(\d+)\s*\(vacanc", card.get_text(" ").translate(BN_DIGITS))
-        if not name or not idm:
-            continue
-        link = urllib.parse.urlunparse(base._replace(query=f"jobId={idm.group(1)}", fragment=""))
-        job["posts"][clean(name.get_text(" "))] = {
-            "url": link, "vacancies": int(vac.group(1)) if vac else None}
-    return job
-
-
-def all_hrefs(page):
-    try:
-        return set(page.locator("a[href]").evaluate_all("els => els.map(e => e.href)"))
-    except Exception:
-        return set()
-
-
-def open_post(context, list_url, org, post):
-    """Open the list, pick this post in its organisation's 'See Openings' list and
-    follow it. Returns (url, page_html) of where it went, or (None, None)."""
-    page = context.new_page()
-    try:
-        page.goto(list_url, wait_until="domcontentloaded", timeout=90000)
-        page.wait_for_selector("div.govt-job-card", timeout=45000)
-        card = page.locator("div.govt-job-card").filter(
-            has=page.locator("h4", has_text=org)).first
-        for _ in range(30):
-            if card.count():
+        text = clean(block.get_text(" ", strip=True))
+        m = re.search(r"Publish(?:ed)?\s*Date\s*:?\s*(.{0,40})", text, re.I)
+        pub = find_dates(m.group(1)) if m else []
+        info = []
+        m = re.search(r"Starts?\s*:\s*(.{0,45}?)\s*Ends?\s*:\s*(.{0,45})", text, re.I)
+        if m:
+            for label, icon, part in (("start", "🟢", m.group(1)), ("end", "🔴", m.group(2))):
+                d = find_dates(part)
+                if d:
+                    info.append(f"{icon} Application {label}: {d[0]:%d %b %Y}"
+                                + (days_left(d[0]) if label == "end" else ""))
+        links = []
+        for a in block.find_all("a", href=True):
+            if "circular" in a.get_text(" ", strip=True).lower() or a.has_attr("download"):
+                links.append(("📄", "Circular", urllib.parse.urljoin(page_url, a["href"])))
                 break
-            page.mouse.wheel(0, 20000)
-            page.wait_for_timeout(1200)
-        if not card.count():
-            return None, None
-        card.locator("input[role='combobox']").first.click(timeout=5000)
-        page.wait_for_timeout(1000)
-        opts = page.locator("[id^='react-select-'][id*='-option-']")
-        texts = [clean(t) for t in opts.all_inner_texts()]
-        if post not in texts:
-            return None, None
-        tabs_before, url_before, links_before = len(context.pages), page.url, all_hrefs(page)
-        opts.nth(texts.index(post)).click(timeout=5000)
-        page.wait_for_timeout(3000)
-        target = page
-        if len(context.pages) > tabs_before:  # opened in a new tab
-            target = context.pages[-1]
-        elif page.url == url_before:  # nothing opened; maybe a new link appeared
-            new_links = [h for h in all_hrefs(page) - links_before if h.startswith("http")]
-            return (new_links[0] if new_links else None), None
-        try:  # wait for the job page to fill in
-            target.wait_for_selector("div.application-action", timeout=20000)
-            target.wait_for_timeout(1500)
-        except Exception:
-            pass
-        url, content = target.url, target.content()
-        if target is not page:
-            target.close()
-        return (url if url and url != "about:blank" else None), content
-    finally:
-        page.close()
+        apply_url = page_url.split("#")[0] + ("#" + name["id"] if name.get("id") else "")
+        key = f"army-circular | {title} | {pub[0].isoformat() if pub else ''}"
+        items[key] = {"title": title + " — circular", "url": apply_url,
+                      "url_label": "Apply / details", "published": pub[0] if pub else None,
+                      "info": info, "links": links, "group": None, "post": None}
+
+    for row in soup.select("div.user-activity__item"):
+        a = row.find("a", href=True)
+        title = clean(a.get_text(" ", strip=True)) if a else ""
+        if not title:
+            continue
+        stamp = row.find("span")
+        dates = find_dates(stamp.get_text(" ", strip=True)) if stamp else []
+        if not dates:
+            dates = find_dates(row.get_text(" ", strip=True))
+        badge = row.find(class_="badge")
+        tag = clean(badge.get_text(" ", strip=True)).lstrip("@") if badge else ""
+        url = urllib.parse.urljoin(page_url, a["href"].strip())
+        items[f"army-news | {url}"] = {
+            "title": title, "url": url, "url_label": "Open notice",
+            "published": dates[0] if dates else None,
+            "info": [f"🏷 {tag}"] if tag else [], "links": [], "group": None, "post": None}
+    return items
 
 
-def add_teletalk_links(src, items):
-    """For every post that will be sent: its job page, dates, views, apply link, circular."""
-    items = list(items)[:MAX_CIRCULARS]
+def read_army(src):
+    page_html, status, _, final_url = fetch_simple(src["url"])
+    items = parse_army(page_html, final_url)
+    if not items:  # maybe the page needs JavaScript
+        try:
+            page_html, final_url = fetch_browser(src["url"])
+            items = parse_army(page_html, final_url)
+        except Exception as e:
+            print(f"    browser fetch failed: {str(e)[:150]}")
+    save_debug("list_Bangladesh_Army", page_html)
     if not items:
-        return
-    jobs = {}  # org -> parsed job page
-    try:
-        from playwright.sync_api import sync_playwright
-        with sync_playwright() as p:
-            browser = p.chromium.launch()
-            context = browser.new_context(user_agent=HEADERS["User-Agent"],
-                                          ignore_https_errors=True,
-                                          viewport={"width": 1366, "height": 900})
-            for v in items:
-                if not v.get("post"):
-                    continue
-                known = jobs.get(v["org"])
-                if known and v["post"] in known["posts"]:
-                    continue  # already listed on a job page of this organisation
-                try:
-                    url, content = open_post(context, src["url"], v["org"], v["post"])
-                except Exception as e:
-                    print(f"    could not open {v['text'][:50]}: {str(e)[:120]}")
-                    continue
-                if content and "application-action" in content:
-                    job = parse_teletalk_job(content, url)
-                    save_debug(f"job_{v['org'][:40]}", content)
-                    if known:
-                        known["posts"].update(job["posts"])
-                    else:
-                        jobs[v["org"]] = job
-                    v["link"] = url
-                elif url:
-                    v["link"] = url
-            browser.close()
-    except Exception as e:
-        print(f"    browser failed while opening job pages: {str(e)[:150]}")
+        raise RuntimeError(f"HTTP {status}: news list and circulars not found (page layout changed?)")
+    news = sum(1 for k in items if k.startswith("army-news"))
+    note = f"{news} news, {len(items) - news} current circular(s)"
+    print(f"    {note}")
+    return items, note
 
-    sites, pdfs = {}, {}
-    for v in items:
-        org, job = v["org"], jobs.get(v["org"])
-        if job:
-            v["job"] = job
-            info = job["posts"].get(v.get("post") or "", {})
-            v["link"] = v.get("link") or info.get("url")
-            v["vacancies"] = info.get("vacancies")
-            v["site"] = job.get("apply")
-            v["pdfs"] = [job["circular"]] if job.get("circular") else []
-        if not v.get("site") or not v.get("pdfs"):  # fallback: organisation's own site
-            if org not in sites:
-                sites[org] = org_site(org)
-                pdfs[org] = circular_pdfs([sites[org]])
-            v["site"] = v.get("site") or sites[org]
-            v["pdfs"] = v.get("pdfs") or pdfs[org]
-        print(f"    {v['text'][:50]} -> page: {v.get('link') or '-'}, apply: {v['site'] or '-'}, "
-              f"circular: {(v['pdfs'] or ['-'])[0]}")
+# ---------------------------------------------------------------- collect only
 
 
-# ---------------------------------------------------------------- circular page
-
-
-def parse_details(page_html, page_url):
-    soup = BeautifulSoup(page_html, "html.parser")
-    for tag in soup(["script", "style", "nav", "header", "footer", "noscript"]):
-        tag.decompose()
-
-    pdfs, posts, used_urls, used_rows = [], [], {page_url.rstrip("/")}, set()
-    for a in soup.find_all("a", href=True):
-        href = a["href"].strip()
-        if not href or href.startswith(("#", "javascript:", "mailto:", "tel:")):
-            continue
-        full = urllib.parse.urljoin(page_url, href)
-        if full.rstrip("/") in used_urls:
-            continue
-        text = clean(a.get_text(" ", strip=True))
-        low = norm(text)
-        if low in NAV_TEXTS:
-            continue
-
-        if is_pdf_url(full) or any(w in low for w in PDF_WORDS):
-            pdfs.append((text[:60] or "Circular (PDF)", full))
-            used_urls.add(full.rstrip("/"))
-            continue
-
-        row = a.find_parent("tr")
-        if row is not None:
-            if id(row) in used_rows:  # one entry per table row
-                continue
-            row_text = clean(row.get_text(" ", strip=True))
-            if len(text) < 3 or low in GENERIC_TEXTS or len(row_text) < 120:
-                text = row_text
-        elif len(text) < 3 or low in GENERIC_TEXTS:
-            continue
-        elif not re.search(r"post|apply|job|position|vacan", full, re.I):
-            continue  # loose link outside any table: probably not a post
-        if len(text) < 3:
-            continue
-        text = tidy(text)
-        posts.append((text[:100], full))
-        used_urls.add(full.rstrip("/"))
-        if row is not None:
-            used_rows.add(id(row))
-
-    # Some application sites list posts only in a drop-down, without own links.
-    post_names = []
-    for sel in soup.find_all("select"):
-        label = norm((sel.get("name") or "") + " " + (sel.get("id") or ""))
-        if "post" in label or "pos" in label:
-            for opt in sel.find_all("option"):
-                t = clean(opt.get_text(" ", strip=True))
-                if t and "select" not in t.lower() and not opt.get("value", "x") in ("", "0"):
-                    post_names.append(t[:100])
-
-    # Lines like "Application Deadline: 30-11-2026"
-    info = []
-    for line in soup.get_text("\n", strip=True).split("\n"):
-        line = clean(line)
-        if (len(line) < 140 and find_dates(line)
-                and any(w in norm(line) for w in INFO_WORDS) and line not in info):
-            info.append(line)
-        if len(info) >= 4:
-            break
-
-    return {"pdfs": pdfs[:3], "posts": posts[:MAX_POSTS], "post_names": post_names[:MAX_POSTS],
-            "info": info, "total_posts": len(posts) or len(post_names)}
-
-
-def get_details(url, label):
-    if is_pdf_url(url):
-        return {"pdfs": [("Circular (PDF)", url)], "posts": [], "post_names": [],
-                "info": [], "total_posts": 0}
-    page_html, status, ctype, _ = fetch_simple(url)
-    if "html" not in ctype.lower() and "pdf" in ctype.lower():
-        return {"pdfs": [("Circular (PDF)", url)], "posts": [], "post_names": [],
-                "info": [], "total_posts": 0}
-    d = parse_details(page_html, url)
-    if status >= 400 or (not d["posts"] and not d["post_names"]):
+def collect_pages(src):
+    """Save pages exactly as the site gives them (plain download, Chrome, and the
+    data Chrome receives). Nothing is sent from these pages yet."""
+    saved = 0
+    for label, url in src["pages"].items():
+        name = f"{src['name']}_{label}"
         try:
-            b_html, _ = fetch_browser(url, wait_ms=5000)  # maybe a JavaScript page
-            b = parse_details(b_html, url)
-            if b["total_posts"] >= d["total_posts"]:
-                page_html, d = b_html, b
+            page_html, status, _, _ = fetch_simple(url)
+            save_debug(name + "_plain", page_html)
+            print(f"    {label}: plain download HTTP {status}, {len(page_html)} bytes")
+            saved += 1
         except Exception as e:
-            print(f"    browser failed on circular page: {str(e)[:150]}")
-    save_debug("circular_" + label, page_html)
-    print(f"    details: {d['total_posts']} posts, {len(d['pdfs'])} pdf, {len(d['info'])} date lines")
-    return d
+            print(f"    {label}: plain download failed: {str(e)[:120]}")
+        try:
+            store = []
+            page_html, _ = fetch_browser(url, wait_ms=7000, json_store=store)
+            save_debug(name + "_chrome", page_html)
+            save_debug(name + "_api", store, "json")
+            print(f"    {label}: Chrome {len(page_html)} bytes, {len(store)} data answers")
+        except Exception as e:
+            print(f"    {label}: Chrome failed: {str(e)[:120]}")
+    return saved
 
 # ---------------------------------------------------------------- telegram
 
@@ -874,7 +630,16 @@ def send_telegram(message):
         "parse_mode": "HTML",
         "disable_web_page_preview": True,
     }
-    r = requests.post(url, data=data, timeout=40)
+    for attempt in range(4):
+        r = requests.post(url, data=data, timeout=40)
+        if r.status_code != 429:
+            break
+        try:  # Telegram says how long to wait when messages come too fast
+            wait = int(r.json().get("parameters", {}).get("retry_after", 5))
+        except (ValueError, AttributeError):
+            wait = 5
+        print(f"Telegram: too fast, waiting {wait}s")
+        time.sleep(min(wait, 60) + 1)
     print("Telegram:", r.status_code, "" if r.ok else r.text)
     time.sleep(1)  # stay well under Telegram's rate limit
     return r.ok
@@ -893,86 +658,48 @@ def send_lines(lines):
     return ok
 
 
-def nice_time(raw, day):
-    """'2026-11-16 10:00 AM' -> '16 Nov 2026, 10:00 AM'"""
-    if not day:
-        return raw
-    t = re.search(r"\d{1,2}:\d{2}\s*[AaPp][Mm]", raw or "")
-    return f"{day:%d %b %Y}" + (f", {t.group(0).upper()}" if t else "")
+def group_items(items):
+    """Several posts of one organisation -> one message."""
+    out, groups = [], {}
+    for it in items:
+        g = it.get("group")
+        if g is None:
+            out.append(dict(it, posts=[]))
+            continue
+        if g not in groups:
+            groups[g] = dict(it, posts=[])
+            out.append(groups[g])
+        if it.get("post"):
+            groups[g]["posts"].append(it["post"])
+    return out
 
 
-def build_teletalk_message(source_name, item):
+def build_message(source_name, item):
     e = html.escape
-    tag = "🆕 New circular" if not MANUAL_RUN else "📢 Circular"
-    lines = [f"🇧🇩 <b>{tag}</b>", "", f"📌 <b>{e(item['text'])}</b>", f"🏢 {e(source_name)}"]
-    job = item.get("job") or {}
-    if job.get("adv"):
-        lines.append(f"🧾 ADV NO: {e(job['adv'])}")
-    if job.get("start"):
-        lines.append(f"🟢 Application start: {e(nice_time(job['start'], job.get('start_date')))}")
-    if job.get("end"):
-        line = f"🔴 Application end: {e(nice_time(job['end'], job.get('end_date')))}"
-        if job.get("end_date"):
-            left = (job["end_date"] - datetime.now(BD_TZ).date()).days
-            if left >= 0:
-                line += f" ({left} days left)" if left else " (today!)"
-        lines.append(line)
-    if job.get("viewed"):
-        lines.append(f"👁 Viewed by: {e(job['viewed'])}")
-
+    tag = "📢 Circular" if MANUAL_RUN else "🆕 New circular"
+    lines = [f"🇧🇩 <b>{tag}</b>", "", f"📌 <b>{e(item['title'])}</b>", f"🏢 {e(source_name)}"]
+    if item.get("published"):
+        lines.append(f"📅 Published: {item['published']:%d %b %Y}")
+    lines += [e(t) for t in item.get("info", [])]
     lines.append("")
-    pdf_list = item.get("pdfs") or []
-    for n, link in enumerate(pdf_list, 1):
-        label = "Circular PDF" + (f" {n}" if len(pdf_list) > 1 else "")
-        lines.append(f'📄 <a href="{e(link, quote=True)}">{label}</a>')
-    if item.get("site"):
-        lines.append(f'✅ <a href="{e(item["site"], quote=True)}">Apply online</a>')
-    page_label = "Job page" if job else "Teletalk job list"
-    lines.append(f'🔗 <a href="{e(item["url"], quote=True)}">{page_label}</a>')
+    lines.append(f'🔗 <a href="{e(item["url"], quote=True)}">{e(item.get("url_label") or "Open")}</a>')
+    for icon, label, link in item.get("links", []):
+        lines.append(f'{icon} <a href="{e(link, quote=True)}">{e(label)}</a>')
 
-    posts = item.get("apply") or []
+    posts = item.get("posts") or []
     if posts:
-        lines += ["", f"<b>Posts ({len(posts)}):</b>"]
-        for i, (name, link, vac) in enumerate(posts[:MAX_POSTS], 1):
-            line = f"{i}. {e(name)}"
-            if vac:
-                line += f" — {vac} {'vacancy' if vac == 1 else 'vacancies'}"
-            if link:
-                line += f' — <a href="{e(link, quote=True)}">Details</a>'
-            lines.append(line)
+        total = item.get("total_posts") or len(posts)
+        head = f"Posts ({len(posts)})" if len(posts) >= total else f"New posts ({len(posts)} of {total})"
+        lines += ["", f"<b>{head}:</b>"]
+        for i, (name, link) in enumerate(posts[:MAX_POSTS], 1):
+            lines.append(f'{i}. <a href="{e(link, quote=True)}">{e(name)}</a>')
         if len(posts) > MAX_POSTS:
             lines.append(f"…and {len(posts) - MAX_POSTS} more on the job page.")
     return lines
 
-
-def build_message(source_name, item, details):
-    e = html.escape
-    tag = "🆕 New circular" if not MANUAL_RUN else "📢 Circular"
-    lines = [f"🇧🇩 <b>{tag}</b>", "", f"📌 <b>{e(tidy(item['text']))}</b>", f"🏢 {e(source_name)}"]
-    if item["dates"]:
-        lines.append("📅 " + ", ".join(d.strftime("%d %b %Y") for d in item["dates"]))
-    lines.append(f'🔗 <a href="{e(item["url"], quote=True)}">Open circular page</a>')
-
-    if details:
-        for line in details["info"]:
-            lines.append(f"🗓 {e(line)}")
-        for text, link in details["pdfs"]:
-            lines.append(f'📄 <a href="{e(link, quote=True)}">{e(text)}</a>')
-        if details["posts"]:
-            lines += ["", f"<b>Posts ({details['total_posts']}):</b>"]
-            for i, (text, link) in enumerate(details["posts"], 1):
-                lines.append(f'{i}. <a href="{e(link, quote=True)}">{e(text)}</a>')
-        elif details["post_names"]:
-            lines += ["", f"<b>Posts ({details['total_posts']})</b> — apply from the circular page:"]
-            for i, text in enumerate(details["post_names"], 1):
-                lines.append(f"{i}. {e(text)}")
-        else:
-            lines += ["", "ℹ️ Post list not found automatically — open the circular page."]
-        if details["total_posts"] > MAX_POSTS:
-            lines.append(f"…and {details['total_posts'] - MAX_POSTS} more on the circular page.")
-    return lines
-
 # ---------------------------------------------------------------- main
+
+READERS = {"teletalk": read_teletalk, "army": read_army}
 
 
 def main():
@@ -981,6 +708,7 @@ def main():
               "Add them in Settings -> Secrets and variables -> Actions (exact names).")
         sys.exit(1)
 
+    shutil.rmtree(DEBUG_DIR, ignore_errors=True)  # only this run's pages
     seen = load_seen()
     start, end = date_range()
     period = fmt_range(start, end)
@@ -994,79 +722,75 @@ def main():
     to_send = []  # (source, item)
     report = []   # one status line per site, sent to Telegram on manual runs
     for src in SOURCES:
-        print(f"[{src['name']}] {src['url']}")
-        try:
-            links = read_teletalk(src) if src.get("type") == "teletalk" else extract_links(src)
-        except Exception as e:
-            print(f"[{src['name']}] failed: {e}")
-            report.append(f"❌ {src['name']}: could not open site ({str(e)[:120]})")
+        name = src["name"]
+        if src["type"] == "collect":
+            if MANUAL_RUN:
+                print(f"[{name}] saving pages (not read yet)")
+                n = collect_pages(src)
+                report.append(f"🛠 {name}: not read yet — {n} of {len(src['pages'])} "
+                              "pages saved so a reader can be written")
             continue
 
-        old_list = seen.get(src["name"], [])
+        print(f"[{name}] {src['url']}")
+        try:
+            items, note = READERS[src["type"]](src)
+        except Exception as e:
+            print(f"[{name}] failed: {e}")
+            report.append(f"❌ {name}: could not read site ({str(e)[:150]})")
+            continue
+
+        old_list = seen.get(name, [])
         old = set(old_list)
         first_run = not old  # nothing saved yet for this site
-        fresh = [k for k in links if k not in old]
-        alert = fresh
-        if src.get("type") == "teletalk":
-            alert = teletalk_really_new(fresh, old, links)
-        print(f"[{src['name']}] {len(links)} job links, {len(fresh)} new"
-              + (" (first run: saving only, no alert)" if first_run and fresh else ""))
+        fresh = [k for k in items if k not in old]
+        wanted = set() if first_run else set(fresh)
+        in_range = set()
+        if MANUAL_RUN:
+            in_range = {k for k, v in items.items()
+                        if v["published"] and start <= v["published"] <= end}
+            wanted |= in_range
+        chosen = group_items([items[k] for k in items if k in wanted])
+        to_send += [(src, g) for g in chosen]
 
-        chosen = {}
-        if not first_run:
-            for k in alert:
-                chosen[k] = links[k]
+        new_n = len(group_items([items[k] for k in fresh]))
         if MANUAL_RUN:
-            todays = {k: v for k, v in links.items()
-                      if published(v) and start <= published(v) <= end}
-            with_dates = sum(1 for v in links.values() if v["dates"])
-            print(f"[{src['name']}] {len(todays)} published {period} "
-                  f"({with_dates} of {len(links)} links show a date)")
-            if links and not with_dates:
-                print(f"[{src['name']}] WARNING: no dates found on this page, "
-                      "so circulars can't be picked by date. Send the debug artifact.")
-            chosen.update(todays)
-        status = f"{len(links)} links, {len(fresh)} new"
-        if MANUAL_RUN:
-            status += f", {len(todays)} in date range"
-            if links and not with_dates:
-                status += " ⚠️ no dates on page"
-        if first_run and fresh:
-            status += " (first run: saved only)"
-        report.append(("⚠️ " if not links else "✅ ") + f"{src['name']}: {status}")
-        if src.get("type") == "teletalk":
-            add_teletalk_links(src, chosen.values())
-            to_send += [(src, g) for g in group_teletalk(chosen.values())]
+            n_range = len(group_items([items[k] for k in items if k in in_range]))
+            status = f"{note} — {n_range} published {period}"
+            if len(chosen) > n_range:
+                status += f", plus {len(chosen) - n_range} new since the last run"
+            undated = sum(1 for v in items.values() if not v["published"])
+            if undated:
+                status += f"; ⚠️ {undated} without a date"
         else:
-            to_send += [(src, v) for v in chosen.values()]
+            status = f"{note}; {new_n} new"
+            if first_run and fresh:
+                status += " (first run: saved, not sent)"
+        print(f"[{name}] {status}")
+        report.append(f"✅ {name}: {status}")
 
+        if MANUAL_RUN and src["type"] == "teletalk":
+            save_teletalk_sample(items)
         # Keep the list from growing forever (oldest entries are dropped first).
-        seen[src["name"]] = (old_list + fresh)[-2000:]
+        seen[name] = (old_list + fresh)[-5000:]
 
-    if len(to_send) > MAX_CIRCULARS:
-        print(f"WARNING: {len(to_send)} circulars; sending only the first {MAX_CIRCULARS}.")
-        to_send = to_send[:MAX_CIRCULARS]
+    found = len(to_send)
+    if found > MAX_MESSAGES:
+        print(f"WARNING: {found} circulars; sending only the first {MAX_MESSAGES}.")
+        to_send = to_send[:MAX_MESSAGES]
 
     all_sent = True
     for n, (src, item) in enumerate(to_send, 1):
-        print(f"[{n}/{len(to_send)}] {item['text'][:70]}")
-        if "apply" in item:  # Teletalk: everything is already collected
-            all_sent = send_lines(build_teletalk_message(src["name"], item)) and all_sent
-            continue
-        details = None
-        if src.get("details"):
-            try:
-                details = get_details(item["url"], f"{n}_{item['text'][:30]}")
-            except Exception as e:
-                print(f"    details failed: {e}")
-        all_sent = send_lines(build_message(src["name"], item, details)) and all_sent
+        print(f"[{n}/{len(to_send)}] {item['title'][:70]}")
+        all_sent = send_lines(build_message(src["name"], item)) and all_sent
 
-    all_sent = daily_summary(seen, datetime.now(BD_TZ).date()) and all_sent
+    all_sent = daily_summary(seen, today_bd()) and all_sent
 
     if MANUAL_RUN:
         # Manual run: always send a short report, so you can see the bot works.
-        lines = [f"🤖 <b>Manual check finished</b> ({period})",
-                 f"Circulars sent: {len(to_send)}", ""]
+        sent = f"Circulars sent: {len(to_send)}"
+        if found > len(to_send):
+            sent += f" of {found} found (limit {MAX_MESSAGES} per run — use a shorter date range)"
+        lines = [f"🤖 <b>Manual check finished</b> ({period})", sent, ""]
         lines += [html.escape(r) for r in report]
         all_sent = send_lines(lines) and all_sent
 
