@@ -332,7 +332,13 @@
   "teletalk | 795 | 14970",
   "teletalk | 795 | 14966",
   "teletalk | 795 | 14968",
-  "teletalk | 964 | 12949"
+  "teletalk | 964 | 12949",
+  "teletalk | 1130 | 15318",
+  "teletalk | 1130 | 15319",
+  "teletalk | 1130 | 15317",
+  "teletalk | 1130 | 15316",
+  "teletalk | 1130 | 15315",
+  "teletalk | 1130 | 15314"
  ],
  "Bangladesh Army": [
   "army-circular | 98TH BMA LONG COURSE | 2026-07-29",
@@ -343,12 +349,12 @@
   "army-news | https://join.army.mil.bd/home/page/news-view/MTYF74GEWS3DXBUKAXCO"
  ],
  "_daily": {
-  "date": "2026-11-14",
+  "date": "2026-11-15",
   "counts": {
-   "Live Jobs": 317,
-   "Posted Today": 0,
-   "Deadline Today": 16,
-   "Expires in 3 days": 45
+   "Live Jobs": 314,
+   "Posted Today": 13,
+   "Deadline Today": 7,
+   "Expires in 3 days": 0
   }
  }
 }
