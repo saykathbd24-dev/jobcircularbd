@@ -409,7 +409,11 @@ def teletalk_items(pages):
                 "published": utc_to_bd_date(org.get("job_created_at")),
                 "info": [], "links": links,
                 "group": f"teletalk-org-{org_id}", "total_posts": len(jobs),
-                "short_name": clean(org.get("short_name")),
+                "short_name": clean(org.get("short_name")), "website": org.get("website") or "",
+                # an apply-site address written anywhere in the feed (best clue there is)
+                "feed_sites": sorted({apply_site_root(v) for _, v in walk(org)
+                                      if isinstance(v, str) and v.startswith("http")
+                                      and is_apply_site(v)}),
             }
             if not jobs:
                 items[f"teletalk | {org_id} | -"] = dict(base, post=None)
@@ -853,6 +857,40 @@ def read_deadline(text):
         + days_left(days[0])
 
 
+def page_pdf(page, url):
+    return next((urllib.parse.urljoin(url, a["href"]) for a in page.find_all("a", href=True)
+                 if is_pdf(urllib.parse.urljoin(url, a["href"]))), None)
+
+
+def read_folder(session, folder, ref_hint):
+    """One circular folder -> its circulars. Follows the pages the way a visitor clicks:
+    folder page (PDF, deadline) -> circulars.php (pick circular) -> posts.php (pick post).
+    Works too when a step is missing (posts or circulars right on the folder page)."""
+    page, url = site_get(session, folder)
+    folder_pdf, deadline = page_pdf(page, url), read_deadline(page.get_text(" ", strip=True))
+    choices = radio_form(page, url, "circular_id")
+    if not choices and not radio_form(page, url, "post_code"):
+        form_page = next((urllib.parse.urljoin(url, a["href"]) for a in page.find_all("a", href=True)
+                          if "circulars.php" in a["href"]), None)
+        for link in ([form_page] if form_page else []) + [urllib.parse.urljoin(folder, "circulars.php")]:
+            try:
+                p2, u2 = site_get(session, link)
+            except RuntimeError:
+                continue
+            choices = radio_form(p2, u2, "circular_id")
+            if choices:
+                break
+    if not choices:  # posts are on the folder page itself
+        choices = [(ref_hint, url, None)]
+    out = []
+    for ref, posts_url, pdf in choices[:6]:
+        p3, u3 = (page, url) if posts_url == url else site_get(session, posts_url)
+        posts = [{"label": label, "form": form} for label, form, _ in radio_form(p3, u3, "post_code")]
+        out.append({"ref": ref or ref_hint, "pdf": pdf or folder_pdf, "deadline": deadline,
+                    "posts_url": posts_url, "posts": posts, "folder": folder})
+    return out
+
+
 def read_apply_site(root):
     """All ongoing circulars of one apply site, each with its PDF, deadline, the link to its
     post list and every post's form link. None = the site could not be opened."""
@@ -863,31 +901,64 @@ def read_apply_site(root):
         return None
     if "teletalk" not in str(home).lower():
         return None
+    site_name = clean(home.title.get_text(" ", strip=True)) if home.title else ""
+    site_name = re.sub(r"\s*\|\s*Powered By Teletalk.*$", "", site_name, flags=re.I)
+    folders = ongoing_folders(home, base)[:6]
+    if not folders:  # a site without circular folders: the site itself is the circular
+        folders = [("", apply_site_root(base))]
     circulars = []
-    for home_text, folder in ongoing_folders(home, base)[:6]:
+    for home_text, folder in folders:
+        ref = re.sub(r"^Circular\s*(Ref)?\s*:?\s*", "", home_text, flags=re.I)
         try:
-            page, url = site_get(session, folder)
-            text = page.get_text(" ", strip=True)
-            folder_pdf = next((urllib.parse.urljoin(url, a["href"]) for a in page.find_all("a", href=True)
-                               if is_pdf(urllib.parse.urljoin(url, a["href"]))), None)
-            form_page = next((urllib.parse.urljoin(url, a["href"]) for a in page.find_all("a", href=True)
-                              if "circulars.php" in a["href"]), folder + "circulars.php")
-            deadline = read_deadline(text)
-            page, url = site_get(session, form_page)
-            for ref, posts_url, pdf in radio_form(page, url, "circular_id")[:6]:
-                page, url = site_get(session, posts_url)
-                posts = [{"label": label, "form": form}
-                         for label, form, _ in radio_form(page, url, "post_code")]
-                circulars.append({"ref": ref, "pdf": pdf or folder_pdf, "deadline": deadline,
-                                  "posts_url": posts_url, "posts": posts, "folder": folder})
+            found = read_folder(session, folder, ref)
         except (requests.exceptions.RequestException, RuntimeError, KeyError) as e:
             print(f"    {folder}: {str(e)[:120]}")
-            ref = re.sub(r"^Circular\s*Ref\s*:?\s*", "", home_text, flags=re.I)
-            circulars.append({"ref": ref, "pdf": None, "deadline": None, "posts_url": folder,
-                              "posts": [], "folder": folder})
+            found = [{"ref": ref, "pdf": None, "deadline": None, "posts_url": folder,
+                      "posts": [], "folder": folder}]
+        for c in found:
+            c["ref"] = re.sub(r"^Circular\s*(Ref)?\s*:?\s*", "", c["ref"] or "", flags=re.I)
+            c["site_name"] = site_name
+        circulars += found
     print(f"    {root}: {len(circulars)} ongoing circular(s), "
           f"{sum(len(c['posts']) for c in circulars)} posts")
     return circulars
+
+
+def site_candidates(item):
+    """Where the organisation's apply site may be, best guess first:
+    1. any *.teletalk.com.bd address in the data feed itself,
+    2. its short name (BPC -> bpc.teletalk.com.bd),
+    3. its website's name (www.nactar.gov.bd -> nactar.teletalk.com.bd),
+    4. the short form in the name's brackets ("... Research (NACTAR)" -> nactar),
+    5. short name without a final S (NACTARS -> nactar)."""
+    roots = list(item.get("feed_sites") or [])
+    codes = []
+    short = re.sub(r"[^a-z0-9]", "", (item.get("short_name") or "").lower())
+    host = host_of(item.get("website") or "")
+    host = re.sub(r"^www\d?\.", "", host)
+    brackets = [re.sub(r"[^a-z0-9]", "", b.lower())
+                for b in re.findall(r"\(([^()]{2,15})\)", item.get("title") or "")]
+    for code in [short, host.split(".")[0] if host else ""] + brackets + \
+            [short[:-1] if short.endswith("s") else ""]:
+        if len(code) >= 2 and code not in codes:
+            codes.append(code)
+    for code in codes:
+        root = f"https://{code}.teletalk.com.bd/"
+        if root not in roots:
+            roots.append(root)
+    return roots
+
+
+def same_org(item, circulars):
+    """Is this apply site really this organisation's? (Its posts match, or its name does.)"""
+    posts = item.get("posts") or []
+    if any(match_posts(posts, c["posts"]) for c in circulars):
+        return True
+    site = name_key((circulars[0].get("site_name") or "").split(" - ")[0]) if circulars else ""
+    mine = name_key(re.sub(r"\(.*?\)", "", item.get("title") or ""))
+    if len(site) < 6 or len(mine) < 6:
+        return False
+    return site in mine or mine in site or difflib.SequenceMatcher(None, site, mine).ratio() >= 0.8
 
 
 def name_key(s):
@@ -997,16 +1068,24 @@ def add_teletalk_links(to_send, seen):
     with JobPageReader(cache) as reader:
         for it in groups:
             try:
-                code = re.sub(r"[^a-z0-9]", "", (it.get("short_name") or "").lower())
-                if code and use_apply_site(it, site(f"https://{code}.teletalk.com.bd/")):
+                print(f"  {it['title'][:60]}")
+                done = False
+                for root in site_candidates(it):
+                    circulars = site(root)
+                    if circulars and same_org(it, circulars):
+                        done = use_apply_site(it, circulars)
+                        break
+                if done:
                     continue
-                # Short name is not the sub-site's name: look at the alljobs job pages.
+                # Apply site not found by name: the alljobs job pages may link to it.
                 for p in it["posts"]:
                     found = reader.links_for(p["org"], p["job"])
                     p["pdf"], p["apply"] = found.get("pdf"), found.get("apply")
                 roots = {apply_site_root(p["apply"]) for p in it["posts"]
                          if p.get("apply") and is_apply_site(p["apply"])}
                 if not any(use_apply_site(it, site(r)) for r in roots):
+                    print("    apply site not found (tried " + ", ".join(site_candidates(it))
+                          + ") -> old links kept")
                     use_job_pages(it)
             except Exception as e:
                 print(f"    {it['title'][:50]}: {str(e)[:150]}")
