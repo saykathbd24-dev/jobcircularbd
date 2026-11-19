@@ -10,11 +10,13 @@ DATE_FROM and DATE_TO (Bangladesh time).
     so "From = 01-11-2026, To = empty" means 1 November until today.
 
 How each site is read (written from the real pages, not guessed):
-  Teletalk  - the site's own data feed (organisations, posts, publish date)
+  Teletalk  - the site's own data feed (organisations, posts, publish date);
+              then each post's job page for the circular PDF and the application form
   Army      - "News & Updates" (date + title) and "CURRENT CIRCULARS"
   BPSC      - not read yet: the circular lists are on sub-pages. On manual runs
               those pages are saved in the debug folder so a reader can be written.
 """
+import difflib
 import html
 import json
 import math
@@ -23,6 +25,7 @@ import re
 import shutil
 import sys
 import time
+import unicodedata
 import urllib.parse
 from datetime import datetime, timedelta, timezone
 
@@ -406,13 +409,16 @@ def teletalk_items(pages):
                 "published": utc_to_bd_date(org.get("job_created_at")),
                 "info": [], "links": links,
                 "group": f"teletalk-org-{org_id}", "total_posts": len(jobs),
+                "short_name": clean(org.get("short_name")),
             }
             if not jobs:
                 items[f"teletalk | {org_id} | -"] = dict(base, post=None)
             for j in jobs:
                 title = clean(j.get("job_title_bn")) or clean(j.get("job_title")) or f"Post {j['id']}"
-                link = TELETALK_JOB.format(org=org_id, job=j["id"])
-                items[f"teletalk | {org_id} | {j['id']}"] = dict(base, post=(title, link))
+                post = {"title": title, "url": TELETALK_JOB.format(org=org_id, job=j["id"]),
+                        "org": org_id, "job": j["id"], "title_en": clean(j.get("job_title")),
+                        "title_bn": clean(j.get("job_title_bn"))}
+                items[f"teletalk | {org_id} | {j['id']}"] = dict(base, post=post)
     return items, len(orgs_seen)
 
 
@@ -437,19 +443,528 @@ def read_teletalk(src):
     return items, note
 
 
-def save_teletalk_sample(items):
-    """Manual runs: keep one job page (and the data it loads), so that deadline,
-    circular PDF and apply link can be added to the messages later."""
-    first = next((v for v in items.values() if v.get("post")), None)
-    if not first:
-        return
+# ---------------------------------------------------------------- Teletalk job pages
+# Every post has its own job page on alljobs (TELETALK_JOB). That page shows the
+# circular PDF and the button to the application form. The bot opens the first
+# job page in Chrome, takes both links from it, and notes which data answer of the
+# page held them. The other posts are then read from that same data answer directly
+# (fast); a post that can't be read that way is opened in Chrome too.
+# Only used when the organisation's apply site can't be found from its short name
+# (see "Teletalk apply sites" below): the job page links to the apply site.
+
+LINK_CACHE = "_teletalk_links"   # in seen.json: job id -> links found earlier
+MAX_JOB_PAGES = 120              # job pages opened in Chrome per run (safety limit)
+TELETALK_SELF = {"alljobs.teletalk.com.bd", "teletalk.com.bd", "www.teletalk.com.bd"}
+CIRCULAR_WORDS = ("circular", "বিজ্ঞপ্তি", "pdf")
+APPLY_WORDS = ("apply", "আবেদন")
+LINK_KINDS = ("pdf", "apply")
+JOB_MARK = "@@JOB@@"
+JOB_PAGE_READY_JS = r"""() => [...document.querySelectorAll('a[href], iframe[src], embed[src]')]
+  .some(e => /\.pdf([?#]|$)/i.test(e.href || e.src || '')
+          || /apply|আবেদন/i.test(e.textContent || ''))"""
+
+
+def tidy_url(url):
+    """Make a link safe for Telegram (spaces, Bangla letters -> %xx)."""
+    return urllib.parse.quote(url.strip(), safe=":/?&=%#+@,;~!$'()*[]")
+
+
+def host_of(url):
+    return urllib.parse.urlparse(url).netloc.lower().split(":")[0]
+
+
+def is_pdf(url):
+    return urllib.parse.unquote(urllib.parse.urlparse(url).path).lower().endswith(".pdf")
+
+
+def is_apply_site(url):
+    """Teletalk apply sites are sub-sites like http://ccb.teletalk.com.bd/"""
+    h = host_of(url)
+    return h.endswith(".teletalk.com.bd") and h not in TELETALK_SELF
+
+
+def has_job_id(text, job):
+    return re.search(rf"(?<!\d){job}(?!\d)", str(text)) is not None
+
+
+def walk(data, path=()):
+    """Every single value inside JSON data, with the keys that lead to it."""
+    if isinstance(data, dict):
+        for k, v in data.items():
+            yield from walk(v, path + (k,))
+    elif isinstance(data, list):
+        for i, v in enumerate(data):
+            yield from walk(v, path + (i,))
+    else:
+        yield path, data
+
+
+def at_path(data, path):
+    for p in path:
+        try:
+            data = data[p]
+        except (KeyError, IndexError, TypeError):
+            return None
+    return data
+
+
+def next_data(page_html):
+    """Data some sites write into the page itself (<script id="__NEXT_DATA__">)."""
+    m = re.search(r'<script[^>]*id="__NEXT_DATA__"[^>]*>(.*?)</script>', page_html or "", re.S)
     try:
-        store = []
-        page_html, _ = fetch_browser(first["post"][1], wait_ms=8000, json_store=store)
-        save_debug("teletalk_job_page", page_html)
-        save_debug("teletalk_job_page_api", store, "json")
-    except Exception as e:
-        print(f"    (could not save a sample job page: {str(e)[:120]})")
+        return json.loads(m.group(1)) if m else None
+    except ValueError:
+        return None
+
+
+def find_job_links(page_html, page_url):
+    """Circular PDF and application form link on one job page (menus/footer left out)."""
+    soup = BeautifulSoup(page_html, "html.parser")
+    links = []
+    for tag in soup.find_all(["a", "iframe", "embed", "object"]):
+        if tag.find_parent(["nav", "header", "footer"]):
+            continue
+        raw = tag.get("data") if tag.name == "object" else (tag.get("href") or tag.get("src"))
+        raw = (raw or "").strip()
+        if not raw or raw.startswith(("#", "javascript:", "mailto:", "tel:")):
+            continue
+        url = urllib.parse.urljoin(page_url, raw)
+        if url.startswith("http"):
+            text = clean(tag.get_text(" ", strip=True) + " " + (tag.get("title") or "")).lower()
+            links.append((text, url))
+
+    pdf = (next((u for _, u in links if is_pdf(u)), None)
+           or next((u for t, u in links if any(w in t for w in CIRCULAR_WORDS)
+                    and host_of(u) not in TELETALK_SELF), None))
+    apply, best = None, 0
+    here = page_url.split("#")[0]
+    for t, u in links:
+        if is_pdf(u) or u.split("#")[0] == here:
+            continue
+        score = 2 * any(w in t for w in APPLY_WORDS) + is_apply_site(u)
+        if score > best:
+            best, apply = score, u
+    return {"pdf": pdf, "apply": apply}
+
+
+def links_in_data(answers):
+    """Links written straight into the page's data (used when the page showed none)."""
+    found = {"pdf": None, "apply": None}
+    for ans in answers:
+        for _, v in walk(ans["data"]):
+            if not isinstance(v, str) or not v.startswith("http"):
+                continue
+            if not found["pdf"] and is_pdf(v):
+                found["pdf"] = v
+            elif not found["apply"] and is_apply_site(v):
+                found["apply"] = v
+    return found
+
+
+def learn_recipe(answers, job, found):
+    """Which data answer of the job page held its links, and where in it.
+    With that, the other posts can be read without opening Chrome."""
+    for ans in answers:
+        if ans["method"] != "GET" or not has_job_id(ans["url"], job):
+            continue
+        spots = {}
+        for kind in LINK_KINDS:
+            target = urllib.parse.unquote(found.get(kind) or "")
+            if not target:
+                continue
+            best = None
+            for path, v in walk(ans["data"]):
+                v = urllib.parse.unquote(v.strip()) if isinstance(v, str) else ""
+                if len(v) >= 8 and target.endswith(v) and (not best or len(v) > best[2]):
+                    best = (path, target[:-len(v)], len(v))
+            if best:
+                spots[kind] = best[:2]
+        if spots and all(not found.get(k) or k in spots for k in LINK_KINDS):
+            skip = ("host", "content-length", "cookie", "accept-encoding", "connection")
+            headers = {k: v for k, v in (ans.get("headers") or {}).items()
+                       if not k.startswith(":") and k.lower() not in skip}
+            return {"template": re.sub(rf"(?<!\d){job}(?!\d)", JOB_MARK, ans["url"]),
+                    "kind": ans["kind"], "headers": headers, "spots": spots}
+    return None
+
+
+class JobPageReader:
+    """Finds the circular PDF and the application form of Teletalk posts."""
+
+    def __init__(self, cache):
+        self.cache = cache
+        self.recipe = None
+        self.visits = self.hits = 0
+        self.pw = self.browser = self.context = self.page = None
+        self.broken = False
+
+    def __enter__(self):
+        return self
+
+    def __exit__(self, *exc):
+        try:
+            if self.browser:
+                self.browser.close()
+            if self.pw:
+                self.pw.stop()
+        except Exception:
+            pass
+
+    def _start(self):
+        if self.page:
+            return
+        if self.broken:
+            raise RuntimeError("Chrome could not start")
+        try:
+            from playwright.sync_api import sync_playwright
+            self.pw = sync_playwright().start()
+            self.browser = self.pw.chromium.launch()
+            self.context = self.browser.new_context(user_agent=HEADERS["User-Agent"],
+                                                    ignore_https_errors=True)
+            # pictures and fonts are not needed -> pages load faster
+            self.context.route("**/*", lambda route: route.abort()
+                               if route.request.resource_type in ("image", "font", "media")
+                               else route.continue_())
+            self.page = self.context.new_page()
+        except Exception:
+            self.broken = True
+            raise
+
+    def links_for(self, org, job):
+        key = str(job)
+        if key in self.cache:
+            return self.cache[key]
+        found = None
+        if self.recipe:
+            try:
+                found = self._read_with_recipe(job)
+            except Exception as e:
+                print(f"    job {job}: quick read failed ({str(e)[:80]}), opening the page")
+        if found is None:
+            if self.visits >= MAX_JOB_PAGES or (self.visits >= 3 and not self.hits):
+                return {}  # limit reached, or the job pages don't show these links
+            found = self._visit(org, job)
+        if found.get("pdf") or found.get("apply"):
+            self.hits += 1
+        if found.get("apply"):  # forms sometimes open later, so only keep complete finds
+            self.cache[key] = found
+        return found
+
+    def _read_with_recipe(self, job):
+        r = self.recipe
+        url = r["template"].replace(JOB_MARK, str(job))
+        if r["kind"] == "json":
+            resp = self.context.request.get(url, headers=r["headers"], timeout=30000)
+            if not resp.ok:
+                raise RuntimeError(f"HTTP {resp.status}")
+            data = resp.json()
+        else:
+            data = next_data(requests.get(url, headers=HEADERS, timeout=30, verify=False).text)
+        if data is None:
+            raise RuntimeError("no data in the answer")
+        out = {}
+        for kind in LINK_KINDS:
+            spot = r["spots"].get(kind)
+            v = at_path(data, spot[0]) if spot else None
+            v = v.strip() if isinstance(v, str) else ""
+            out[kind] = tidy_url(v if v.startswith("http") else spot[1] + v) if v else None
+        if not any(out.values()):
+            raise RuntimeError("links not in the answer")
+        return out
+
+    def _visit(self, org, job):
+        self._start()
+        self.visits += 1
+        answers = []
+
+        def on_response(resp):
+            try:
+                if TELETALK_API_PATH in resp.url or "json" not in resp.headers.get("content-type", ""):
+                    return
+                answers.append({"url": resp.url, "method": resp.request.method, "kind": "json",
+                                "headers": resp.request.headers, "data": resp.json()})
+            except Exception:
+                pass
+
+        url = TELETALK_JOB.format(org=org, job=job)
+        self.page.on("response", on_response)
+        try:
+            self.page.goto(url, wait_until="domcontentloaded", timeout=60000)
+            try:
+                self.page.wait_for_function(JOB_PAGE_READY_JS, timeout=15000)
+            except Exception:
+                pass  # links never showed up; whatever is there is checked below
+            self.page.wait_for_timeout(1500)
+            page_html, final_url = self.page.content(), self.page.url
+        finally:
+            self.page.remove_listener("response", on_response)
+
+        nd = next_data(page_html)
+        if nd is not None:
+            answers.append({"url": url, "method": "GET", "kind": "next", "data": nd})
+        if self.visits == 1:  # keep one real job page, to check the links by hand
+            save_debug("teletalk_job_page", page_html)
+            save_debug("teletalk_job_page_api", [{"url": a["url"], "data": a["data"]}
+                                                 for a in answers], "json")
+
+        found = find_job_links(page_html, final_url)
+        mine = [a for a in answers if has_job_id(a["url"], job)]
+        from_data = links_in_data(mine)
+        for kind in LINK_KINDS:
+            found[kind] = tidy_url(found[kind] or from_data[kind] or "") or None
+        if not self.recipe and (found["pdf"] or found["apply"]):
+            self.recipe = learn_recipe(answers, job, found)
+            if self.recipe:
+                print("    job pages: learned where the links are; other posts are read directly")
+        print(f"    job {job}: PDF {'✓' if found['pdf'] else '✗'}, form {'✓' if found['apply'] else '✗'}")
+        return found
+
+
+# ---------------------------------------------------------------- Teletalk apply sites
+# Every organisation has its own apply site, named after its short name in the data
+# feed (BPC -> https://bpc.teletalk.com.bd/). Written from the real pages:
+#  1. home page:   <fieldset><legend>Ongoing Circular</legend>
+#                    <a href=".../bpc2026_officer/">Circular Ref: ..., Dated: 19 November 2026</a>
+#                  (a "Previous Circular" fieldset follows; those are left out)
+#  2. folder page  .../bpc2026_officer/:
+#                    <a href=".../docs/20261119.pdf">Advertisement [Deadline: 19 Dec 2026 04:59:59 PM]</a>
+#                    <a href=".../circulars.php">Application Form (Click here to Apply Online)</a>
+#  3. circulars.php: <form action=".../posts.php" method="get">, one radio per circular
+#                    <input name="circular_id" value="xpoPbGzIP2o="> + its PDF, button "submitCircular"
+#  4. posts.php?circular_id=...&submitCircular=   (= the list of all posts)
+#                    <form action=".../premium.php" method="get">, one radio per post
+#                    <label><input name="post_code" value="xZsN"> English name
+#                           <span>[বাংলা নাম]</span></label>, button "submitPost"
+#  5. premium.php?post_code=xZsN&submitPost=      (= the application form of that post)
+# All plain pages, so no Chrome is needed.
+
+def apply_site_root(url):
+    u = urllib.parse.urlparse(url)
+    return f"{u.scheme}://{u.netloc}/"
+
+
+def circular_folder(url):
+    """https://bpc.teletalk.com.bd/bpc2026_officer/anything -> .../bpc2026_officer/
+    (a folder's name starts with the sub-site's name, so other paths are not taken)."""
+    u = urllib.parse.urlparse(url)
+    code = host_of(url).split(".")[0]
+    first = next((p for p in u.path.split("/") if p), "")
+    if code and first.lower().startswith(code) and "." not in first:
+        return f"{u.scheme}://{u.netloc}/{first}/"
+    return None
+
+
+def site_get(session, url):
+    r = session.get(url, headers=HEADERS, timeout=25, verify=False)
+    if r.status_code != 200:
+        raise RuntimeError(f"HTTP {r.status_code} for {url}")
+    r.encoding = r.encoding if r.encoding and r.encoding.lower() != "iso-8859-1" else "utf-8"
+    return BeautifulSoup(r.text, "html.parser"), r.url
+
+
+def radio_form(soup, base, radio_name):
+    """A GET form with radio buttons -> [(label text, link that submits it, pdf near it)]."""
+    first = soup.find("input", attrs={"type": "radio", "name": radio_name})
+    form = first.find_parent("form") if first else None
+    if not form or (form.get("method") or "get").lower() != "get":
+        return []
+    action = urllib.parse.urljoin(base, form.get("action") or base)
+    button = form.find(["button", "input"], attrs={"type": "submit"})
+    extra = [(button["name"], "")] if button and button.get("name") else []
+    out = []
+    for radio in form.find_all("input", attrs={"type": "radio", "name": radio_name}):
+        label = radio.find_parent("label") or radio.parent
+        holder = radio.find_parent("li") or label
+        pdf = next((urllib.parse.urljoin(base, a["href"]) for a in holder.find_all("a", href=True)
+                    if is_pdf(urllib.parse.urljoin(base, a["href"]))), None)
+        query = urllib.parse.urlencode([(radio_name, radio.get("value", ""))] + extra)
+        out.append((clean(label.get_text(" ", strip=True)), f"{action}?{query}", pdf))
+    return out
+
+
+def ongoing_folders(soup, base):
+    """Circular folders listed under "Ongoing Circular" on the home page: [(text, folder)]."""
+    boxes = [fs for fs in soup.find_all("fieldset")
+             if fs.find("legend") and "ongoing" in fs.find("legend").get_text().lower()]
+    if not boxes and not soup.find("legend"):
+        boxes = [soup]  # page without the usual boxes: take every circular folder
+    out = []
+    for box in boxes:
+        for a in box.find_all("a", href=True):
+            folder = circular_folder(urllib.parse.urljoin(base, a["href"].strip()))
+            if folder and host_of(folder) == host_of(base) and folder not in [f for _, f in out]:
+                out.append((clean(a.get_text(" ", strip=True)), folder))
+    return out
+
+
+def read_deadline(text):
+    """'[Deadline: 19 Dec 2026 04:59:59 PM]' -> '19 Dec 2026, 04:59 PM (30 days left)'"""
+    m = re.search(r"Deadline\s*:?\s*([^\]\n]{6,40})", text, re.I)
+    days = find_dates(m.group(1)) if m else []
+    if not days:
+        return None
+    t = re.search(r"(\d{1,2}:\d{2})(?::\d{2})?\s*([AP]M)", m.group(1), re.I)
+    return f"{days[0]:%d %b %Y}" + (f", {t.group(1)} {t.group(2).upper()}" if t else "") \
+        + days_left(days[0])
+
+
+def read_apply_site(root):
+    """All ongoing circulars of one apply site, each with its PDF, deadline, the link to its
+    post list and every post's form link. None = the site could not be opened."""
+    session = requests.Session()
+    try:
+        home, base = site_get(session, root)
+    except (requests.exceptions.RequestException, RuntimeError):
+        return None
+    if "teletalk" not in str(home).lower():
+        return None
+    circulars = []
+    for home_text, folder in ongoing_folders(home, base)[:6]:
+        try:
+            page, url = site_get(session, folder)
+            text = page.get_text(" ", strip=True)
+            folder_pdf = next((urllib.parse.urljoin(url, a["href"]) for a in page.find_all("a", href=True)
+                               if is_pdf(urllib.parse.urljoin(url, a["href"]))), None)
+            form_page = next((urllib.parse.urljoin(url, a["href"]) for a in page.find_all("a", href=True)
+                              if "circulars.php" in a["href"]), folder + "circulars.php")
+            deadline = read_deadline(text)
+            page, url = site_get(session, form_page)
+            for ref, posts_url, pdf in radio_form(page, url, "circular_id")[:6]:
+                page, url = site_get(session, posts_url)
+                posts = [{"label": label, "form": form}
+                         for label, form, _ in radio_form(page, url, "post_code")]
+                circulars.append({"ref": ref, "pdf": pdf or folder_pdf, "deadline": deadline,
+                                  "posts_url": posts_url, "posts": posts, "folder": folder})
+        except (requests.exceptions.RequestException, RuntimeError, KeyError) as e:
+            print(f"    {folder}: {str(e)[:120]}")
+            ref = re.sub(r"^Circular\s*Ref\s*:?\s*", "", home_text, flags=re.I)
+            circulars.append({"ref": ref, "pdf": None, "deadline": None, "posts_url": folder,
+                              "posts": [], "folder": folder})
+    print(f"    {root}: {len(circulars)} ongoing circular(s), "
+          f"{sum(len(c['posts']) for c in circulars)} posts")
+    return circulars
+
+
+def name_key(s):
+    """Post name without spaces, brackets or dashes, for comparing."""
+    s = unicodedata.normalize("NFC", s or "").lower()
+    return "".join(ch for ch in s if unicodedata.category(ch)[0] in "LMN")
+
+
+def match_posts(posts, site_posts):
+    """alljobs post -> its form link on the apply site: {job id: form url}.
+    Same name (English or Bangla) first; otherwise a very close name, but only when
+    no other post comes near it (names like "প্রোগ্রামার" and "সহকারী প্রোগ্রামার" stay apart)."""
+    keyed = []
+    for sp in site_posts:
+        m = re.match(r"(.*?)\s*\[(.*)\]\s*$", sp["label"])
+        names = [m.group(1), m.group(2)] if m else [sp["label"]]
+        keyed.append(([name_key(n) for n in names if len(name_key(n)) >= 3], sp["form"]))
+    found = {}
+    for p in posts:
+        mine = [name_key(x) for x in (p.get("title_en"), p.get("title_bn"), p["title"])]
+        mine = [x for x in mine if len(x) >= 3]
+        exact = [form for keys, form in keyed if set(keys) & set(mine)]
+        if exact:
+            found[p["job"]] = exact[0]
+            continue
+        scores = sorted(((max((difflib.SequenceMatcher(None, a, b).ratio()
+                               for a in mine for b in keys), default=0), form)
+                         for keys, form in keyed), reverse=True)
+        if scores and scores[0][0] >= 0.9 and (len(scores) < 2 or scores[0][0] - scores[1][0] >= 0.06):
+            found[p["job"]] = scores[0][1]
+    return found
+
+
+def use_apply_site(item, circulars):
+    """Fill the message from the apply site. False = nothing usable there."""
+    if not circulars:
+        return False
+    posts = item.get("posts") or []
+    best, best_map = None, {}
+    for c in circulars:
+        m = match_posts(posts, c["posts"])
+        if len(m) > len(best_map):
+            best, best_map = c, m
+    if best is None and len(circulars) == 1:
+        best = circulars[0]
+    if best is None:  # several circulars and none matches: list them all
+        root = apply_site_root(circulars[0]["folder"])
+        item["links"] = [("🌐", "Apply site (all circulars)", root)]
+        item["links"] += [("📝", "Circular Ref: " + c["ref"] if c["ref"] else c["folder"], c["posts_url"])
+                          for c in circulars]
+        return True
+
+    if best["pdf"]:
+        item["url"], item["url_label"], item["url_icon"] = best["pdf"], "Circular (PDF)", "📄"
+    item["links"] = [("🌐", "All posts (apply site)", best["posts_url"])]
+    item["info"] = list(item.get("info") or [])
+    if best["ref"]:
+        item["info"].append(f"📝 Circular Ref: {best['ref']}")
+    if best["deadline"]:
+        item["info"].append(f"⏰ Deadline: {best['deadline']}")
+    for p in posts:
+        # matched -> its own form; not matched -> the list of all posts of this circular
+        p["apply"] = best_map.get(p["job"]) or best["posts_url"]
+        p["pdf"] = best["pdf"]
+        p["form_found"] = p["job"] in best_map
+    return True
+
+
+def use_job_pages(item):
+    """Fallback: links found on the alljobs job pages themselves."""
+    posts = item.get("posts") or []
+    pdfs = [p["pdf"] for p in posts if p.get("pdf")]
+    if pdfs:
+        item["url"], item["url_label"], item["url_icon"] = pdfs[0], "Circular (PDF)", "📄"
+    for p in posts:
+        p["form_found"] = bool(p.get("apply"))
+    sites = [p["apply"] for p in posts if p.get("apply") and is_apply_site(p["apply"])]
+    if sites:
+        item["links"] = [("🌐", "Apply site", apply_site_root(sites[0]))]
+
+
+def add_teletalk_links(to_send, seen):
+    """For every Teletalk circular about to be sent: circular PDF, deadline, the list of
+    all posts and each post's application form (from the organisation's apply site)."""
+    groups = [it for src, it in to_send if src["type"] == "teletalk" and it.get("posts")]
+    if not groups:
+        return ""
+    print("[Teletalk apply sites] looking for circular PDFs and application forms")
+    sites = {}  # root -> circulars (this run only)
+
+    def site(root):
+        if root not in sites:
+            sites[root] = read_apply_site(root)
+        return sites[root]
+
+    cache = seen.setdefault(LINK_CACHE, {})
+    with JobPageReader(cache) as reader:
+        for it in groups:
+            try:
+                code = re.sub(r"[^a-z0-9]", "", (it.get("short_name") or "").lower())
+                if code and use_apply_site(it, site(f"https://{code}.teletalk.com.bd/")):
+                    continue
+                # Short name is not the sub-site's name: look at the alljobs job pages.
+                for p in it["posts"]:
+                    found = reader.links_for(p["org"], p["job"])
+                    p["pdf"], p["apply"] = found.get("pdf"), found.get("apply")
+                roots = {apply_site_root(p["apply"]) for p in it["posts"]
+                         if p.get("apply") and is_apply_site(p["apply"])}
+                if not any(use_apply_site(it, site(r)) for r in roots):
+                    use_job_pages(it)
+            except Exception as e:
+                print(f"    {it['title'][:50]}: {str(e)[:150]}")
+    if len(cache) > 3000:  # keep seen.json small
+        seen[LINK_CACHE] = dict(list(cache.items())[-3000:])
+
+    posts = [p for it in groups for p in it["posts"]]
+    pdfs = sum(1 for it in groups if it.get("url_icon") == "📄")
+    forms = sum(1 for p in posts if p.get("form_found"))
+    note = (f"circular PDF found for {pdfs} of {len(groups)} circulars, "
+            f"direct application form for {forms} of {len(posts)} posts")
+    print("    " + note)
+    return note
 
 
 STAT_ICONS = [("live", "🟢"), ("posted", "🆕"), ("deadline", "⏰"), ("expire", "⌛")]
@@ -682,7 +1197,8 @@ def build_message(source_name, item):
         lines.append(f"📅 Published: {item['published']:%d %b %Y}")
     lines += [e(t) for t in item.get("info", [])]
     lines.append("")
-    lines.append(f'🔗 <a href="{e(item["url"], quote=True)}">{e(item.get("url_label") or "Open")}</a>')
+    icon = item.get("url_icon", "🔗")
+    lines.append(f'{icon} <a href="{e(item["url"], quote=True)}">{e(item.get("url_label") or "Open")}</a>')
     for icon, label, link in item.get("links", []):
         lines.append(f'{icon} <a href="{e(link, quote=True)}">{e(label)}</a>')
 
@@ -691,8 +1207,13 @@ def build_message(source_name, item):
         total = item.get("total_posts") or len(posts)
         head = f"Posts ({len(posts)})" if len(posts) >= total else f"New posts ({len(posts)} of {total})"
         lines += ["", f"<b>{head}:</b>"]
-        for i, (name, link) in enumerate(posts[:MAX_POSTS], 1):
-            lines.append(f'{i}. <a href="{e(link, quote=True)}">{e(name)}</a>')
+        for i, p in enumerate(posts[:MAX_POSTS], 1):
+            # the post name opens its application form (or its job page if no form was found)
+            link = p.get("apply") or p["url"]
+            line = f'{i}. <a href="{e(link, quote=True)}">{e(p["title"])}</a>'
+            if p.get("pdf") and p["pdf"] != item["url"]:  # this post has its own circular
+                line += f' · <a href="{e(p["pdf"], quote=True)}">📄 PDF</a>'
+            lines.append(line)
         if len(posts) > MAX_POSTS:
             lines.append(f"…and {len(posts) - MAX_POSTS} more on the job page.")
     return lines
@@ -768,8 +1289,6 @@ def main():
         print(f"[{name}] {status}")
         report.append(f"✅ {name}: {status}")
 
-        if MANUAL_RUN and src["type"] == "teletalk":
-            save_teletalk_sample(items)
         # Keep the list from growing forever (oldest entries are dropped first).
         seen[name] = (old_list + fresh)[-5000:]
 
@@ -777,6 +1296,10 @@ def main():
     if found > MAX_MESSAGES:
         print(f"WARNING: {found} circulars; sending only the first {MAX_MESSAGES}.")
         to_send = to_send[:MAX_MESSAGES]
+
+    links_note = add_teletalk_links(to_send, seen)
+    if links_note:
+        report.append(f"📄 Teletalk: {links_note}")
 
     all_sent = True
     for n, (src, item) in enumerate(to_send, 1):
