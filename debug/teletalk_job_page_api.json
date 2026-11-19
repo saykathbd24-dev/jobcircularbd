@@ -1,5 +1,185 @@
 [
  {
+  "url": "https://ep1.adtrafficquality.google/getconfig/sodar?sv=200&tid=gda&tv=r20261118&st=env&sjk=7881351188840681",
+  "data": {
+   "sodar_query_id": "HBT_asHPDrPFpccP_5CCmAM",
+   "injector_basename": "sodar2",
+   "bg_hash_basename": "APvF6aaXvkkWcayicbRIHw2tOZGt4i6YElFrcu5DDdM",
+   "bg_binary": "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",
+   "rc_enable": "y",
+   "bg_snapshot_delay_ms": "500",
+   "is_gen_204": "0"
+  }
+ },
+ {
+  "url": "https://alljobs.teletalk.com.bd/api/v1/govt-jobs/list?orgId=371&skipLimit=YES",
+  "data": {
+   "status": "success",
+   "statusCode": 200,
+   "message": {
+    "en": "Government job list fetch successful",
+    "bn": "সরকারি চাকরির তালিকা সফলভাবে আনা হয়েছে"
+   },
+   "count": 7,
+   "govtJobs": [
+    {
+     "id": 15390,
+     "job_title": "Office Support Staff",
+     "job_title_bn": "অফিস সহায়ক",
+     "job_id": "GJOB15390",
+     "application_site": "https://tax10.teletalk.com.bd/",
+     "vacancy": "17",
+     "vacancy_not_specific": false,
+     "published_date": "2026-11-26T04:00:00.000Z",
+     "deadline_date": "2026-12-21T10:00:00.000Z",
+     "view_count": 541,
+     "organization_id": 371,
+     "created_at": "2026-11-19T07:58:39.945Z",
+     "job_utilities_govtorganization": {
+      "id": 371,
+      "name": "Taxes Zone-10,Dhaka (TAX10)",
+      "name_bn": null,
+      "short_name": "TAX10",
+      "logo": "recruiter/organization/logo/DGFPMAG_ldckvID.png",
+      "website": "http://taxeszone10.teletalk.com.bd/"
+     }
+    },
+    {
+     "id": 15389,
+     "job_title": "Driver",
+     "job_title_bn": "গাড়ি চালক",
+     "job_id": "GJOB15389",
+     "application_site": "https://tax10.teletalk.com.bd/",
+     "vacancy": "01",
+     "vacancy_not_specific": false,
+     "published_date": "2026-11-26T04:00:00.000Z",
+     "deadline_date": "2026-12-21T10:00:00.000Z",
+     "view_count": 354,
+     "organization_id": 371,
+     "created_at": "2026-11-19T07:57:31.341Z",
+     "job_utilities_govtorganization": {
+      "id": 371,
+      "name": "Taxes Zone-10,Dhaka (TAX10)",
+      "name_bn": null,
+      "short_name": "TAX10",
+      "logo": "recruiter/organization/logo/DGFPMAG_ldckvID.png",
+      "website": "http://taxeszone10.teletalk.com.bd/"
+     }
+    },
+    {
+     "id": 15388,
+     "job_title": "Office Assistant-Cum-Computer Typist",
+     "job_title_bn": "অফিস সহকারী-কাম-কম্পিউটার মুদ্রাক্ষরিক",
+     "job_id": "GJOB15388",
+     "application_site": "https://tax10.teletalk.com.bd/",
+     "vacancy": "08",
+     "vacancy_not_specific": false,
+     "published_date": "2026-11-26T04:00:00.000Z",
+     "deadline_date": "2026-12-21T10:00:00.000Z",
+     "view_count": 339,
+     "organization_id": 371,
+     "created_at": "2026-11-19T07:56:17.688Z",
+     "job_utilities_govtorganization": {
+      "id": 371,
+      "name": "Taxes Zone-10,Dhaka (TAX10)",
+      "name_bn": null,
+      "short_name": "TAX10",
+      "logo": "recruiter/organization/logo/DGFPMAG_ldckvID.png",
+      "website": "http://taxeszone10.teletalk.com.bd/"
+     }
+    },
+    {
+     "id": 15387,
+     "job_title": "Steno Typist-Cum-Computer Operator",
+     "job_title_bn": "সাঁট মুদ্রাক্ষরিক-কাম-কম্পিউটার অপারেটর",
+     "job_id": "GJOB15387",
+     "application_site": "https://tax10.teletalk.com.bd/",
+     "vacancy": "15",
+     "vacancy_not_specific": false,
+     "published_date": "2026-11-26T04:00:00.000Z",
+     "deadline_date": "2026-12-21T10:00:00.000Z",
+     "view_count": 328,
+     "organization_id": 371,
+     "created_at": "2026-11-19T07:54:51.316Z",
+     "job_utilities_govtorganization": {
+      "id": 371,
+      "name": "Taxes Zone-10,Dhaka (TAX10)",
+      "name_bn": null,
+      "short_name": "TAX10",
+      "logo": "recruiter/organization/logo/DGFPMAG_ldckvID.png",
+      "website": "http://taxeszone10.teletalk.com.bd/"
+     }
+    },
+    {
+     "id": 15386,
+     "job_title": "Upper Division Assistant",
+     "job_title_bn": "উচ্চমান সহকারী",
+     "job_id": "GJOB15386",
+     "application_site": "https://tax10.teletalk.com.bd/",
+     "vacancy": "05",
+     "vacancy_not_specific": false,
+     "published_date": "2026-11-26T04:00:00.000Z",
+     "deadline_date": "2026-12-21T10:00:00.000Z",
+     "view_count": 286,
+     "organization_id": 371,
+     "created_at": "2026-11-19T07:53:08.002Z",
+     "job_utilities_govtorganization": {
+      "id": 371,
+      "name": "Taxes Zone-10,Dhaka (TAX10)",
+      "name_bn": null,
+      "short_name": "TAX10",
+      "logo": "recruiter/organization/logo/DGFPMAG_ldckvID.png",
+      "website": "http://taxeszone10.teletalk.com.bd/"
+     }
+    },
+    {
+     "id": 15385,
+     "job_title": "Head Assistant",
+     "job_title_bn": "প্রধান সহকারী",
+     "job_id": "GJOB15385",
+     "application_site": "https://tax10.teletalk.com.bd/",
+     "vacancy": "06",
+     "vacancy_not_specific": false,
+     "published_date": "2026-11-26T04:00:00.000Z",
+     "deadline_date": "2026-12-21T10:00:00.000Z",
+     "view_count": 313,
+     "organization_id": 371,
+     "created_at": "2026-11-19T07:51:58.172Z",
+     "job_utilities_govtorganization": {
+      "id": 371,
+      "name": "Taxes Zone-10,Dhaka (TAX10)",
+      "name_bn": null,
+      "short_name": "TAX10",
+      "logo": "recruiter/organization/logo/DGFPMAG_ldckvID.png",
+      "website": "http://taxeszone10.teletalk.com.bd/"
+     }
+    },
+    {
+     "id": 15384,
+     "job_title": "Personal Assistant",
+     "job_title_bn": "ব্যক্তিগত সহকারী",
+     "job_id": "GJOB15384",
+     "application_site": "https://tax10.teletalk.com.bd/",
+     "vacancy": "02",
+     "vacancy_not_specific": false,
+     "published_date": "2026-11-26T04:00:00.000Z",
+     "deadline_date": "2026-12-21T10:00:00.000Z",
+     "view_count": 361,
+     "organization_id": 371,
+     "created_at": "2026-11-19T07:50:40.118Z",
+     "job_utilities_govtorganization": {
+      "id": 371,
+      "name": "Taxes Zone-10,Dhaka (TAX10)",
+      "name_bn": null,
+      "short_name": "TAX10",
+      "logo": "recruiter/organization/logo/DGFPMAG_ldckvID.png",
+      "website": "http://taxeszone10.teletalk.com.bd/"
+     }
+    }
+   ]
+  }
+ },
+ {
   "url": "https://alljobs.teletalk.com.bd/api/v1/notices/no-of-new-item",
   "data": {
    "status": "success",
@@ -9,14 +189,14 @@
     "bn": "নতুন বিজ্ঞপ্তি গণনা সফল হয়েছে"
    },
    "details": {
-    "noOfNewNotice": 0,
-    "noOfUrgentNotice": 0,
-    "noOfNewNotification": 0
+    "noOfNewNotice": 1,
+    "noOfUrgentNotice": 1,
+    "noOfNewNotification": 25
    }
   }
  },
  {
-  "url": "https://alljobs.teletalk.com.bd/api/v1/govt-jobs/public-details?id=15307",
+  "url": "https://alljobs.teletalk.com.bd/api/v1/govt-jobs/public-details?id=15384",
   "data": {
    "status": "success",
    "statusCode": 200,
@@ -25,25 +205,25 @@
     "bn": "সরকারি চাকরির তথ্য সফলভাবে আনা হয়েছে"
    },
    "details": {
-    "id": 15307,
-    "job_title": "Stenographer-Cum-Computer Operator",
-    "job_title_bn": "সাঁটলিপিকার-কাম-কম্পিউটার অপারেটর",
-    "job_id": "GJOB15307",
+    "id": 15384,
+    "job_title": "Personal Assistant",
+    "job_title_bn": "ব্যক্তিগত সহকারী",
+    "job_id": "GJOB15384",
     "job_type": 1,
-    "vacancy": "09",
+    "vacancy": "02",
     "gender": 3,
     "min_age": 18,
     "max_age": 32,
-    "application_site": "https://dam.teletalk.com.bd/",
-    "advertisement_file": "public/uploads/governments/jobs/advertisement-1794475776859.pdf",
-    "published_date": "2026-11-16T04:00:00.000Z",
-    "deadline_date": "2026-12-10T10:00:00.000Z",
-    "advertisement_no": " 12.02.0000.002.11.291.26.1026",
-    "advertisement_published_date": "2026-11-09",
+    "application_site": "https://tax10.teletalk.com.bd/",
+    "advertisement_file": "public/uploads/governments/jobs/advertisement-1795074640058.pdf",
+    "published_date": "2026-11-26T04:00:00.000Z",
+    "deadline_date": "2026-12-21T10:00:00.000Z",
+    "advertisement_no": "  08.01.0085.001.11.164.12.678",
+    "advertisement_published_date": "2026-11-17",
     "admit_card": false,
     "is_result": false,
     "is_notice": false,
-    "job_source": "https://dam.teletalk.com.bd/",
+    "job_source": "https://tax10.teletalk.com.bd/",
     "admit_card_upload": null,
     "download_url": null,
     "download_start_date": null,
@@ -54,24 +234,24 @@
     "notice_download_url": null,
     "notice_text": null,
     "vacancy_not_specific": false,
-    "view_count": 1751,
+    "view_count": 362,
     "status": 5,
     "job_utilities_govtorganization": {
-     "id": 656,
-     "name": "Department of Agricultural Marketing (DAM)",
+     "id": 371,
+     "name": "Taxes Zone-10,Dhaka (TAX10)",
      "name_bn": null,
-     "short_name": "DAM",
-     "logo": "recruiter/organization/logo/new_logo_dam.png",
-     "website": "http://www.dam.gov.bd/",
-     "details": "কৃষি বিপণন অধিদপ্তরের সংক্ষিপ্ত ইতিহাস \r\n\r\nবিপণন ব্যবস্থা অর্থনৈতিক উন্নয়নের সকল পর্যায়ে একটি কেন্দ্রীয় ভূমিকা পালন করিয়। বিপণন বিবেচনা শুরু হয় উৎপাদন সিদ্ধান্ত এবং উৎপাদন প্রযুক্তি নির্ধারণের  আগেই। সুতরাং, কৃষি উৎপাদন বৃদ্ধি করা এবং বর্ধিত উৎপাদন বজায় রাখার ক্ষেত্রে  বিপণনের ভুমিকা খাটো করে দেখার উপায় নাই। \r\n\r\nখামারবাড়ি, ঢাকা \r\n১৯৩৪ সাল থেকে ...\r\n\r\n১৯৩৪ সালে কৃষি বিপণন উপদেষ্টা বিপণন বিভাগ তৈরি করার জন্য বাংলাদেশ সরকারের কাছে একটি প্রকল্প জমা দেন। সরকার প্রকল্পটি গ্রহণ করে এবং ১৯৩৫ সালে কেন্দ্রীয় ও প্রাদেশিক বিপণন কর্মী নিয়োগ করে। \r\nবিপণনের গুরুত্ব ও সম্ভাবনা বুঝতে পেরে, অবিভক্ত বাংলার সরকার ১৯৪৩ সালে স্থায়ী ভিত্তিতে কৃষি ও শিল্প অধিদপ্তরের অধীনে কৃষি বিপণন বিভাগ গঠন করে. \r\nউপমহাদেশের স্বাধীনতার পর, ১৯৫৪ সালে, পূর্ব পাকিস্তান সরকার কৃষি, সমবায়, এবং ত্রাণ অধিদপ্তরের অধীনে কৃষি বিপণন পরিদপ্তরের অনুমোদন দেয়।  \r\n১৯৬০ সালে, প্রাদেশিক পুনরগঠন কমিটি কৃষি বিপণন পরিদপ্তরের উপ-বিভাগ এবং জেলা পর্যায়ে লোকবল নিয়োগের অনুমদন দেয়। \r\n১৯৮২ সালে, বাংলাদেশ সরকার ব্রিগেডিয়ার এনামুল হক খানের নেতৃত্বে গঠিত সাংগঠনিক কমিটির সুপারিশ অনুযায়ী বিভিন্ন মন্ত্রণালয় / বিভাগ পুনর্গঠন করে। তখন, কৃষি বিপণন পরিদপ্তরের গুরুত্ব, অবস্থা, এবং কর্মপরিধি বিবেচনা করে এর নাম পরিবর্তন করে কৃষি বিপণন অধিদপ্তর রাখা হয়।"
+     "short_name": "TAX10",
+     "logo": "recruiter/organization/logo/DGFPMAG_ldckvID.png",
+     "website": "http://taxeszone10.teletalk.com.bd/",
+     "details": "he National Board of Revenue (NBR) (Bengali: জাতীয় রাজস্ব বোর্ড) is the central authority for tax administration in Bangladesh. It is under the Internal Resource Division of Ministry of Finance. NBR is the authority for tax policies and tax laws in Bangladesh.[1][2] NBR collects almost 97% of tax revenue and almost 85% of total revenue for the Government of Bangladesh.[3]"
     },
     "package_wise_govt_jobs": [
      {
-      "id": 15320,
-      "job_id": 15307,
+      "id": 15395,
+      "job_id": 15384,
       "package_id": 2,
-      "start_date": "2026-11-16",
-      "end_date": "2026-12-10",
+      "start_date": "2026-11-26",
+      "end_date": "2026-12-21",
       "govt_job_package": {
        "name": "Hot Job",
        "description": "Hot Job"
@@ -82,191 +262,27 @@
   }
  },
  {
-  "url": "https://alljobs.teletalk.com.bd/api/v1/govt-jobs/list?orgId=656&skipLimit=YES",
+  "url": "https://alljobs.teletalk.com.bd/api/v1/notices/urgent-list",
   "data": {
    "status": "success",
    "statusCode": 200,
    "message": {
-    "en": "Government job list fetch successful",
-    "bn": "সরকারি চাকরির তালিকা সফলভাবে আনা হয়েছে"
+    "en": "Notice list fetch successful",
+    "bn": "বিজ্ঞপ্তি তালিকা আনা সফলভাবে আনা হয়েছে"
    },
-   "count": 8,
-   "govtJobs": [
+   "count": 1,
+   "notices": [
     {
-     "id": 15313,
-     "job_title": "Office Support Staff",
-     "job_title_bn": "অফিস সহায়ক",
-     "job_id": "GJOB15313",
-     "application_site": "https://dam.teletalk.com.bd/",
-     "vacancy": "38",
-     "vacancy_not_specific": false,
-     "published_date": "2026-11-16T04:00:00.000Z",
-     "deadline_date": "2026-12-10T10:00:00.000Z",
-     "view_count": 2306,
-     "organization_id": 656,
-     "created_at": "2026-11-12T09:36:51.580Z",
-     "job_utilities_govtorganization": {
-      "id": 656,
-      "name": "Department of Agricultural Marketing (DAM)",
-      "name_bn": null,
-      "short_name": "DAM",
-      "logo": "recruiter/organization/logo/new_logo_dam.png",
-      "website": "http://www.dam.gov.bd/"
-     }
-    },
-    {
-     "id": 15312,
-     "job_title": "Cashier",
-     "job_title_bn": "ক্যাশিয়ার",
-     "job_id": "GJOB15312",
-     "application_site": "https://dam.teletalk.com.bd/",
-     "vacancy": "01",
-     "vacancy_not_specific": false,
-     "published_date": "2026-11-16T04:00:00.000Z",
-     "deadline_date": "2026-12-10T10:00:00.000Z",
-     "view_count": 1068,
-     "organization_id": 656,
-     "created_at": "2026-11-12T09:35:44.259Z",
-     "job_utilities_govtorganization": {
-      "id": 656,
-      "name": "Department of Agricultural Marketing (DAM)",
-      "name_bn": null,
-      "short_name": "DAM",
-      "logo": "recruiter/organization/logo/new_logo_dam.png",
-      "website": "http://www.dam.gov.bd/"
-     }
-    },
-    {
-     "id": 15311,
-     "job_title": "Office Assistant-Cum-Computer Typist",
-     "job_title_bn": "অফিস সহকারী-কাম-কম্পিউটার মুদ্রাক্ষরিক",
-     "job_id": "GJOB15311",
-     "application_site": "https://dam.teletalk.com.bd/",
-     "vacancy": "39",
-     "vacancy_not_specific": false,
-     "published_date": "2026-11-16T04:00:00.000Z",
-     "deadline_date": "2026-12-10T10:00:00.000Z",
-     "view_count": 1185,
-     "organization_id": 656,
-     "created_at": "2026-11-12T09:34:39.558Z",
-     "job_utilities_govtorganization": {
-      "id": 656,
-      "name": "Department of Agricultural Marketing (DAM)",
-      "name_bn": null,
-      "short_name": "DAM",
-      "logo": "recruiter/organization/logo/new_logo_dam.png",
-      "website": "http://www.dam.gov.bd/"
-     }
-    },
-    {
-     "id": 15310,
-     "job_title": "Driver (Heavy)",
-     "job_title_bn": "গাড়ী চালক (ভারী)",
-     "job_id": "GJOB15310",
-     "application_site": "https://dam.teletalk.com.bd/",
-     "vacancy": "01",
-     "vacancy_not_specific": false,
-     "published_date": "2026-11-16T04:00:00.000Z",
-     "deadline_date": "2026-12-10T10:00:00.000Z",
-     "view_count": 730,
-     "organization_id": 656,
-     "created_at": "2026-11-12T09:33:09.777Z",
-     "job_utilities_govtorganization": {
-      "id": 656,
-      "name": "Department of Agricultural Marketing (DAM)",
-      "name_bn": null,
-      "short_name": "DAM",
-      "logo": "recruiter/organization/logo/new_logo_dam.png",
-      "website": "http://www.dam.gov.bd/"
-     }
-    },
-    {
-     "id": 15309,
-     "job_title": "Accountant",
-     "job_title_bn": "হিসাব রক্ষক",
-     "job_id": "GJOB15309",
-     "application_site": "https://dam.teletalk.com.bd/",
-     "vacancy": "03",
-     "vacancy_not_specific": false,
-     "published_date": "2026-11-16T04:00:00.000Z",
-     "deadline_date": "2026-12-10T10:00:00.000Z",
-     "view_count": 787,
-     "organization_id": 656,
-     "created_at": "2026-11-12T09:31:59.068Z",
-     "job_utilities_govtorganization": {
-      "id": 656,
-      "name": "Department of Agricultural Marketing (DAM)",
-      "name_bn": null,
-      "short_name": "DAM",
-      "logo": "recruiter/organization/logo/new_logo_dam.png",
-      "website": "http://www.dam.gov.bd/"
-     }
-    },
-    {
-     "id": 15308,
-     "job_title": "Computer Operator",
-     "job_title_bn": "কম্পিউটার অপারেটর",
-     "job_id": "GJOB15308",
-     "application_site": "https://dam.teletalk.com.bd/",
-     "vacancy": "01",
-     "vacancy_not_specific": false,
-     "published_date": "2026-11-16T04:00:00.000Z",
-     "deadline_date": "2026-12-10T10:00:00.000Z",
-     "view_count": 788,
-     "organization_id": 656,
-     "created_at": "2026-11-12T09:30:45.314Z",
-     "job_utilities_govtorganization": {
-      "id": 656,
-      "name": "Department of Agricultural Marketing (DAM)",
-      "name_bn": null,
-      "short_name": "DAM",
-      "logo": "recruiter/organization/logo/new_logo_dam.png",
-      "website": "http://www.dam.gov.bd/"
-     }
-    },
-    {
-     "id": 15307,
-     "job_title": "Stenographer-Cum-Computer Operator",
-     "job_title_bn": "সাঁটলিপিকার-কাম-কম্পিউটার অপারেটর",
-     "job_id": "GJOB15307",
-     "application_site": "https://dam.teletalk.com.bd/",
-     "vacancy": "09",
-     "vacancy_not_specific": false,
-     "published_date": "2026-11-16T04:00:00.000Z",
-     "deadline_date": "2026-12-10T10:00:00.000Z",
-     "view_count": 1750,
-     "organization_id": 656,
-     "created_at": "2026-11-12T09:29:36.879Z",
-     "job_utilities_govtorganization": {
-      "id": 656,
-      "name": "Department of Agricultural Marketing (DAM)",
-      "name_bn": null,
-      "short_name": "DAM",
-      "logo": "recruiter/organization/logo/new_logo_dam.png",
-      "website": "http://www.dam.gov.bd/"
-     }
-    },
-    {
-     "id": 15306,
-     "job_title": "Field & Market Inspector",
-     "job_title_bn": "মাঠ ও বাজার পরিদর্শক",
-     "job_id": "GJOB15306",
-     "application_site": "https://dam.teletalk.com.bd/",
-     "vacancy": "05",
-     "vacancy_not_specific": false,
-     "published_date": "2026-11-16T04:00:00.000Z",
-     "deadline_date": "2026-12-10T10:00:00.000Z",
-     "view_count": 4634,
-     "organization_id": 656,
-     "created_at": "2026-11-12T09:28:23.023Z",
-     "job_utilities_govtorganization": {
-      "id": 656,
-      "name": "Department of Agricultural Marketing (DAM)",
-      "name_bn": null,
-      "short_name": "DAM",
-      "logo": "recruiter/organization/logo/new_logo_dam.png",
-      "website": "http://www.dam.gov.bd/"
-     }
+     "id": 94,
+     "notice_title": "মৎস্য অধিদপ্তরের নিয়োগ পরীক্ষা স্থগিতের বিজ্ঞপ্তি",
+     "description": "<p><br></p><h2>মৎস্য অধিদপ্তরের নিয়োগ পরীক্ষা স্থগিতের বিজ্ঞপ্তি</h2>",
+     "attachment": "public/uploads/notice/notice-attachment-1795072114895.pdf",
+     "created_at": "2026-11-19T07:08:34.906Z",
+     "is_active": true,
+     "featured_at": "2026-11-19T07:08:34.905Z",
+     "is_urgent": true,
+     "published_at": "2026-11-19T17:59:59.999Z",
+     "organization_name": "মৎস্য অধিদপ্তর"
     }
    ]
   }
