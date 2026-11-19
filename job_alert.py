@@ -735,7 +735,13 @@ class JobPageReader:
 #                    <form action=".../premium.php" method="get">, one radio per post
 #                    <label><input name="post_code" value="xZsN"> English name
 #                           <span>[বাংলা নাম]</span></label>, button "submitPost"
-#  5. premium.php?post_code=xZsN&submitPost=      (= the application form of that post)
+#  5. premium.php?post_code=xZsN&submitPost=      ("Alljobs Premium Member? Yes / No")
+#                    <form action=".../application.php" method="get">
+#                      <input type="hidden" name="post_code" value="xZkN">
+#                      <input type="hidden" name="info" value="xc5fPmuf...">   (made by the site)
+#                      radio nid: 1 = Yes, 2 = No;  text alljobs_id;  button "submitPremium"
+#  6. application.php?post_code=...&info=...&alljobs_id=&nid=2&submitPremium=
+#                    (= "No" chosen -> the application form itself; this is the post's link)
 # All plain pages, so no Chrome is needed.
 
 def apply_site_root(url):
@@ -780,6 +786,45 @@ def radio_form(soup, base, radio_name):
         query = urllib.parse.urlencode([(radio_name, radio.get("value", ""))] + extra)
         out.append((clean(label.get_text(" ", strip=True)), f"{action}?{query}", pdf))
     return out
+
+
+def choose_no(premium_url):
+    """Open a post's premium.php, choose "No" and give the link the Next button would
+    open (application.php ...), with the fields in the same order the browser sends them.
+    None = page not as expected (the post then keeps its premium.php link)."""
+    try:
+        page, base = site_get(requests.Session(), premium_url)
+    except (requests.exceptions.RequestException, RuntimeError):
+        return None
+    no = None
+    for radio in page.find_all("input", attrs={"type": "radio"}):
+        label = radio.find_parent("label")
+        if label and clean(label.get_text(" ", strip=True)).lower() in ("no", "না"):
+            no = radio
+            break
+    form = no.find_parent("form") if no else None
+    if not form or (form.get("method") or "get").lower() != "get" or not form.get("action"):
+        return None
+    fields = []
+    for tag in form.find_all(["input", "select", "textarea", "button"]):
+        name, kind = tag.get("name"), (tag.get("type") or "").lower()
+        if not name or tag.has_attr("disabled") and tag.name != "button":
+            continue
+        if tag.name == "button" or kind == "submit":
+            fields.append((name, tag.get("value", "")))
+            break  # the Next button ends the form
+        if kind in ("radio", "checkbox"):
+            if tag is no:
+                fields.append((name, tag.get("value", "")))
+        elif tag.name == "select":
+            opt = tag.find("option", selected=True) or tag.find("option")
+            fields.append((name, opt.get("value", "") if opt else ""))
+        else:
+            fields.append((name, tag.get("value", "")))
+    if not any(v for n, v in fields if n == no.get("name")):
+        return None
+    action = urllib.parse.urljoin(base, form["action"])
+    return f"{action}?{urllib.parse.urlencode(fields)}"
 
 
 def ongoing_folders(soup, base):
@@ -876,6 +921,9 @@ def match_posts(posts, site_posts):
     return found
 
 
+FORM_LINKS = {}  # premium.php link -> application.php link (this run only)
+
+
 def use_apply_site(item, circulars):
     """Fill the message from the apply site. False = nothing usable there."""
     if not circulars:
@@ -904,8 +952,15 @@ def use_apply_site(item, circulars):
     if best["deadline"]:
         item["info"].append(f"⏰ Deadline: {best['deadline']}")
     for p in posts:
-        # matched -> its own form; not matched -> the list of all posts of this circular
-        p["apply"] = best_map.get(p["job"]) or best["posts_url"]
+        # matched -> its own form ("No" already chosen on the premium page);
+        # not matched -> the list of all posts of this circular
+        form = best_map.get(p["job"])
+        if form:
+            if form not in FORM_LINKS:
+                FORM_LINKS[form] = choose_no(form) or form
+            form = FORM_LINKS[form]
+        p["apply"] = form or best["posts_url"]
+        p["no_chosen"] = bool(form) and form != best_map.get(p["job"])
         p["pdf"] = best["pdf"]
         p["form_found"] = p["job"] in best_map
     return True
@@ -961,8 +1016,10 @@ def add_teletalk_links(to_send, seen):
     posts = [p for it in groups for p in it["posts"]]
     pdfs = sum(1 for it in groups if it.get("url_icon") == "📄")
     forms = sum(1 for p in posts if p.get("form_found"))
+    skipped = sum(1 for p in posts if p.get("no_chosen"))
     note = (f"circular PDF found for {pdfs} of {len(groups)} circulars, "
-            f"direct application form for {forms} of {len(posts)} posts")
+            f"direct application form for {forms} of {len(posts)} posts "
+            f"({skipped} with \"Premium member: No\" already chosen)")
     print("    " + note)
     return note
 
