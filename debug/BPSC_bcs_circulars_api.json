@@ -92,18 +92,18 @@
     "domain": "baec.gov.bd"
    },
    {
+    "_id": "6a964d301963bd7a700c89a2",
+    "subdomain": "app.ccb.gov.bd",
+    "title_en": "Bangladesh Competition Commission",
+    "title_bn": "বাংলাদেশ প্রতিযোগিতা কমিশন"
+   },
+   {
     "_id": "687f4277a79706ab75fb1136",
     "subdomain": "ccb.gov.bd",
     "title_bn": "বাংলাদেশ প্রতিযোগিতা কমিশন",
     "title_en": "Bangladesh Competition Commission",
     "file_domain": "ccb.portal.gov.bd",
     "domain": "ccb.gov.bd"
-   },
-   {
-    "_id": "6a964d301963bd7a700c89a2",
-    "subdomain": "app.ccb.gov.bd",
-    "title_en": "Bangladesh Competition Commission",
-    "title_bn": "বাংলাদেশ প্রতিযোগিতা কমিশন"
    },
    {
     "_id": "687f4277a79706ab75fb1144",
