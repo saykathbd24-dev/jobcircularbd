@@ -384,7 +384,29 @@
   "teletalk | 950 | 15354",
   "teletalk | 950 | 15365",
   "teletalk | 950 | 15356",
-  "teletalk | 1125 | 15351"
+  "teletalk | 1125 | 15351",
+  "teletalk | 371 | 15387",
+  "teletalk | 371 | 15385",
+  "teletalk | 371 | 15390",
+  "teletalk | 371 | 15384",
+  "teletalk | 371 | 15389",
+  "teletalk | 371 | 15388",
+  "teletalk | 371 | 15386",
+  "teletalk | 1179 | 15379",
+  "teletalk | 1179 | 15382",
+  "teletalk | 1179 | 15377",
+  "teletalk | 1179 | 15383",
+  "teletalk | 1179 | 15378",
+  "teletalk | 1179 | 15381",
+  "teletalk | 1179 | 15380",
+  "teletalk | 1178 | 15368",
+  "teletalk | 1178 | 15370",
+  "teletalk | 1178 | 15372",
+  "teletalk | 1178 | 15369",
+  "teletalk | 1178 | 15375",
+  "teletalk | 1178 | 15371",
+  "teletalk | 848 | 15366",
+  "teletalk | 848 | 15367"
  ],
  "Bangladesh Army": [
   "army-circular | 98TH BMA LONG COURSE | 2026-07-29",
@@ -396,10 +418,10 @@
   "army-news | https://join.army.mil.bd/home/page/news-view/AOHLWLYG4RDJDF5OBHKV"
  ],
  "_daily": {
-  "date": "2026-11-18",
+  "date": "2026-11-19",
   "counts": {
-   "Live Jobs": 334,
-   "Posted Today": 8,
+   "Live Jobs": 351,
+   "Posted Today": 16,
    "Deadline Today": 0,
    "Expires in 3 days": 26
   }
