@@ -21,9 +21,9 @@
      "job_created_at": "2026-11-19T07:58:40.048Z",
      "govt_jobs": [
       {
-       "id": 15384,
-       "job_title": "Personal Assistant",
-       "job_title_bn": "ব্যক্তিগত সহকারী",
+       "id": 15389,
+       "job_title": "Driver",
+       "job_title_bn": "গাড়ি চালক",
        "organization_id": 371
       },
       {
@@ -33,9 +33,9 @@
        "organization_id": 371
       },
       {
-       "id": 15389,
-       "job_title": "Driver",
-       "job_title_bn": "গাড়ি চালক",
+       "id": 15386,
+       "job_title": "Upper Division Assistant",
+       "job_title_bn": "উচ্চমান সহকারী",
        "organization_id": 371
       },
       {
@@ -45,9 +45,9 @@
        "organization_id": 371
       },
       {
-       "id": 15386,
-       "job_title": "Upper Division Assistant",
-       "job_title_bn": "উচ্চমান সহকারী",
+       "id": 15390,
+       "job_title": "Office Support Staff",
+       "job_title_bn": "অফিস সহায়ক",
        "organization_id": 371
       },
       {
@@ -57,9 +57,9 @@
        "organization_id": 371
       },
       {
-       "id": 15390,
-       "job_title": "Office Support Staff",
-       "job_title_bn": "অফিস সহায়ক",
+       "id": 15384,
+       "job_title": "Personal Assistant",
+       "job_title_bn": "ব্যক্তিগত সহকারী",
        "organization_id": 371
       }
      ]
@@ -75,15 +75,9 @@
      "job_created_at": "2026-11-19T07:47:04.097Z",
      "govt_jobs": [
       {
-       "id": 15380,
-       "job_title": "Stenotypist-Cum-Computer Operator",
-       "job_title_bn": "সাঁটমুদ্রাক্ষরিক-কাম-কম্পিউটার অপারেটর",
-       "organization_id": 1179
-      },
-      {
-       "id": 15381,
-       "job_title": "Office Assistant-Cum-Computer Typist",
-       "job_title_bn": "অফিস সহকারী-কাম-কম্পিউটার মুদ্রাক্ষরিক",
+       "id": 15379,
+       "job_title": "Upper Division Assistant",
+       "job_title_bn": "উচ্চমান সহকারী",
        "organization_id": 1179
       },
       {
@@ -93,9 +87,9 @@
        "organization_id": 1179
       },
       {
-       "id": 15382,
-       "job_title": "Driver",
-       "job_title_bn": "গাড়ি চালক",
+       "id": 15380,
+       "job_title": "Stenotypist-Cum-Computer Operator",
+       "job_title_bn": "সাঁটমুদ্রাক্ষরিক-কাম-কম্পিউটার অপারেটর",
        "organization_id": 1179
       },
       {
@@ -105,15 +99,21 @@
        "organization_id": 1179
       },
       {
-       "id": 15379,
-       "job_title": "Upper Division Assistant",
-       "job_title_bn": "উচ্চমান সহকারী",
+       "id": 15381,
+       "job_title": "Office Assistant-Cum-Computer Typist",
+       "job_title_bn": "অফিস সহকারী-কাম-কম্পিউটার মুদ্রাক্ষরিক",
        "organization_id": 1179
       },
       {
        "id": 15378,
        "job_title": "Head Assistant",
        "job_title_bn": "প্রধান সহকারী",
+       "organization_id": 1179
+      },
+      {
+       "id": 15382,
+       "job_title": "Driver",
+       "job_title_bn": "গাড়ি চালক",
        "organization_id": 1179
       }
      ]
@@ -129,15 +129,9 @@
      "job_created_at": "2026-11-19T07:00:34.897Z",
      "govt_jobs": [
       {
-       "id": 15369,
-       "job_title": "Head Assistant",
-       "job_title_bn": "প্রধান সহকারী",
-       "organization_id": 1178
-      },
-      {
-       "id": 15375,
-       "job_title": "Office Assistant-Cum-Computer Typist",
-       "job_title_bn": "অফিস সহকারী-কাম-কম্পিউটার মুদ্রাক্ষরিক",
+       "id": 15372,
+       "job_title": "Office Support Staff",
+       "job_title_bn": "অফিস সহায়ক",
        "organization_id": 1178
       },
       {
@@ -147,21 +141,27 @@
        "organization_id": 1178
       },
       {
-       "id": 15372,
-       "job_title": "Office Support Staff",
-       "job_title_bn": "অফিস সহায়ক",
-       "organization_id": 1178
-      },
-      {
-       "id": 15368,
-       "job_title": "Computer Operator",
-       "job_title_bn": "কম্পিউটার অপারেটর",
+       "id": 15375,
+       "job_title": "Office Assistant-Cum-Computer Typist",
+       "job_title_bn": "অফিস সহকারী-কাম-কম্পিউটার মুদ্রাক্ষরিক",
        "organization_id": 1178
       },
       {
        "id": 15370,
        "job_title": "Upper Division Assistant",
        "job_title_bn": "উচ্চমান সহকারী",
+       "organization_id": 1178
+      },
+      {
+       "id": 15369,
+       "job_title": "Head Assistant",
+       "job_title_bn": "প্রধান সহকারী",
+       "organization_id": 1178
+      },
+      {
+       "id": 15368,
+       "job_title": "Computer Operator",
+       "job_title_bn": "কম্পিউটার অপারেটর",
        "organization_id": 1178
       }
      ]
@@ -201,21 +201,9 @@
      "job_created_at": "2026-11-18T10:11:47.866Z",
      "govt_jobs": [
       {
-       "id": 15360,
-       "job_title": "Assistant Manager (Distribution and Marketing)",
-       "job_title_bn": "সহকারী ব্যবস্থাপক (বন্টন ও বিপণন)",
-       "organization_id": 950
-      },
-      {
-       "id": 15357,
-       "job_title": "Assistant Manager (Finance)",
-       "job_title_bn": "সহকারী ব্যবস্থাপক (অর্থ)",
-       "organization_id": 950
-      },
-      {
-       "id": 15363,
-       "job_title": "Sub-Assistant Engineer (Planning and Development)",
-       "job_title_bn": "উপসহকারী প্রকৌশলী (পরিকল্পনা ও উন্নয়ন)",
+       "id": 15356,
+       "job_title": "Assistant Manager (Commercial & Operations)",
+       "job_title_bn": "সহকারী ব্যবস্থাপক (বাণিজ্য ও অপারেশন্স)",
        "organization_id": 950
       },
       {
@@ -225,9 +213,9 @@
        "organization_id": 950
       },
       {
-       "id": 15355,
-       "job_title": "Programmer (IT)",
-       "job_title_bn": "প্রোগ্রামার (আইটি)",
+       "id": 15359,
+       "job_title": "Assistant Manager (Administration)",
+       "job_title_bn": "সহকারী ব্যবস্থাপক (প্রশাসন)",
        "organization_id": 950
       },
       {
@@ -237,15 +225,15 @@
        "organization_id": 950
       },
       {
-       "id": 15359,
-       "job_title": "Assistant Manager (Administration)",
-       "job_title_bn": "সহকারী ব্যবস্থাপক (প্রশাসন)",
+       "id": 15360,
+       "job_title": "Assistant Manager (Distribution and Marketing)",
+       "job_title_bn": "সহকারী ব্যবস্থাপক (বন্টন ও বিপণন)",
        "organization_id": 950
       },
       {
-       "id": 15353,
-       "job_title": "Deputy Manager (Planning and Development)",
-       "job_title_bn": "উপ-ব্যবস্থাপক (পরিকল্পনা ও উন্নয়ন)",
+       "id": 15355,
+       "job_title": "Programmer (IT)",
+       "job_title_bn": "প্রোগ্রামার (আইটি)",
        "organization_id": 950
       },
       {
@@ -261,9 +249,21 @@
        "organization_id": 950
       },
       {
-       "id": 15356,
-       "job_title": "Assistant Manager (Commercial & Operations)",
-       "job_title_bn": "সহকারী ব্যবস্থাপক (বাণিজ্য ও অপারেশন্স)",
+       "id": 15357,
+       "job_title": "Assistant Manager (Finance)",
+       "job_title_bn": "সহকারী ব্যবস্থাপক (অর্থ)",
+       "organization_id": 950
+      },
+      {
+       "id": 15364,
+       "job_title": "Sub-Assistant Engineer (General Workshop)",
+       "job_title_bn": "উপসহকারী প্রকৌশলী (সাধারণ কর্মশাখা)",
+       "organization_id": 950
+      },
+      {
+       "id": 15353,
+       "job_title": "Deputy Manager (Planning and Development)",
+       "job_title_bn": "উপ-ব্যবস্থাপক (পরিকল্পনা ও উন্নয়ন)",
        "organization_id": 950
       },
       {
@@ -273,15 +273,15 @@
        "organization_id": 950
       },
       {
-       "id": 15362,
-       "job_title": "Junior Officer (Administration)",
-       "job_title_bn": "কনিষ্ঠ কর্মকর্তা (প্রশাসন)",
+       "id": 15363,
+       "job_title": "Sub-Assistant Engineer (Planning and Development)",
+       "job_title_bn": "উপসহকারী প্রকৌশলী (পরিকল্পনা ও উন্নয়ন)",
        "organization_id": 950
       },
       {
-       "id": 15364,
-       "job_title": "Sub-Assistant Engineer (General Workshop)",
-       "job_title_bn": "উপসহকারী প্রকৌশলী (সাধারণ কর্মশাখা)",
+       "id": 15362,
+       "job_title": "Junior Officer (Administration)",
+       "job_title_bn": "কনিষ্ঠ কর্মকর্তা (প্রশাসন)",
        "organization_id": 950
       }
      ]
@@ -297,15 +297,15 @@
      "job_created_at": "2026-11-18T04:11:53.832Z",
      "govt_jobs": [
       {
-       "id": 15351,
-       "job_title": "Secretary",
-       "job_title_bn": "সচিব",
-       "organization_id": 1125
-      },
-      {
        "id": 15085,
        "job_title": "Verification/ Investigation Officer",
        "job_title_bn": "ভেরিফিকেশন/ ইনভেস্টিগেশন অফিসার",
+       "organization_id": 1125
+      },
+      {
+       "id": 15351,
+       "job_title": "Secretary",
+       "job_title_bn": "সচিব",
        "organization_id": 1125
       }
      ]
@@ -321,21 +321,15 @@
      "job_created_at": "2026-11-17T09:41:48.545Z",
      "govt_jobs": [
       {
+       "id": 15347,
+       "job_title": "Office Assistant-cum-Computer Typist",
+       "job_title_bn": "অফিস সহকারী-কাম-কম্পিউটার মুদ্রাক্ষরিক",
+       "organization_id": 1177
+      },
+      {
        "id": 15346,
        "job_title": "Nazir-cum-Cashier",
        "job_title_bn": "নাজির-কাম-ক্যাশিয়ার",
-       "organization_id": 1177
-      },
-      {
-       "id": 15349,
-       "job_title": "Credit Checking-cum-Sairat Assistant",
-       "job_title_bn": "ক্রেডিট চেকিং- কাম-সায়রাত সহকারী",
-       "organization_id": 1177
-      },
-      {
-       "id": 15348,
-       "job_title": "Certificate Assistant",
-       "job_title_bn": "সার্টিফিকেট সহকারী",
        "organization_id": 1177
       },
       {
@@ -345,9 +339,15 @@
        "organization_id": 1177
       },
       {
-       "id": 15347,
-       "job_title": "Office Assistant-cum-Computer Typist",
-       "job_title_bn": "অফিস সহকারী-কাম-কম্পিউটার মুদ্রাক্ষরিক",
+       "id": 15348,
+       "job_title": "Certificate Assistant",
+       "job_title_bn": "সার্টিফিকেট সহকারী",
+       "organization_id": 1177
+      },
+      {
+       "id": 15349,
+       "job_title": "Credit Checking-cum-Sairat Assistant",
+       "job_title_bn": "ক্রেডিট চেকিং- কাম-সায়রাত সহকারী",
        "organization_id": 1177
       }
      ]
@@ -387,12 +387,6 @@
      "job_created_at": "2026-11-17T04:18:35.936Z",
      "govt_jobs": [
       {
-       "id": 15341,
-       "job_title": "Stenographer-cum-Computer Operator",
-       "job_title_bn": "সাঁটলিপিকার-কাম-কম্পিউটার অপারেটর",
-       "organization_id": 1176
-      },
-      {
        "id": 15343,
        "job_title": "Office Assistant-cum-Computer Typist",
        "job_title_bn": "অফিস সহকারী- কাম-কম্পিউটার মুদ্রাক্ষরিক",
@@ -402,6 +396,12 @@
        "id": 15342,
        "job_title": "Steno Typist-cum-Computer Operator",
        "job_title_bn": "সাঁটমুদ্রাক্ষরিক-কাম-কম্পিউটার অপারেটর",
+       "organization_id": 1176
+      },
+      {
+       "id": 15341,
+       "job_title": "Stenographer-cum-Computer Operator",
+       "job_title_bn": "সাঁটলিপিকার-কাম-কম্পিউটার অপারেটর",
        "organization_id": 1176
       }
      ]
@@ -429,21 +429,15 @@
        "organization_id": 1175
       },
       {
-       "id": 15335,
-       "job_title": "Cashier",
-       "job_title_bn": "ক্যাশিয়ার",
-       "organization_id": 1175
-      },
-      {
        "id": 15338,
        "job_title": "Cafeteria Manager",
        "job_title_bn": "ক্যাফেটারিয়া ম্যানেজার",
        "organization_id": 1175
       },
       {
-       "id": 15339,
-       "job_title": "Photocopy Operator",
-       "job_title_bn": "ফটোকপি অপারেটর",
+       "id": 15335,
+       "job_title": "Cashier",
+       "job_title_bn": "ক্যাশিয়ার",
        "organization_id": 1175
       },
       {
@@ -456,6 +450,12 @@
        "id": 15337,
        "job_title": "Accounts Assistant",
        "job_title_bn": "হিসাব সহকারী",
+       "organization_id": 1175
+      },
+      {
+       "id": 15339,
+       "job_title": "Photocopy Operator",
+       "job_title_bn": "ফটোকপি অপারেটর",
        "organization_id": 1175
       }
      ]
@@ -489,24 +489,6 @@
      "job_created_at": "2026-11-16T10:03:18.092Z",
      "govt_jobs": [
       {
-       "id": 15328,
-       "job_title": "Sub-Assistant Engineer",
-       "job_title_bn": "উপ-সহকারী প্রকৌশলী",
-       "organization_id": 784
-      },
-      {
-       "id": 15330,
-       "job_title": "Store & Sales Assistant",
-       "job_title_bn": "সংরক্ষণ ও বিক্রয় সহকারী",
-       "organization_id": 784
-      },
-      {
-       "id": 15329,
-       "job_title": "Stenotypist-Cum Computer Operator",
-       "job_title_bn": "সাঁটমুদ্রাক্ষরিক-কাম কম্পিউটার অপারেটর",
-       "organization_id": 784
-      },
-      {
        "id": 15332,
        "job_title": "Office Support Staff",
        "job_title_bn": "অফিস সহায়ক",
@@ -516,6 +498,24 @@
        "id": 15331,
        "job_title": "Telex Operator",
        "job_title_bn": "টেলেক্স অপারেটর",
+       "organization_id": 784
+      },
+      {
+       "id": 15330,
+       "job_title": "Store & Sales Assistant",
+       "job_title_bn": "সংরক্ষণ ও বিক্রয় সহকারী",
+       "organization_id": 784
+      },
+      {
+       "id": 15328,
+       "job_title": "Sub-Assistant Engineer",
+       "job_title_bn": "উপ-সহকারী প্রকৌশলী",
+       "organization_id": 784
+      },
+      {
+       "id": 15329,
+       "job_title": "Stenotypist-Cum Computer Operator",
+       "job_title_bn": "সাঁটমুদ্রাক্ষরিক-কাম কম্পিউটার অপারেটর",
        "organization_id": 784
       }
      ]
@@ -537,33 +537,15 @@
        "organization_id": 651
       },
       {
-       "id": 15321,
-       "job_title": "Assistant Instructor",
-       "job_title_bn": "(সহকারী ইন্সট্রাক্টর)",
-       "organization_id": 651
-      },
-      {
        "id": 15326,
        "job_title": "Assistant Instructor(ICT)",
        "job_title_bn": "(সহকারী প্রশিক্ষক(আইসিটি))",
        "organization_id": 651
       },
       {
-       "id": 15320,
-       "job_title": "Instructor(Research Coordinator)",
-       "job_title_bn": "(প্রশিক্ষক(গবেষণা সমন্বয়কারী))",
-       "organization_id": 651
-      },
-      {
-       "id": 15324,
-       "job_title": "Assistant Instructor(English)",
-       "job_title_bn": "(সহকারী প্রশিক্ষক(ইংরেজি))",
-       "organization_id": 651
-      },
-      {
-       "id": 15323,
-       "job_title": "Assistant Instructor(Research)",
-       "job_title_bn": "(সহকারী প্রশিক্ষক(গবেষণা))",
+       "id": 15321,
+       "job_title": "Assistant Instructor",
+       "job_title_bn": "(সহকারী ইন্সট্রাক্টর)",
        "organization_id": 651
       },
       {
@@ -573,9 +555,27 @@
        "organization_id": 651
       },
       {
+       "id": 15320,
+       "job_title": "Instructor(Research Coordinator)",
+       "job_title_bn": "(প্রশিক্ষক(গবেষণা সমন্বয়কারী))",
+       "organization_id": 651
+      },
+      {
        "id": 15325,
        "job_title": "Medical Officer",
        "job_title_bn": "(মেডিকেল অফিসার)",
+       "organization_id": 651
+      },
+      {
+       "id": 15323,
+       "job_title": "Assistant Instructor(Research)",
+       "job_title_bn": "(সহকারী প্রশিক্ষক(গবেষণা))",
+       "organization_id": 651
+      },
+      {
+       "id": 15324,
+       "job_title": "Assistant Instructor(English)",
+       "job_title_bn": "(সহকারী প্রশিক্ষক(ইংরেজি))",
        "organization_id": 651
       }
      ]
@@ -591,27 +591,9 @@
      "job_created_at": "2026-11-15T04:48:34.829Z",
      "govt_jobs": [
       {
-       "id": 15318,
-       "job_title": "Office Assistant Cum-Computer Typist",
-       "job_title_bn": "[অফিস সহকারী কাম-কম্পিউটার মুদ্রাক্ষরিক]",
-       "organization_id": 1130
-      },
-      {
-       "id": 15315,
-       "job_title": "Head Assistant",
-       "job_title_bn": "[প্রধান সহকারী]",
-       "organization_id": 1130
-      },
-      {
-       "id": 15314,
-       "job_title": "Personal Assistant",
-       "job_title_bn": "[ব্যক্তিগত সহকারী]",
-       "organization_id": 1130
-      },
-      {
-       "id": 15317,
-       "job_title": "Stenotypist Cum-Computer Operator",
-       "job_title_bn": "[সাঁটমুদ্রাক্ষরিক কাম-কম্পিউটার অপারেটর]",
+       "id": 15316,
+       "job_title": "Upper Division Assistant",
+       "job_title_bn": "[উচ্চমান সহকারী]",
        "organization_id": 1130
       },
       {
@@ -621,9 +603,27 @@
        "organization_id": 1130
       },
       {
-       "id": 15316,
-       "job_title": "Upper Division Assistant",
-       "job_title_bn": "[উচ্চমান সহকারী]",
+       "id": 15314,
+       "job_title": "Personal Assistant",
+       "job_title_bn": "[ব্যক্তিগত সহকারী]",
+       "organization_id": 1130
+      },
+      {
+       "id": 15318,
+       "job_title": "Office Assistant Cum-Computer Typist",
+       "job_title_bn": "[অফিস সহকারী কাম-কম্পিউটার মুদ্রাক্ষরিক]",
+       "organization_id": 1130
+      },
+      {
+       "id": 15317,
+       "job_title": "Stenotypist Cum-Computer Operator",
+       "job_title_bn": "[সাঁটমুদ্রাক্ষরিক কাম-কম্পিউটার অপারেটর]",
+       "organization_id": 1130
+      },
+      {
+       "id": 15315,
+       "job_title": "Head Assistant",
+       "job_title_bn": "[প্রধান সহকারী]",
        "organization_id": 1130
       }
      ]
@@ -639,21 +639,9 @@
      "job_created_at": "2026-11-12T09:36:51.623Z",
      "govt_jobs": [
       {
-       "id": 15312,
-       "job_title": "Cashier",
-       "job_title_bn": "ক্যাশিয়ার",
-       "organization_id": 656
-      },
-      {
-       "id": 15313,
-       "job_title": "Office Support Staff",
-       "job_title_bn": "অফিস সহায়ক",
-       "organization_id": 656
-      },
-      {
-       "id": 15306,
-       "job_title": "Field & Market Inspector",
-       "job_title_bn": "মাঠ ও বাজার পরিদর্শক",
+       "id": 15308,
+       "job_title": "Computer Operator",
+       "job_title_bn": "কম্পিউটার অপারেটর",
        "organization_id": 656
       },
       {
@@ -663,27 +651,39 @@
        "organization_id": 656
       },
       {
+       "id": 15313,
+       "job_title": "Office Support Staff",
+       "job_title_bn": "অফিস সহায়ক",
+       "organization_id": 656
+      },
+      {
        "id": 15310,
        "job_title": "Driver (Heavy)",
        "job_title_bn": "গাড়ী চালক (ভারী)",
        "organization_id": 656
       },
       {
-       "id": 15309,
-       "job_title": "Accountant",
-       "job_title_bn": "হিসাব রক্ষক",
-       "organization_id": 656
-      },
-      {
-       "id": 15308,
-       "job_title": "Computer Operator",
-       "job_title_bn": "কম্পিউটার অপারেটর",
+       "id": 15312,
+       "job_title": "Cashier",
+       "job_title_bn": "ক্যাশিয়ার",
        "organization_id": 656
       },
       {
        "id": 15307,
        "job_title": "Stenographer-Cum-Computer Operator",
        "job_title_bn": "সাঁটলিপিকার-কাম-কম্পিউটার অপারেটর",
+       "organization_id": 656
+      },
+      {
+       "id": 15306,
+       "job_title": "Field & Market Inspector",
+       "job_title_bn": "মাঠ ও বাজার পরিদর্শক",
+       "organization_id": 656
+      },
+      {
+       "id": 15309,
+       "job_title": "Accountant",
+       "job_title_bn": "হিসাব রক্ষক",
        "organization_id": 656
       }
      ]
@@ -705,15 +705,21 @@
        "organization_id": 985
       },
       {
-       "id": 15301,
-       "job_title": "Head Assistant",
-       "job_title_bn": "প্রধান সহকারী",
-       "organization_id": 985
-      },
-      {
        "id": 15300,
        "job_title": "Personal Assistant",
        "job_title_bn": "ব্যক্তিগত সহকারী",
+       "organization_id": 985
+      },
+      {
+       "id": 15303,
+       "job_title": "Steno-Typist Cum-Computer Operator",
+       "job_title_bn": "সাঁট-মুদ্রাক্ষরিক কাম-কম্পিউটার অপারেটর",
+       "organization_id": 985
+      },
+      {
+       "id": 15301,
+       "job_title": "Head Assistant",
+       "job_title_bn": "প্রধান সহকারী",
        "organization_id": 985
       },
       {
@@ -723,21 +729,15 @@
        "organization_id": 985
       },
       {
-       "id": 15302,
-       "job_title": "Upper Division Assistant",
-       "job_title_bn": "উচ্চমান সহকারী",
-       "organization_id": 985
-      },
-      {
        "id": 15304,
        "job_title": "Office Assistant Cum-Computer Typist",
        "job_title_bn": "অফিস সহকারী কাম-কম্পিউটার মুদ্রাক্ষরিক",
        "organization_id": 985
       },
       {
-       "id": 15303,
-       "job_title": "Steno-Typist Cum-Computer Operator",
-       "job_title_bn": "সাঁট-মুদ্রাক্ষরিক কাম-কম্পিউটার অপারেটর",
+       "id": 15302,
+       "job_title": "Upper Division Assistant",
+       "job_title_bn": "উচ্চমান সহকারী",
        "organization_id": 985
       }
      ]
@@ -753,9 +753,9 @@
      "job_created_at": "2026-11-11T09:04:35.888Z",
      "govt_jobs": [
       {
-       "id": 15295,
-       "job_title": "Computer Operator",
-       "job_title_bn": "কম্পিউটার অপারেটর",
+       "id": 15297,
+       "job_title": "Office Assistant-cum-Computer Typist",
+       "job_title_bn": "অফিস সহকারী কাম-কম্পিউটার মুদ্রাক্ষরিক",
        "organization_id": 580
       },
       {
@@ -765,21 +765,21 @@
        "organization_id": 580
       },
       {
-       "id": 15297,
-       "job_title": "Office Assistant-cum-Computer Typist",
-       "job_title_bn": "অফিস সহকারী কাম-কম্পিউটার মুদ্রাক্ষরিক",
-       "organization_id": 580
-      },
-      {
-       "id": 15294,
-       "job_title": "Stenographer-cum-Computer Operator",
-       "job_title_bn": "সাঁটলিপিকার কাম-কম্পিউটার অপারেটর",
+       "id": 15295,
+       "job_title": "Computer Operator",
+       "job_title_bn": "কম্পিউটার অপারেটর",
        "organization_id": 580
       },
       {
        "id": 15298,
        "job_title": "Office Support Staff",
        "job_title_bn": "অফিস সহায়ক",
+       "organization_id": 580
+      },
+      {
+       "id": 15294,
+       "job_title": "Stenographer-cum-Computer Operator",
+       "job_title_bn": "সাঁটলিপিকার কাম-কম্পিউটার অপারেটর",
        "organization_id": 580
       }
      ]
@@ -795,21 +795,9 @@
      "job_created_at": "2026-11-11T05:39:59.191Z",
      "govt_jobs": [
       {
-       "id": 15290,
-       "job_title": "Certificate Assistant",
-       "job_title_bn": "সার্টিফিকেট সহকারী",
-       "organization_id": 436
-      },
-      {
        "id": 15293,
        "job_title": "Office Assistant Cum-Computer Typist",
        "job_title_bn": "অফিস সহকারী কাম-কম্পিউটার মুদ্রাক্ষরিক",
-       "organization_id": 436
-      },
-      {
-       "id": 15289,
-       "job_title": "Certificate Peshkar",
-       "job_title_bn": "সার্টিফিকেট পেশকার",
        "organization_id": 436
       },
       {
@@ -822,6 +810,18 @@
        "id": 15291,
        "job_title": "Credit Checking Cum Sayrat Assistant",
        "job_title_bn": "ক্রেডিট চেকিং কাম সায়রাত সহকারী",
+       "organization_id": 436
+      },
+      {
+       "id": 15290,
+       "job_title": "Certificate Assistant",
+       "job_title_bn": "সার্টিফিকেট সহকারী",
+       "organization_id": 436
+      },
+      {
+       "id": 15289,
+       "job_title": "Certificate Peshkar",
+       "job_title_bn": "সার্টিফিকেট পেশকার",
        "organization_id": 436
       }
      ]
@@ -837,6 +837,12 @@
      "job_created_at": "2026-11-11T04:58:10.517Z",
      "govt_jobs": [
       {
+       "id": 15286,
+       "job_title": "Steno-Typist Cum Computer Operator",
+       "job_title_bn": "সাঁট-মুদ্রাক্ষরিক কাম কম্পিউটার অপারেটর",
+       "organization_id": 482
+      },
+      {
        "id": 15288,
        "job_title": "Office Support Staff",
        "job_title_bn": "অফিস সহায়ক",
@@ -846,12 +852,6 @@
        "id": 15287,
        "job_title": "Office Assistant Cum Computer Typist",
        "job_title_bn": "অফিস সহকারী কাম কম্পিউটার মুদ্রাক্ষরিক",
-       "organization_id": 482
-      },
-      {
-       "id": 15286,
-       "job_title": "Steno-Typist Cum Computer Operator",
-       "job_title_bn": "সাঁট-মুদ্রাক্ষরিক কাম কম্পিউটার অপারেটর",
        "organization_id": 482
       }
      ]
@@ -867,129 +867,9 @@
      "job_created_at": "2026-11-11T04:43:19.454Z",
      "govt_jobs": [
       {
-       "id": 15265,
-       "job_title": "Steno-Typist cum-Computer Operator",
-       "job_title_bn": "সাঁট-মুদ্রাক্ষরিক কাম কম্পিউটার অপারেটর",
-       "organization_id": 1173
-      },
-      {
-       "id": 15261,
-       "job_title": "Photographer Still",
-       "job_title_bn": "ফটোগ্রাফার স্টিল",
-       "organization_id": 1173
-      },
-      {
-       "id": 15258,
-       "job_title": "Guide",
-       "job_title_bn": "গাইড",
-       "organization_id": 1173
-      },
-      {
-       "id": 15268,
-       "job_title": "Assistant Security Inspector",
-       "job_title_bn": "সহকারী সিকিউরিটি ইন্সপেক্টর",
-       "organization_id": 1173
-      },
-      {
-       "id": 15263,
-       "job_title": "Technician (Hardware)",
-       "job_title_bn": "টেকনিশিয়ান (হার্ডওয়্যার)",
-       "organization_id": 1173
-      },
-      {
-       "id": 15269,
-       "job_title": "Ambulance driver",
-       "job_title_bn": "অ্যাম্বুলেন্স ড্রাইভার",
-       "organization_id": 1173
-      },
-      {
        "id": 15271,
        "job_title": "Office Assistant-cum-Computer Operator",
        "job_title_bn": "অফিস সহকারী কাম কম্পিউটার অপারেটর",
-       "organization_id": 1173
-      },
-      {
-       "id": 15276,
-       "job_title": "Cameraman Assistant",
-       "job_title_bn": "ক্যামেরাম্যান সহকারী",
-       "organization_id": 1173
-      },
-      {
-       "id": 15283,
-       "job_title": "Security Guard",
-       "job_title_bn": "নিরাপত্তাপ্রহরী",
-       "organization_id": 1173
-      },
-      {
-       "id": 15272,
-       "job_title": "Legal Assistant",
-       "job_title_bn": "আইন সহকারী",
-       "organization_id": 1173
-      },
-      {
-       "id": 15267,
-       "job_title": "Library Assistant",
-       "job_title_bn": "গ্রন্থাগার সহকারী",
-       "organization_id": 1173
-      },
-      {
-       "id": 15275,
-       "job_title": "Lineman",
-       "job_title_bn": "লাইনম্যান",
-       "organization_id": 1173
-      },
-      {
-       "id": 15274,
-       "job_title": "Protocol Assistant",
-       "job_title_bn": "প্রটোকল অ্যাসিস্ট্যান্ট",
-       "organization_id": 1173
-      },
-      {
-       "id": 15264,
-       "job_title": "TV Technician",
-       "job_title_bn": "টিভি টেকনিশিয়ান",
-       "organization_id": 1173
-      },
-      {
-       "id": 15281,
-       "job_title": "Assistant Dispatch Rider",
-       "job_title_bn": "সহকারী ডেসপাচ রাইডার",
-       "organization_id": 1173
-      },
-      {
-       "id": 15262,
-       "job_title": "Technician (Network)",
-       "job_title_bn": "টেকনিশিয়ান (নেটওয়ার্ক)",
-       "organization_id": 1173
-      },
-      {
-       "id": 15259,
-       "job_title": "Cataloger",
-       "job_title_bn": "ক্যাটালগার",
-       "organization_id": 1173
-      },
-      {
-       "id": 15279,
-       "job_title": "Mechanic Grade-C",
-       "job_title_bn": "মেকানিক গ্রেড-সি",
-       "organization_id": 1173
-      },
-      {
-       "id": 15266,
-       "job_title": "Data Entry/Control Operator",
-       "job_title_bn": "ডাটা এন্ট্রি/কন্ট্রোল অপারেটর",
-       "organization_id": 1173
-      },
-      {
-       "id": 15282,
-       "job_title": "Room Attendant (Male/Female)",
-       "job_title_bn": "কামরা পরিচারক/পরিচারিকা",
-       "organization_id": 1173
-      },
-      {
-       "id": 15284,
-       "job_title": "Cleaner (Formerly known as Sweeper)",
-       "job_title_bn": "পরিচ্ছন্নতাকর্মী (পূর্বনাম ঝাড়ুদার)",
        "organization_id": 1173
       },
       {
@@ -999,15 +879,21 @@
        "organization_id": 1173
       },
       {
-       "id": 15260,
-       "job_title": "Legislative Assistant",
-       "job_title_bn": "লেজিসলেটিভ অ্যাসিস্ট্যান্ট",
+       "id": 15282,
+       "job_title": "Room Attendant (Male/Female)",
+       "job_title_bn": "কামরা পরিচারক/পরিচারিকা",
        "organization_id": 1173
       },
       {
        "id": 15277,
        "job_title": "Security Assistant",
        "job_title_bn": "সিকিউরিটি অ্যাসিস্ট্যান্ট",
+       "organization_id": 1173
+      },
+      {
+       "id": 15281,
+       "job_title": "Assistant Dispatch Rider",
+       "job_title_bn": "সহকারী ডেসপাচ রাইডার",
        "organization_id": 1173
       },
       {
@@ -1023,15 +909,129 @@
        "organization_id": 1173
       },
       {
-       "id": 15280,
-       "job_title": "Office Assistant-cum-Cleaner",
-       "job_title_bn": "অফিস সহায়ক কাম পরিচ্ছন্নতা কর্মী",
+       "id": 15267,
+       "job_title": "Library Assistant",
+       "job_title_bn": "গ্রন্থাগার সহকারী",
+       "organization_id": 1173
+      },
+      {
+       "id": 15268,
+       "job_title": "Assistant Security Inspector",
+       "job_title_bn": "সহকারী সিকিউরিটি ইন্সপেক্টর",
+       "organization_id": 1173
+      },
+      {
+       "id": 15274,
+       "job_title": "Protocol Assistant",
+       "job_title_bn": "প্রটোকল অ্যাসিস্ট্যান্ট",
+       "organization_id": 1173
+      },
+      {
+       "id": 15265,
+       "job_title": "Steno-Typist cum-Computer Operator",
+       "job_title_bn": "সাঁট-মুদ্রাক্ষরিক কাম কম্পিউটার অপারেটর",
+       "organization_id": 1173
+      },
+      {
+       "id": 15258,
+       "job_title": "Guide",
+       "job_title_bn": "গাইড",
+       "organization_id": 1173
+      },
+      {
+       "id": 15279,
+       "job_title": "Mechanic Grade-C",
+       "job_title_bn": "মেকানিক গ্রেড-সি",
        "organization_id": 1173
       },
       {
        "id": 15273,
        "job_title": "Offset Printer Technician",
        "job_title_bn": "অফসেট প্রিন্টার্স টেকনিশিয়ান",
+       "organization_id": 1173
+      },
+      {
+       "id": 15283,
+       "job_title": "Security Guard",
+       "job_title_bn": "নিরাপত্তাপ্রহরী",
+       "organization_id": 1173
+      },
+      {
+       "id": 15263,
+       "job_title": "Technician (Hardware)",
+       "job_title_bn": "টেকনিশিয়ান (হার্ডওয়্যার)",
+       "organization_id": 1173
+      },
+      {
+       "id": 15269,
+       "job_title": "Ambulance driver",
+       "job_title_bn": "অ্যাম্বুলেন্স ড্রাইভার",
+       "organization_id": 1173
+      },
+      {
+       "id": 15260,
+       "job_title": "Legislative Assistant",
+       "job_title_bn": "লেজিসলেটিভ অ্যাসিস্ট্যান্ট",
+       "organization_id": 1173
+      },
+      {
+       "id": 15264,
+       "job_title": "TV Technician",
+       "job_title_bn": "টিভি টেকনিশিয়ান",
+       "organization_id": 1173
+      },
+      {
+       "id": 15280,
+       "job_title": "Office Assistant-cum-Cleaner",
+       "job_title_bn": "অফিস সহায়ক কাম পরিচ্ছন্নতা কর্মী",
+       "organization_id": 1173
+      },
+      {
+       "id": 15259,
+       "job_title": "Cataloger",
+       "job_title_bn": "ক্যাটালগার",
+       "organization_id": 1173
+      },
+      {
+       "id": 15284,
+       "job_title": "Cleaner (Formerly known as Sweeper)",
+       "job_title_bn": "পরিচ্ছন্নতাকর্মী (পূর্বনাম ঝাড়ুদার)",
+       "organization_id": 1173
+      },
+      {
+       "id": 15266,
+       "job_title": "Data Entry/Control Operator",
+       "job_title_bn": "ডাটা এন্ট্রি/কন্ট্রোল অপারেটর",
+       "organization_id": 1173
+      },
+      {
+       "id": 15262,
+       "job_title": "Technician (Network)",
+       "job_title_bn": "টেকনিশিয়ান (নেটওয়ার্ক)",
+       "organization_id": 1173
+      },
+      {
+       "id": 15272,
+       "job_title": "Legal Assistant",
+       "job_title_bn": "আইন সহকারী",
+       "organization_id": 1173
+      },
+      {
+       "id": 15275,
+       "job_title": "Lineman",
+       "job_title_bn": "লাইনম্যান",
+       "organization_id": 1173
+      },
+      {
+       "id": 15261,
+       "job_title": "Photographer Still",
+       "job_title_bn": "ফটোগ্রাফার স্টিল",
+       "organization_id": 1173
+      },
+      {
+       "id": 15276,
+       "job_title": "Cameraman Assistant",
+       "job_title_bn": "ক্যামেরাম্যান সহকারী",
        "organization_id": 1173
       }
      ]
@@ -1061,9 +1061,15 @@
      "job_created_at": "2026-11-10T04:36:40.775Z",
      "govt_jobs": [
       {
-       "id": 15252,
-       "job_title": "Medical Officer (Out-patient Department (OPD) and In-patient Department (IPD)-06)",
-       "job_title_bn": "মেডিকেল অফিসার (বহি: বিভাগ ও ইনডোর-৬)",
+       "id": 15250,
+       "job_title": "Medical Officer (Blood Bank-1)",
+       "job_title_bn": "মেডিকেল অফিসার (ব্লাড ব্যাংক-১)",
+       "organization_id": 635
+      },
+      {
+       "id": 15253,
+       "job_title": "Medical Officer (Emergency Department-02)",
+       "job_title_bn": "মেডিকেল অফিসার (জরুরী বিভাগ-২)",
        "organization_id": 635
       },
       {
@@ -1073,45 +1079,27 @@
        "organization_id": 635
       },
       {
-       "id": 15113,
-       "job_title": "Sub-Assistant Engineer (Civil)",
-       "job_title_bn": "উপসহকারী প্রকৌশলী (পুর)",
+       "id": 15251,
+       "job_title": "Medical Officer (Skin & VD-02)",
+       "job_title_bn": "মেডিকেল অফিসার (চর্ম ও যৌন-২)",
        "organization_id": 635
       },
       {
-       "id": 15250,
-       "job_title": "Medical Officer (Blood Bank-1)",
-       "job_title_bn": "মেডিকেল অফিসার (ব্লাড ব্যাংক-১)",
+       "id": 15252,
+       "job_title": "Medical Officer (Out-patient Department (OPD) and In-patient Department (IPD)-06)",
+       "job_title_bn": "মেডিকেল অফিসার (বহি: বিভাগ ও ইনডোর-৬)",
+       "organization_id": 635
+      },
+      {
+       "id": 15257,
+       "job_title": "Veterinary Officer",
+       "job_title_bn": "ভেটেরিনারী কর্মকর্তা",
        "organization_id": 635
       },
       {
        "id": 15255,
        "job_title": "Dental Surgeon",
        "job_title_bn": "ডেন্টাল সার্জন",
-       "organization_id": 635
-      },
-      {
-       "id": 15114,
-       "job_title": "Sub-Assistant Engineer (Mechanical)",
-       "job_title_bn": "উপসহকারী প্রকৌশলী (যান্ত্রিক)",
-       "organization_id": 635
-      },
-      {
-       "id": 15115,
-       "job_title": "Sub-Assistant Engineer (Electrical)",
-       "job_title_bn": "উপসহকারী প্রকৌশলী (বিদ্যুৎ)",
-       "organization_id": 635
-      },
-      {
-       "id": 15111,
-       "job_title": "Assistant Engineer (Mechanical)",
-       "job_title_bn": "সহকারী প্রকৌশলী (যান্ত্রিক)",
-       "organization_id": 635
-      },
-      {
-       "id": 15253,
-       "job_title": "Medical Officer (Emergency Department-02)",
-       "job_title_bn": "মেডিকেল অফিসার (জরুরী বিভাগ-২)",
        "organization_id": 635
       },
       {
@@ -1127,15 +1115,9 @@
        "organization_id": 635
       },
       {
-       "id": 15257,
-       "job_title": "Veterinary Officer",
-       "job_title_bn": "ভেটেরিনারী কর্মকর্তা",
-       "organization_id": 635
-      },
-      {
-       "id": 15112,
-       "job_title": "Assistant Engineer (Electrical)",
-       "job_title_bn": "সহকারী প্রকৌশলী (বিদ্যুৎ)",
+       "id": 15111,
+       "job_title": "Assistant Engineer (Mechanical)",
+       "job_title_bn": "সহকারী প্রকৌশলী (যান্ত্রিক)",
        "organization_id": 635
       },
       {
@@ -1145,9 +1127,27 @@
        "organization_id": 635
       },
       {
-       "id": 15251,
-       "job_title": "Medical Officer (Skin & VD-02)",
-       "job_title_bn": "মেডিকেল অফিসার (চর্ম ও যৌন-২)",
+       "id": 15114,
+       "job_title": "Sub-Assistant Engineer (Mechanical)",
+       "job_title_bn": "উপসহকারী প্রকৌশলী (যান্ত্রিক)",
+       "organization_id": 635
+      },
+      {
+       "id": 15113,
+       "job_title": "Sub-Assistant Engineer (Civil)",
+       "job_title_bn": "উপসহকারী প্রকৌশলী (পুর)",
+       "organization_id": 635
+      },
+      {
+       "id": 15115,
+       "job_title": "Sub-Assistant Engineer (Electrical)",
+       "job_title_bn": "উপসহকারী প্রকৌশলী (বিদ্যুৎ)",
+       "organization_id": 635
+      },
+      {
+       "id": 15112,
+       "job_title": "Assistant Engineer (Electrical)",
+       "job_title_bn": "সহকারী প্রকৌশলী (বিদ্যুৎ)",
        "organization_id": 635
       }
      ]
@@ -1163,27 +1163,45 @@
      "job_created_at": "2026-11-09T10:16:15.019Z",
      "govt_jobs": [
       {
+       "id": 15230,
+       "job_title": "Assistant Machineman",
+       "job_title_bn": "সহকারী মেশিনম্যান",
+       "organization_id": 1172
+      },
+      {
+       "id": 15247,
+       "job_title": "Security Guard",
+       "job_title_bn": "নিরাপত্তা প্রহরী",
+       "organization_id": 1172
+      },
+      {
        "id": 15223,
        "job_title": "Machineman (Offset Printing/Laser Printing)",
        "job_title_bn": "মেশিনম্যান (অফসেট প্রিন্টিং/লেজার প্রিন্টিং)",
        "organization_id": 1172
       },
       {
-       "id": 15238,
-       "job_title": "Wireman",
-       "job_title_bn": "ওয়্যারম্যান",
+       "id": 15220,
+       "job_title": "Technician",
+       "job_title_bn": "টেকনিশিয়ান",
        "organization_id": 1172
       },
       {
-       "id": 15226,
-       "job_title": "Junior Proofreader",
-       "job_title_bn": "জুনিয়র প্রুফ রীডার",
+       "id": 15246,
+       "job_title": "Coolie",
+       "job_title_bn": "কুলি",
        "organization_id": 1172
       },
       {
-       "id": 15230,
-       "job_title": "Assistant Machineman",
-       "job_title_bn": "সহকারী মেশিনম্যান",
+       "id": 15240,
+       "job_title": "Packer",
+       "job_title_bn": "প্যাকার",
+       "organization_id": 1172
+      },
+      {
+       "id": 15234,
+       "job_title": "Compositor",
+       "job_title_bn": "কম্পোজিটর",
        "organization_id": 1172
       },
       {
@@ -1199,51 +1217,33 @@
        "organization_id": 1172
       },
       {
-       "id": 15221,
-       "job_title": "Mechanic",
-       "job_title_bn": "মেকানিক",
-       "organization_id": 1172
-      },
-      {
-       "id": 15240,
-       "job_title": "Packer",
-       "job_title_bn": "প্যাকার",
-       "organization_id": 1172
-      },
-      {
-       "id": 15216,
-       "job_title": "Assistant (Directorate of Posts)",
-       "job_title_bn": "সহকারী (ডাক অধিদপ্তর)",
-       "organization_id": 1172
-      },
-      {
-       "id": 15244,
-       "job_title": "Sanitation Worker (Sweeper)",
-       "job_title_bn": "পরিচ্ছন্নতা কর্মী (সুইপার)",
-       "organization_id": 1172
-      },
-      {
-       "id": 15217,
-       "job_title": "Assistant Inspector",
-       "job_title_bn": "সহকারী পরিদর্শক",
-       "organization_id": 1172
-      },
-      {
        "id": 15229,
        "job_title": "Machinist",
        "job_title_bn": "মেশিনিস্ট",
        "organization_id": 1172
       },
       {
-       "id": 15225,
-       "job_title": "Draftsman",
-       "job_title_bn": "ড্রাফটসম্যান",
+       "id": 15227,
+       "job_title": "Driver (Light)",
+       "job_title_bn": "ড্রাইভার (হালকা)",
        "organization_id": 1172
       },
       {
-       "id": 15241,
-       "job_title": "Inkman",
-       "job_title_bn": "ইনকম্যান",
+       "id": 15222,
+       "job_title": "Monotype Caster Operator",
+       "job_title_bn": "মনোটাইপ কাস্টার অপারেটর",
+       "organization_id": 1172
+      },
+      {
+       "id": 15215,
+       "job_title": "Upazila Postmaster",
+       "job_title_bn": "উপজেলা পোস্টমাস্টার",
+       "organization_id": 1172
+      },
+      {
+       "id": 15239,
+       "job_title": "Armed Guard",
+       "job_title_bn": "আর্মড গার্ড",
        "organization_id": 1172
       },
       {
@@ -1253,15 +1253,87 @@
        "organization_id": 1172
       },
       {
-       "id": 15234,
-       "job_title": "Compositor",
-       "job_title_bn": "কম্পোজিটর",
-       "organization_id": 1172
-      },
-      {
        "id": 15237,
        "job_title": "Counter",
        "job_title_bn": "কাউন্টার",
+       "organization_id": 1172
+      },
+      {
+       "id": 15228,
+       "job_title": "Carpenter",
+       "job_title_bn": "কার্পেন্টার",
+       "organization_id": 1172
+      },
+      {
+       "id": 15217,
+       "job_title": "Assistant Inspector",
+       "job_title_bn": "সহকারী পরিদর্শক",
+       "organization_id": 1172
+      },
+      {
+       "id": 15231,
+       "job_title": "Assistant Graining Machineman",
+       "job_title_bn": "সহকারী গ্রেনিং মেশিনম্যান",
+       "organization_id": 1172
+      },
+      {
+       "id": 15224,
+       "job_title": "Accounts Assistant",
+       "job_title_bn": "একাউন্টস এ্যাসিসট্যান্ট",
+       "organization_id": 1172
+      },
+      {
+       "id": 15226,
+       "job_title": "Junior Proofreader",
+       "job_title_bn": "জুনিয়র প্রুফ রীডার",
+       "organization_id": 1172
+      },
+      {
+       "id": 15241,
+       "job_title": "Inkman",
+       "job_title_bn": "ইনকম্যান",
+       "organization_id": 1172
+      },
+      {
+       "id": 15243,
+       "job_title": "Sanitation Worker (Formerly Cleaner)",
+       "job_title_bn": "পরিচ্ছন্নতা কর্মী (পূর্বের পদবী ক্লিনার)",
+       "organization_id": 1172
+      },
+      {
+       "id": 15233,
+       "job_title": "Assistant Plate Maker",
+       "job_title_bn": "সহকারী প্লেট মেকার",
+       "organization_id": 1172
+      },
+      {
+       "id": 15225,
+       "job_title": "Draftsman",
+       "job_title_bn": "ড্রাফটসম্যান",
+       "organization_id": 1172
+      },
+      {
+       "id": 15218,
+       "job_title": "Stenotypist-cum-Computer Operator (Stenotypist)",
+       "job_title_bn": "সাঁট মুদ্রাক্ষরিক কাম কম্পিউটার অপারেটর (স্টেনোটাইপিস্ট)",
+       "organization_id": 1172
+      },
+      {
+       "id": 15213,
+       "job_title": "Junior Accountant",
+       "job_title_bn": "জুনিয়র একাউন্ট্যান্ট",
+       "organization_id": 1172
+      },
+      {
+       "id": 15244,
+       "job_title": "Sanitation Worker (Sweeper)",
+       "job_title_bn": "পরিচ্ছন্নতা কর্মী (সুইপার)",
+       "organization_id": 1172
+      },
+      {
+       "id": 15221,
+       "job_title": "Mechanic",
+       "job_title_bn": "মেকানিক",
        "organization_id": 1172
       },
       {
@@ -1277,69 +1349,9 @@
        "organization_id": 1172
       },
       {
-       "id": 15239,
-       "job_title": "Armed Guard",
-       "job_title_bn": "আর্মড গার্ড",
-       "organization_id": 1172
-      },
-      {
-       "id": 15231,
-       "job_title": "Assistant Graining Machineman",
-       "job_title_bn": "সহকারী গ্রেনিং মেশিনম্যান",
-       "organization_id": 1172
-      },
-      {
-       "id": 15213,
-       "job_title": "Junior Accountant",
-       "job_title_bn": "জুনিয়র একাউন্ট্যান্ট",
-       "organization_id": 1172
-      },
-      {
-       "id": 15222,
-       "job_title": "Monotype Caster Operator",
-       "job_title_bn": "মনোটাইপ কাস্টার অপারেটর",
-       "organization_id": 1172
-      },
-      {
-       "id": 15233,
-       "job_title": "Assistant Plate Maker",
-       "job_title_bn": "সহকারী প্লেট মেকার",
-       "organization_id": 1172
-      },
-      {
-       "id": 15224,
-       "job_title": "Accounts Assistant",
-       "job_title_bn": "একাউন্টস এ্যাসিসট্যান্ট",
-       "organization_id": 1172
-      },
-      {
-       "id": 15218,
-       "job_title": "Stenotypist-cum-Computer Operator (Stenotypist)",
-       "job_title_bn": "সাঁট মুদ্রাক্ষরিক কাম কম্পিউটার অপারেটর (স্টেনোটাইপিস্ট)",
-       "organization_id": 1172
-      },
-      {
-       "id": 15247,
-       "job_title": "Security Guard",
-       "job_title_bn": "নিরাপত্তা প্রহরী",
-       "organization_id": 1172
-      },
-      {
-       "id": 15246,
-       "job_title": "Coolie",
-       "job_title_bn": "কুলি",
-       "organization_id": 1172
-      },
-      {
-       "id": 15215,
-       "job_title": "Upazila Postmaster",
-       "job_title_bn": "উপজেলা পোস্টমাস্টার",
-       "organization_id": 1172
-      },
-      {
-       "id": 15228,
-       "job_title": "Carpenter",
-       "job_title_bn": "কার্পেন্টার",
+       "id": 15238,
+       "job_title": "Wireman",
+       "job_title_bn": "ওয়্যারম্যান",
        "organization_id": 1172
       },
       {
@@ -1349,33 +1361,21 @@
        "organization_id": 1172
       },
       {
+       "id": 15216,
+       "job_title": "Assistant (Directorate of Posts)",
+       "job_title_bn": "সহকারী (ডাক অধিদপ্তর)",
+       "organization_id": 1172
+      },
+      {
        "id": 15219,
        "job_title": "Upper Division Assistant",
        "job_title_bn": "উচ্চমান সহকারী",
        "organization_id": 1172
       },
       {
-       "id": 15227,
-       "job_title": "Driver (Light)",
-       "job_title_bn": "ড্রাইভার (হালকা)",
-       "organization_id": 1172
-      },
-      {
        "id": 15214,
        "job_title": "Inspector of Post Offices / Inspector of Railway Mail Service / Inspector of PLI / Instructor, PTC (Inspector of Post Offices) / Instructor, PTC (Inspector of RMS)",
        "job_title_bn": "ইন্সপেক্টর অব পোস্ট অফিসেস/ইন্সপেক্টর অব রেলওয়ে মেইল সার্ভিস/ইন্সপেক্টর অব পিএলআই/ইন্সট্রাক্টর, পিটিসি (ইন্সপেক্টর অব পোস্ট অফিসেস)/ইন্সট্রাক্টর, পিটিসি (ইন্সপেক্টর অব আরএমএস)",
-       "organization_id": 1172
-      },
-      {
-       "id": 15220,
-       "job_title": "Technician",
-       "job_title_bn": "টেকনিশিয়ান",
-       "organization_id": 1172
-      },
-      {
-       "id": 15243,
-       "job_title": "Sanitation Worker (Formerly Cleaner)",
-       "job_title_bn": "পরিচ্ছন্নতা কর্মী (পূর্বের পদবী ক্লিনার)",
        "organization_id": 1172
       }
      ]
@@ -1391,27 +1391,15 @@
      "job_created_at": "2026-11-09T08:06:11.606Z",
      "govt_jobs": [
       {
+       "id": 15209,
+       "job_title": "Upper Division Assistant",
+       "job_title_bn": "উচ্চমান সহকারী",
+       "organization_id": 1000
+      },
+      {
        "id": 15208,
        "job_title": "Head Assistant",
        "job_title_bn": "প্রধান সহকারী",
-       "organization_id": 1000
-      },
-      {
-       "id": 15212,
-       "job_title": "Office Support Staff",
-       "job_title_bn": "অফিস সহায়ক",
-       "organization_id": 1000
-      },
-      {
-       "id": 15211,
-       "job_title": "Office Assistant Cum-Computer Typist",
-       "job_title_bn": "অফিস সহকারী কাম-কম্পিউটার মুদ্রাক্ষরিক",
-       "organization_id": 1000
-      },
-      {
-       "id": 15210,
-       "job_title": "Steno-Typist Cum-Computer Operator",
-       "job_title_bn": "সাঁট-মুদ্রাক্ষরিক কাম-কম্পিউটার অপারেটর",
        "organization_id": 1000
       },
       {
@@ -1427,9 +1415,21 @@
        "organization_id": 1000
       },
       {
-       "id": 15209,
-       "job_title": "Upper Division Assistant",
-       "job_title_bn": "উচ্চমান সহকারী",
+       "id": 15210,
+       "job_title": "Steno-Typist Cum-Computer Operator",
+       "job_title_bn": "সাঁট-মুদ্রাক্ষরিক কাম-কম্পিউটার অপারেটর",
+       "organization_id": 1000
+      },
+      {
+       "id": 15212,
+       "job_title": "Office Support Staff",
+       "job_title_bn": "অফিস সহায়ক",
+       "organization_id": 1000
+      },
+      {
+       "id": 15211,
+       "job_title": "Office Assistant Cum-Computer Typist",
+       "job_title_bn": "অফিস সহকারী কাম-কম্পিউটার মুদ্রাক্ষরিক",
        "organization_id": 1000
       }
      ]
@@ -1451,6 +1451,12 @@
        "organization_id": 435
       },
       {
+       "id": 15202,
+       "job_title": "Office Support Staff",
+       "job_title_bn": "অফিস সহায়ক",
+       "organization_id": 435
+      },
+      {
        "id": 15203,
        "job_title": "Security Guard",
        "job_title_bn": "নিরাপত্তা প্রহরী",
@@ -1460,12 +1466,6 @@
        "id": 15205,
        "job_title": "Cleaner",
        "job_title_bn": "পরিচ্ছন্নতাকর্মী",
-       "organization_id": 435
-      },
-      {
-       "id": 15202,
-       "job_title": "Office Support Staff",
-       "job_title_bn": "অফিস সহায়ক",
        "organization_id": 435
       }
      ]
@@ -1481,6 +1481,12 @@
      "job_created_at": "2026-11-09T05:57:26.056Z",
      "govt_jobs": [
       {
+       "id": 15199,
+       "job_title": "Calligraphist",
+       "job_title_bn": "ক্যালিগ্রাফিস্ট",
+       "organization_id": 1002
+      },
+      {
        "id": 15196,
        "job_title": "Assistant Exhibit Specialist",
        "job_title_bn": "সহকারী প্রদর্শনী বিশেষজ্ঞ",
@@ -1493,18 +1499,6 @@
        "organization_id": 1002
       },
       {
-       "id": 15199,
-       "job_title": "Calligraphist",
-       "job_title_bn": "ক্যালিগ্রাফিস্ট",
-       "organization_id": 1002
-      },
-      {
-       "id": 15197,
-       "job_title": "Audio-Visual Unit Operator",
-       "job_title_bn": "অডিও ভিস্যুয়েল ইউনিট অপারেটর",
-       "organization_id": 1002
-      },
-      {
        "id": 15201,
        "job_title": "Office Support Staff",
        "job_title_bn": "অফিস সহায়ক",
@@ -1514,6 +1508,12 @@
        "id": 15200,
        "job_title": "Offset Printer",
        "job_title_bn": "অফসেট প্রিন্টার",
+       "organization_id": 1002
+      },
+      {
+       "id": 15197,
+       "job_title": "Audio-Visual Unit Operator",
+       "job_title_bn": "অডিও ভিস্যুয়েল ইউনিট অপারেটর",
        "organization_id": 1002
       }
      ]
@@ -1529,21 +1529,15 @@
      "job_created_at": "2026-11-09T05:34:02.360Z",
      "govt_jobs": [
       {
-       "id": 15192,
-       "job_title": "Office Assistant-cum-Computer Typist",
-       "job_title_bn": "অফিস সহকারী কাম কম্পিউটার মুদ্রাক্ষরিক",
-       "organization_id": 646
-      },
-      {
-       "id": 15189,
-       "job_title": "Draftsman",
-       "job_title_bn": "ড্রাফটসম্যান",
-       "organization_id": 646
-      },
-      {
        "id": 15195,
        "job_title": "Credit Checking-cum-Sairat Assistant",
        "job_title_bn": "ক্রেডিট চেকিং কাম সায়রাত সহকারী",
+       "organization_id": 646
+      },
+      {
+       "id": 15190,
+       "job_title": "Nazir-cum-Cashier",
+       "job_title_bn": "নাজির কাম-ক্যাশিয়ার",
        "organization_id": 646
       },
       {
@@ -1559,15 +1553,21 @@
        "organization_id": 646
       },
       {
-       "id": 15193,
-       "job_title": "Certificate Clerk",
-       "job_title_bn": "সার্টিফিকেট পেশকার",
+       "id": 15189,
+       "job_title": "Draftsman",
+       "job_title_bn": "ড্রাফটসম্যান",
        "organization_id": 646
       },
       {
-       "id": 15190,
-       "job_title": "Nazir-cum-Cashier",
-       "job_title_bn": "নাজির কাম-ক্যাশিয়ার",
+       "id": 15192,
+       "job_title": "Office Assistant-cum-Computer Typist",
+       "job_title_bn": "অফিস সহকারী কাম কম্পিউটার মুদ্রাক্ষরিক",
+       "organization_id": 646
+      },
+      {
+       "id": 15193,
+       "job_title": "Certificate Clerk",
+       "job_title_bn": "সার্টিফিকেট পেশকার",
        "organization_id": 646
       }
      ]
@@ -1583,45 +1583,9 @@
      "job_created_at": "2026-11-08T09:33:12.273Z",
      "govt_jobs": [
       {
-       "id": 15187,
-       "job_title": "Driver (Light)",
-       "job_title_bn": "মটর চালক (হালকা)",
-       "organization_id": 1171
-      },
-      {
-       "id": 15182,
-       "job_title": "Computer Operator",
-       "job_title_bn": "কম্পিউটার অপারেটর",
-       "organization_id": 1171
-      },
-      {
-       "id": 15186,
-       "job_title": "Speed Boat Driver",
-       "job_title_bn": "স্পীডবোট চালক",
-       "organization_id": 1171
-      },
-      {
-       "id": 15178,
-       "job_title": "Scientific Officer",
-       "job_title_bn": "বৈজ্ঞানিক কর্মকর্তা",
-       "organization_id": 1171
-      },
-      {
-       "id": 15184,
-       "job_title": "Cashier",
-       "job_title_bn": "ক্যাশিয়ার",
-       "organization_id": 1171
-      },
-      {
-       "id": 15181,
-       "job_title": "Photographer",
-       "job_title_bn": "ফটোগ্রাফার",
-       "organization_id": 1171
-      },
-      {
-       "id": 15183,
-       "job_title": "Accountant",
-       "job_title_bn": "হিসাবরক্ষক",
+       "id": 15185,
+       "job_title": "Driver (Heavy)",
+       "job_title_bn": "মটর চালক (ভারী)",
        "organization_id": 1171
       },
       {
@@ -1631,9 +1595,39 @@
        "organization_id": 1171
       },
       {
-       "id": 15185,
-       "job_title": "Driver (Heavy)",
-       "job_title_bn": "মটর চালক (ভারী)",
+       "id": 15186,
+       "job_title": "Speed Boat Driver",
+       "job_title_bn": "স্পীডবোট চালক",
+       "organization_id": 1171
+      },
+      {
+       "id": 15183,
+       "job_title": "Accountant",
+       "job_title_bn": "হিসাবরক্ষক",
+       "organization_id": 1171
+      },
+      {
+       "id": 15187,
+       "job_title": "Driver (Light)",
+       "job_title_bn": "মটর চালক (হালকা)",
+       "organization_id": 1171
+      },
+      {
+       "id": 15179,
+       "job_title": "Librarian",
+       "job_title_bn": "গ্রন্থাগারিক",
+       "organization_id": 1171
+      },
+      {
+       "id": 15181,
+       "job_title": "Photographer",
+       "job_title_bn": "ফটোগ্রাফার",
+       "organization_id": 1171
+      },
+      {
+       "id": 15178,
+       "job_title": "Scientific Officer",
+       "job_title_bn": "বৈজ্ঞানিক কর্মকর্তা",
        "organization_id": 1171
       },
       {
@@ -1643,9 +1637,15 @@
        "organization_id": 1171
       },
       {
-       "id": 15179,
-       "job_title": "Librarian",
-       "job_title_bn": "গ্রন্থাগারিক",
+       "id": 15182,
+       "job_title": "Computer Operator",
+       "job_title_bn": "কম্পিউটার অপারেটর",
+       "organization_id": 1171
+      },
+      {
+       "id": 15184,
+       "job_title": "Cashier",
+       "job_title_bn": "ক্যাশিয়ার",
        "organization_id": 1171
       }
      ]
@@ -1661,15 +1661,15 @@
      "job_created_at": "2026-11-08T05:09:40.314Z",
      "govt_jobs": [
       {
-       "id": 15176,
-       "job_title": "Office Assistant Cum-Computer Typist",
-       "job_title_bn": "অফিস সহকারী কাম-কম্পিউটার মুদ্রাক্ষরিক",
-       "organization_id": 754
-      },
-      {
        "id": 15175,
        "job_title": "Steno-Typist",
        "job_title_bn": "স্টেনো-টাইপিস্ট",
+       "organization_id": 754
+      },
+      {
+       "id": 15176,
+       "job_title": "Office Assistant Cum-Computer Typist",
+       "job_title_bn": "অফিস সহকারী কাম-কম্পিউটার মুদ্রাক্ষরিক",
        "organization_id": 754
       },
       {
@@ -1691,21 +1691,57 @@
      "job_created_at": "2026-11-08T03:02:19.515Z",
      "govt_jobs": [
       {
+       "id": 15173,
+       "job_title": "Driver(For Dhaka City Office)",
+       "job_title_bn": "গাড়ীচালক(ঢাকা সিটি অফিসের জন্য)",
+       "organization_id": 609
+      },
+      {
+       "id": 15160,
+       "job_title": "Assistant Manager (Coordinator)",
+       "job_title_bn": "সহকারী ব্যবস্থাপক (সমন্বয়)",
+       "organization_id": 609
+      },
+      {
+       "id": 15165,
+       "job_title": "Finance Assistant/Costing Assistant",
+       "job_title_bn": "অর্থ সহকারী/ মূল্যায়ন সহকারী",
+       "organization_id": 609
+      },
+      {
+       "id": 15162,
+       "job_title": "Administrative Officer",
+       "job_title_bn": "প্রশাসনিক কর্মকর্তা",
+       "organization_id": 609
+      },
+      {
+       "id": 15167,
+       "job_title": "Office Assistant-cum-Computer Operator (For Dhaka City Office)",
+       "job_title_bn": "অফিস সহকারী কাম-কম্পিউটার অপারেটর ( ঢাকা সিটি অফিসের জন্য)",
+       "organization_id": 609
+      },
+      {
+       "id": 15159,
+       "job_title": "Assistant Manager (Production / Maintenance / Production Planning)",
+       "job_title_bn": "[সহকারী ব্যবস্থাপক (উৎপাদন / রক্ষণাবেক্ষণ / উৎপাদন পরিকল্পনা)]",
+       "organization_id": 609
+      },
+      {
        "id": 15168,
        "job_title": "Technician (Lab)",
        "job_title_bn": "প্রকর্মী (ল্যাব)",
        "organization_id": 609
       },
       {
-       "id": 15166,
-       "job_title": "Auditor-cum-Computer Operator",
-       "job_title_bn": "অডিটর-কাম-কম্পিউটার অপারেটর",
+       "id": 15171,
+       "job_title": "Plumber",
+       "job_title_bn": "পাইপ মিস্ত্রি",
        "organization_id": 609
       },
       {
-       "id": 15161,
-       "job_title": "Assistant Manager (Security)",
-       "job_title_bn": "সহকারী ব্যবস্থাপক ( নিরাপত্তা )",
+       "id": 15164,
+       "job_title": "Sub-Assistant Engineer (Production)",
+       "job_title_bn": "উপসহকারী প্রকৌশলী (উৎপাদন)",
        "organization_id": 609
       },
       {
@@ -1721,9 +1757,15 @@
        "organization_id": 609
       },
       {
-       "id": 15167,
-       "job_title": "Office Assistant-cum-Computer Operator (For Dhaka City Office)",
-       "job_title_bn": "অফিস সহকারী কাম-কম্পিউটার অপারেটর ( ঢাকা সিটি অফিসের জন্য)",
+       "id": 15166,
+       "job_title": "Auditor-cum-Computer Operator",
+       "job_title_bn": "অডিটর-কাম-কম্পিউটার অপারেটর",
+       "organization_id": 609
+      },
+      {
+       "id": 15161,
+       "job_title": "Assistant Manager (Security)",
+       "job_title_bn": "সহকারী ব্যবস্থাপক ( নিরাপত্তা )",
        "organization_id": 609
       },
       {
@@ -1733,57 +1775,15 @@
        "organization_id": 609
       },
       {
-       "id": 15159,
-       "job_title": "Assistant Manager (Production / Maintenance / Production Planning)",
-       "job_title_bn": "[সহকারী ব্যবস্থাপক (উৎপাদন / রক্ষণাবেক্ষণ / উৎপাদন পরিকল্পনা)]",
-       "organization_id": 609
-      },
-      {
-       "id": 15162,
-       "job_title": "Administrative Officer",
-       "job_title_bn": "প্রশাসনিক কর্মকর্তা",
-       "organization_id": 609
-      },
-      {
-       "id": 15165,
-       "job_title": "Finance Assistant/Costing Assistant",
-       "job_title_bn": "অর্থ সহকারী/ মূল্যায়ন সহকারী",
-       "organization_id": 609
-      },
-      {
        "id": 15174,
        "job_title": "Assistant Cook",
        "job_title_bn": "সহকারী বাবুর্চি",
        "organization_id": 609
       },
       {
-       "id": 15164,
-       "job_title": "Sub-Assistant Engineer (Production)",
-       "job_title_bn": "উপসহকারী প্রকৌশলী (উৎপাদন)",
-       "organization_id": 609
-      },
-      {
        "id": 15170,
        "job_title": "Fitter",
        "job_title_bn": "ফিটার",
-       "organization_id": 609
-      },
-      {
-       "id": 15160,
-       "job_title": "Assistant Manager (Coordinator)",
-       "job_title_bn": "সহকারী ব্যবস্থাপক (সমন্বয়)",
-       "organization_id": 609
-      },
-      {
-       "id": 15173,
-       "job_title": "Driver(For Dhaka City Office)",
-       "job_title_bn": "গাড়ীচালক(ঢাকা সিটি অফিসের জন্য)",
-       "organization_id": 609
-      },
-      {
-       "id": 15171,
-       "job_title": "Plumber",
-       "job_title_bn": "পাইপ মিস্ত্রি",
        "organization_id": 609
       }
      ]
@@ -1799,21 +1799,27 @@
      "job_created_at": "2026-11-08T02:35:34.401Z",
      "govt_jobs": [
       {
-       "id": 15156,
-       "job_title": "Credit Checking Cum-Sayrat Assistant",
-       "job_title_bn": "ক্রেডিট চেকিং কাম- সায়রাত সহকারী",
+       "id": 15157,
+       "job_title": "Mutation Cum Certificate Assistant",
+       "job_title_bn": "মিউটেশন কাম-সার্টিফিকেট সহকারী",
+       "organization_id": 1150
+      },
+      {
+       "id": 15153,
+       "job_title": "Nazir Cum-Cashier",
+       "job_title_bn": "নাজির কাম-ক্যাশিয়ার",
+       "organization_id": 1150
+      },
+      {
+       "id": 15151,
+       "job_title": "Draftsman",
+       "job_title_bn": "ড্রাফটসম্যান",
        "organization_id": 1150
       },
       {
        "id": 15158,
        "job_title": "Security Guard",
        "job_title_bn": "নিরাপত্তা প্রহরী",
-       "organization_id": 1150
-      },
-      {
-       "id": 15157,
-       "job_title": "Mutation Cum Certificate Assistant",
-       "job_title_bn": "মিউটেশন কাম-সার্টিফিকেট সহকারী",
        "organization_id": 1150
       },
       {
@@ -1829,15 +1835,9 @@
        "organization_id": 1150
       },
       {
-       "id": 15151,
-       "job_title": "Draftsman",
-       "job_title_bn": "ড্রাফটসম্যান",
-       "organization_id": 1150
-      },
-      {
-       "id": 15153,
-       "job_title": "Nazir Cum-Cashier",
-       "job_title_bn": "নাজির কাম-ক্যাশিয়ার",
+       "id": 15156,
+       "job_title": "Credit Checking Cum-Sayrat Assistant",
+       "job_title_bn": "ক্রেডিট চেকিং কাম- সায়রাত সহকারী",
        "organization_id": 1150
       },
       {
@@ -1859,15 +1859,15 @@
      "job_created_at": "2026-11-08T02:17:45.266Z",
      "govt_jobs": [
       {
-       "id": 15149,
-       "job_title": "Computer Typist-cum-Office Assistant",
-       "job_title_bn": "কম্পিউটার মুদ্রাক্ষরিক-কাম-অফিস সহকারী",
-       "organization_id": 994
-      },
-      {
        "id": 15148,
        "job_title": "Accountant",
        "job_title_bn": "হিসাবরক্ষক",
+       "organization_id": 994
+      },
+      {
+       "id": 15149,
+       "job_title": "Computer Typist-cum-Office Assistant",
+       "job_title_bn": "কম্পিউটার মুদ্রাক্ষরিক-কাম-অফিস সহকারী",
        "organization_id": 994
       },
       {
@@ -1889,51 +1889,9 @@
      "job_created_at": "2026-11-03T05:43:19.673Z",
      "govt_jobs": [
       {
-       "id": 15142,
-       "job_title": "Accounts Assistant",
-       "job_title_bn": "হিসাব সহকারী",
-       "organization_id": 740
-      },
-      {
-       "id": 15141,
-       "job_title": "Certificate Assistant",
-       "job_title_bn": "সার্টিফিকেট সহকারী",
-       "organization_id": 740
-      },
-      {
-       "id": 15139,
-       "job_title": "Bench Assistant",
-       "job_title_bn": "বেঞ্চ সহকারী",
-       "organization_id": 740
-      },
-      {
-       "id": 15138,
-       "job_title": "Library Assistant",
-       "job_title_bn": "লাইব্রেরী সহকারী",
-       "organization_id": 740
-      },
-      {
-       "id": 15145,
-       "job_title": "Bearer",
-       "job_title_bn": "বেয়ারার",
-       "organization_id": 740
-      },
-      {
-       "id": 15144,
-       "job_title": "Security Guard",
-       "job_title_bn": "নিরাপত্তা প্রহরী",
-       "organization_id": 740
-      },
-      {
-       "id": 15137,
-       "job_title": "Computer Operator",
-       "job_title_bn": "কম্পিউটার  অপারেটর",
-       "organization_id": 740
-      },
-      {
-       "id": 15147,
-       "job_title": "Gardener",
-       "job_title_bn": "মালী",
+       "id": 15143,
+       "job_title": "Office Support Staff",
+       "job_title_bn": "অফিস সহায়ক",
        "organization_id": 740
       },
       {
@@ -1943,15 +1901,57 @@
        "organization_id": 740
       },
       {
-       "id": 15143,
-       "job_title": "Office Support Staff",
-       "job_title_bn": "অফিস সহায়ক",
+       "id": 15144,
+       "job_title": "Security Guard",
+       "job_title_bn": "নিরাপত্তা প্রহরী",
        "organization_id": 740
       },
       {
        "id": 15140,
        "job_title": "Copyist",
        "job_title_bn": "কপিস্ট",
+       "organization_id": 740
+      },
+      {
+       "id": 15145,
+       "job_title": "Bearer",
+       "job_title_bn": "বেয়ারার",
+       "organization_id": 740
+      },
+      {
+       "id": 15139,
+       "job_title": "Bench Assistant",
+       "job_title_bn": "বেঞ্চ সহকারী",
+       "organization_id": 740
+      },
+      {
+       "id": 15141,
+       "job_title": "Certificate Assistant",
+       "job_title_bn": "সার্টিফিকেট সহকারী",
+       "organization_id": 740
+      },
+      {
+       "id": 15142,
+       "job_title": "Accounts Assistant",
+       "job_title_bn": "হিসাব সহকারী",
+       "organization_id": 740
+      },
+      {
+       "id": 15147,
+       "job_title": "Gardener",
+       "job_title_bn": "মালী",
+       "organization_id": 740
+      },
+      {
+       "id": 15137,
+       "job_title": "Computer Operator",
+       "job_title_bn": "কম্পিউটার  অপারেটর",
+       "organization_id": 740
+      },
+      {
+       "id": 15138,
+       "job_title": "Library Assistant",
+       "job_title_bn": "লাইব্রেরী সহকারী",
        "organization_id": 740
       }
      ]
@@ -1967,54 +1967,6 @@
      "job_created_at": "2026-11-03T04:27:35.274Z",
      "govt_jobs": [
       {
-       "id": 15129,
-       "job_title": "Fireman",
-       "job_title_bn": "অগ্নিনির্বাপক",
-       "organization_id": 459
-      },
-      {
-       "id": 15131,
-       "job_title": "Maid",
-       "job_title_bn": "আয়া",
-       "organization_id": 459
-      },
-      {
-       "id": 15128,
-       "job_title": "F W A (Family Welfare Assistant)",
-       "job_title_bn": "এফ ডব্লিউ এ  (ফ্যামিলি ওয়েলফেয়ার এ্যাসিসটেন্ট)",
-       "organization_id": 459
-      },
-      {
-       "id": 15132,
-       "job_title": "Cook",
-       "job_title_bn": "বাবুর্চি",
-       "organization_id": 459
-      },
-      {
-       "id": 15126,
-       "job_title": "Draftsman",
-       "job_title_bn": "ড্রাফটসম্যান",
-       "organization_id": 459
-      },
-      {
-       "id": 15130,
-       "job_title": "Office Support Staff",
-       "job_title_bn": "অফিস সহায়ক",
-       "organization_id": 459
-      },
-      {
-       "id": 15133,
-       "job_title": "Gardener",
-       "job_title_bn": "মালী",
-       "organization_id": 459
-      },
-      {
-       "id": 15136,
-       "job_title": "Cleaner",
-       "job_title_bn": "পরিচ্ছন্নতাকর্মী",
-       "organization_id": 459
-      },
-      {
        "id": 15135,
        "job_title": "Mess waiter",
        "job_title_bn": "মেসওয়েটার",
@@ -2027,9 +1979,57 @@
        "organization_id": 459
       },
       {
+       "id": 15133,
+       "job_title": "Gardener",
+       "job_title_bn": "মালী",
+       "organization_id": 459
+      },
+      {
+       "id": 15129,
+       "job_title": "Fireman",
+       "job_title_bn": "অগ্নিনির্বাপক",
+       "organization_id": 459
+      },
+      {
+       "id": 15132,
+       "job_title": "Cook",
+       "job_title_bn": "বাবুর্চি",
+       "organization_id": 459
+      },
+      {
+       "id": 15130,
+       "job_title": "Office Support Staff",
+       "job_title_bn": "অফিস সহায়ক",
+       "organization_id": 459
+      },
+      {
+       "id": 15126,
+       "job_title": "Draftsman",
+       "job_title_bn": "ড্রাফটসম্যান",
+       "organization_id": 459
+      },
+      {
        "id": 15127,
        "job_title": "Computer Typist",
        "job_title_bn": "কম্পিউটার মুদ্রাক্ষরিক",
+       "organization_id": 459
+      },
+      {
+       "id": 15128,
+       "job_title": "F W A (Family Welfare Assistant)",
+       "job_title_bn": "এফ ডব্লিউ এ  (ফ্যামিলি ওয়েলফেয়ার এ্যাসিসটেন্ট)",
+       "organization_id": 459
+      },
+      {
+       "id": 15131,
+       "job_title": "Maid",
+       "job_title_bn": "আয়া",
+       "organization_id": 459
+      },
+      {
+       "id": 15136,
+       "job_title": "Cleaner",
+       "job_title_bn": "পরিচ্ছন্নতাকর্মী",
        "organization_id": 459
       }
      ]
@@ -2045,27 +2045,27 @@
      "job_created_at": "2026-11-03T03:23:21.484Z",
      "govt_jobs": [
       {
-       "id": 15125,
-       "job_title": "Driver",
-       "job_title_bn": "গাড়ী চালক",
-       "organization_id": 1170
-      },
-      {
        "id": 15123,
        "job_title": "Computer Typist",
        "job_title_bn": "কম্পিউটার মুদ্রাক্ষরিক",
        "organization_id": 1170
       },
       {
-       "id": 15122,
-       "job_title": "Junior Auditor",
-       "job_title_bn": "জুনিয়র অডিটর",
+       "id": 15125,
+       "job_title": "Driver",
+       "job_title_bn": "গাড়ী চালক",
        "organization_id": 1170
       },
       {
        "id": 15124,
        "job_title": "Office Support Staff",
        "job_title_bn": "অফিস সহায়ক",
+       "organization_id": 1170
+      },
+      {
+       "id": 15122,
+       "job_title": "Junior Auditor",
+       "job_title_bn": "জুনিয়র অডিটর",
        "organization_id": 1170
       }
      ]
@@ -2099,6 +2099,18 @@
      "job_created_at": "2026-11-01T09:41:20.981Z",
      "govt_jobs": [
       {
+       "id": 15105,
+       "job_title": "Assistant Manager (HR/Admin/Stores)",
+       "job_title_bn": "সহকারী ব্যবস্থাপক (মানবসম্পদ/প্রশাসন/স্টোরস)",
+       "organization_id": 397
+      },
+      {
+       "id": 15106,
+       "job_title": "Assistant Manager (Security)",
+       "job_title_bn": "সহকারী ব্যবস্থাপক (নিরাপত্তা)",
+       "organization_id": 397
+      },
+      {
        "id": 15108,
        "job_title": "Sub-Assistant Engineer (Mechanical)",
        "job_title_bn": "উপ-সহকারী প্রকৌশলী (মেকানিক্যাল)",
@@ -2117,27 +2129,15 @@
        "organization_id": 397
       },
       {
-       "id": 15103,
-       "job_title": "Assistant Engineer (Electrical)",
-       "job_title_bn": "সহকারী প্রকৌশলী (ইলেকট্রিক্যাল)",
-       "organization_id": 397
-      },
-      {
-       "id": 15106,
-       "job_title": "Assistant Manager (Security)",
-       "job_title_bn": "সহকারী ব্যবস্থাপক (নিরাপত্তা)",
-       "organization_id": 397
-      },
-      {
        "id": 15107,
        "job_title": "Sub-Assistant Engineer (Electrical)",
        "job_title_bn": "উপ-সহকারী প্রকৌশলী (ইলেকট্রিক্যাল)",
        "organization_id": 397
       },
       {
-       "id": 15105,
-       "job_title": "Assistant Manager (HR/Admin/Stores)",
-       "job_title_bn": "সহকারী ব্যবস্থাপক (মানবসম্পদ/প্রশাসন/স্টোরস)",
+       "id": 15103,
+       "job_title": "Assistant Engineer (Electrical)",
+       "job_title_bn": "সহকারী প্রকৌশলী (ইলেকট্রিক্যাল)",
        "organization_id": 397
       }
      ]
@@ -2153,15 +2153,15 @@
      "job_created_at": "2026-11-01T09:28:20.963Z",
      "govt_jobs": [
       {
-       "id": 15102,
-       "job_title": "Security Guard",
-       "job_title_bn": "নিরাপত্তা প্রহরী",
-       "organization_id": 1151
-      },
-      {
        "id": 15101,
        "job_title": "Office Assistant",
        "job_title_bn": "অফিস সহায়ক",
+       "organization_id": 1151
+      },
+      {
+       "id": 15102,
+       "job_title": "Security Guard",
+       "job_title_bn": "নিরাপত্তা প্রহরী",
        "organization_id": 1151
       }
      ]
@@ -2177,21 +2177,9 @@
      "job_created_at": "2026-11-01T08:05:45.627Z",
      "govt_jobs": [
       {
-       "id": 15086,
-       "job_title": "Assistant Engineer (Electrical)",
-       "job_title_bn": "সহকারী প্রকৌশলী (বৈদ্যুতিক)",
-       "organization_id": 289
-      },
-      {
-       "id": 15096,
-       "job_title": "Junior Assistant (Finance/Accounts/Internal Audit)",
-       "job_title_bn": "জুনিয়র এসিস্ট্যান্ট (অর্থ/হিসাব/ইন্টারনাল অডিট)",
-       "organization_id": 289
-      },
-      {
-       "id": 15098,
-       "job_title": "Fireman",
-       "job_title_bn": "ফায়ারম্যান",
+       "id": 15088,
+       "job_title": "Assistant Manager (Procurement)",
+       "job_title_bn": "সহকারী ব্যবস্থাপক (প্রকিউরমেন্ট)",
        "organization_id": 289
       },
       {
@@ -2201,33 +2189,9 @@
        "organization_id": 289
       },
       {
-       "id": 15100,
-       "job_title": "Store Helper",
-       "job_title_bn": "স্টোর হেলপার",
-       "organization_id": 289
-      },
-      {
        "id": 15087,
        "job_title": "Assistant Engineer (Mechanical)",
        "job_title_bn": "সহকারী প্রকৌশলী (যান্ত্রিক)",
-       "organization_id": 289
-      },
-      {
-       "id": 15088,
-       "job_title": "Assistant Manager (Procurement)",
-       "job_title_bn": "সহকারী ব্যবস্থাপক (প্রকিউরমেন্ট)",
-       "organization_id": 289
-      },
-      {
-       "id": 15090,
-       "job_title": "Assistant Manager (Chemical)",
-       "job_title_bn": "সহকারী ব্যবস্থাপক (কেমিকেল)",
-       "organization_id": 289
-      },
-      {
-       "id": 15095,
-       "job_title": "Sub-Assistant Engineer (Mechanical)",
-       "job_title_bn": "উপ-সহকারী প্রকৌশলী (যান্ত্রিক)",
        "organization_id": 289
       },
       {
@@ -2237,9 +2201,15 @@
        "organization_id": 289
       },
       {
-       "id": 15097,
-       "job_title": "Junior Assistant Cum Computer Operator",
-       "job_title_bn": "জুনিয়র এসিস্ট্যান্ট কাম কম্পিউটার অপারেটর",
+       "id": 15100,
+       "job_title": "Store Helper",
+       "job_title_bn": "স্টোর হেলপার",
+       "organization_id": 289
+      },
+      {
+       "id": 15099,
+       "job_title": "Security Guard",
+       "job_title_bn": "নিরাপত্তা প্রহরী",
        "organization_id": 289
       },
       {
@@ -2249,9 +2219,39 @@
        "organization_id": 289
       },
       {
-       "id": 15099,
-       "job_title": "Security Guard",
-       "job_title_bn": "নিরাপত্তা প্রহরী",
+       "id": 15096,
+       "job_title": "Junior Assistant (Finance/Accounts/Internal Audit)",
+       "job_title_bn": "জুনিয়র এসিস্ট্যান্ট (অর্থ/হিসাব/ইন্টারনাল অডিট)",
+       "organization_id": 289
+      },
+      {
+       "id": 15097,
+       "job_title": "Junior Assistant Cum Computer Operator",
+       "job_title_bn": "জুনিয়র এসিস্ট্যান্ট কাম কম্পিউটার অপারেটর",
+       "organization_id": 289
+      },
+      {
+       "id": 15095,
+       "job_title": "Sub-Assistant Engineer (Mechanical)",
+       "job_title_bn": "উপ-সহকারী প্রকৌশলী (যান্ত্রিক)",
+       "organization_id": 289
+      },
+      {
+       "id": 15090,
+       "job_title": "Assistant Manager (Chemical)",
+       "job_title_bn": "সহকারী ব্যবস্থাপক (কেমিকেল)",
+       "organization_id": 289
+      },
+      {
+       "id": 15086,
+       "job_title": "Assistant Engineer (Electrical)",
+       "job_title_bn": "সহকারী প্রকৌশলী (বৈদ্যুতিক)",
+       "organization_id": 289
+      },
+      {
+       "id": 15098,
+       "job_title": "Fireman",
+       "job_title_bn": "ফায়ারম্যান",
        "organization_id": 289
       },
       {
@@ -2279,12 +2279,6 @@
      "job_created_at": "2026-11-01T06:02:19.094Z",
      "govt_jobs": [
       {
-       "id": 15082,
-       "job_title": "Personal Assistant",
-       "job_title_bn": "ব্যক্তিগত সহকারী",
-       "organization_id": 974
-      },
-      {
        "id": 15084,
        "job_title": "Office Support Staff",
        "job_title_bn": "অফিস সহায়ক",
@@ -2294,6 +2288,12 @@
        "id": 15083,
        "job_title": "Office Assistant-Cum-Computer Typist",
        "job_title_bn": "অফিস সহকারী-কাম-কম্পিউটার মুদ্রাক্ষরিক",
+       "organization_id": 974
+      },
+      {
+       "id": 15082,
+       "job_title": "Personal Assistant",
+       "job_title_bn": "ব্যক্তিগত সহকারী",
        "organization_id": 974
       }
      ]
@@ -2309,15 +2309,15 @@
      "job_created_at": "2026-11-01T02:25:14.680Z",
      "govt_jobs": [
       {
-       "id": 15076,
-       "job_title": "Personal Assistant",
-       "job_title_bn": "ব্যক্তিগত সহকারী",
-       "organization_id": 993
-      },
-      {
        "id": 15079,
        "job_title": "Stenotypist Cum-Computer Operator",
        "job_title_bn": "সাঁটমুদ্রাক্ষরিক কাম-কম্পিউটার অপারেটর",
+       "organization_id": 993
+      },
+      {
+       "id": 15075,
+       "job_title": "Computer Operator",
+       "job_title_bn": "কম্পিউটার অপারেটর",
        "organization_id": 993
       },
       {
@@ -2327,21 +2327,21 @@
        "organization_id": 993
       },
       {
-       "id": 15078,
-       "job_title": "Upper Division Assistant",
-       "job_title_bn": "উচ্চমান সহকারী",
-       "organization_id": 993
-      },
-      {
        "id": 15081,
        "job_title": "Office Support Staff",
        "job_title_bn": "অফিস সহায়ক",
        "organization_id": 993
       },
       {
-       "id": 15075,
-       "job_title": "Computer Operator",
-       "job_title_bn": "কম্পিউটার অপারেটর",
+       "id": 15076,
+       "job_title": "Personal Assistant",
+       "job_title_bn": "ব্যক্তিগত সহকারী",
+       "organization_id": 993
+      },
+      {
+       "id": 15078,
+       "job_title": "Upper Division Assistant",
+       "job_title_bn": "উচ্চমান সহকারী",
        "organization_id": 993
       },
       {
@@ -2377,9 +2377,33 @@
      "job_created_at": "2026-10-29T08:59:28.379Z",
      "govt_jobs": [
       {
+       "id": 15072,
+       "job_title": "Cleaner (Circuit House)",
+       "job_title_bn": "পরিচ্ছন্নতাকর্মী (সার্কিট হাউজ)",
+       "organization_id": 559
+      },
+      {
        "id": 15074,
        "job_title": "Gardener (Circuit House)",
        "job_title_bn": "মালি (সার্কিট হাউজ)",
+       "organization_id": 559
+      },
+      {
+       "id": 15073,
+       "job_title": "Security Guard (Circuit House)",
+       "job_title_bn": "নিরাপত্তা প্রহরী  (সার্কিট হাউজ)",
+       "organization_id": 559
+      },
+      {
+       "id": 15068,
+       "job_title": "Accounts Assistant",
+       "job_title_bn": "হিসাব সহকারী",
+       "organization_id": 559
+      },
+      {
+       "id": 15071,
+       "job_title": "Security Guard (General Administration)",
+       "job_title_bn": "নিরাপত্তা প্রহরী ( সাধারণ প্রশাসন)",
        "organization_id": 559
       },
       {
@@ -2392,30 +2416,6 @@
        "id": 15070,
        "job_title": "Office Support Staff (General Administration)",
        "job_title_bn": "অফিস সহায়ক ( সাধারণ প্রশাসন)",
-       "organization_id": 559
-      },
-      {
-       "id": 15072,
-       "job_title": "Cleaner (Circuit House)",
-       "job_title_bn": "পরিচ্ছন্নতাকর্মী (সার্কিট হাউজ)",
-       "organization_id": 559
-      },
-      {
-       "id": 15068,
-       "job_title": "Accounts Assistant",
-       "job_title_bn": "হিসাব সহকারী",
-       "organization_id": 559
-      },
-      {
-       "id": 15073,
-       "job_title": "Security Guard (Circuit House)",
-       "job_title_bn": "নিরাপত্তা প্রহরী  (সার্কিট হাউজ)",
-       "organization_id": 559
-      },
-      {
-       "id": 15071,
-       "job_title": "Security Guard (General Administration)",
-       "job_title_bn": "নিরাপত্তা প্রহরী ( সাধারণ প্রশাসন)",
        "organization_id": 559
       }
      ]
@@ -2431,39 +2431,9 @@
      "job_created_at": "2026-10-28T05:05:34.321Z",
      "govt_jobs": [
       {
-       "id": 15066,
-       "job_title": "Data Entry Operator",
-       "job_title_bn": "ডাটা এন্ট্রি অপারেটর",
-       "organization_id": 1168
-      },
-      {
-       "id": 15064,
-       "job_title": "Driver",
-       "job_title_bn": "গাড়ী চালক",
-       "organization_id": 1168
-      },
-      {
-       "id": 15063,
-       "job_title": "Steno-Typist-cum-Computer Operator",
-       "job_title_bn": "সাঁট মুদ্রাক্ষরিক-কাম-কম্পিউটার অপারেটর",
-       "organization_id": 1168
-      },
-      {
-       "id": 15060,
-       "job_title": "Accountant",
-       "job_title_bn": "হিসাব রক্ষক",
-       "organization_id": 1168
-      },
-      {
        "id": 15062,
        "job_title": "Upper Division Assistant",
        "job_title_bn": "উচ্চমান সহকারী",
-       "organization_id": 1168
-      },
-      {
-       "id": 15061,
-       "job_title": "Stenographer-cum-Computer Operator",
-       "job_title_bn": "সাঁটলিপিকার-কাম-কম্পিউটার অপারেটর",
        "organization_id": 1168
       },
       {
@@ -2473,9 +2443,39 @@
        "organization_id": 1168
       },
       {
+       "id": 15064,
+       "job_title": "Driver",
+       "job_title_bn": "গাড়ী চালক",
+       "organization_id": 1168
+      },
+      {
        "id": 15067,
        "job_title": "Office Support Staff",
        "job_title_bn": "অফিস সহায়ক",
+       "organization_id": 1168
+      },
+      {
+       "id": 15066,
+       "job_title": "Data Entry Operator",
+       "job_title_bn": "ডাটা এন্ট্রি অপারেটর",
+       "organization_id": 1168
+      },
+      {
+       "id": 15061,
+       "job_title": "Stenographer-cum-Computer Operator",
+       "job_title_bn": "সাঁটলিপিকার-কাম-কম্পিউটার অপারেটর",
+       "organization_id": 1168
+      },
+      {
+       "id": 15060,
+       "job_title": "Accountant",
+       "job_title_bn": "হিসাব রক্ষক",
+       "organization_id": 1168
+      },
+      {
+       "id": 15063,
+       "job_title": "Steno-Typist-cum-Computer Operator",
+       "job_title_bn": "সাঁট মুদ্রাক্ষরিক-কাম-কম্পিউটার অপারেটর",
        "organization_id": 1168
       }
      ]
@@ -2491,9 +2491,9 @@
      "job_created_at": "2026-10-27T04:33:37.008Z",
      "govt_jobs": [
       {
-       "id": 15052,
-       "job_title": "Office Support Staff",
-       "job_title_bn": "অফিস সহায়ক",
+       "id": 15050,
+       "job_title": "Credit Checking Cum-Sayrat Assistant",
+       "job_title_bn": "ক্রেডিট চেকিং কাম-সায়রাত সহকারী",
        "organization_id": 760
       },
       {
@@ -2503,9 +2503,21 @@
        "organization_id": 760
       },
       {
-       "id": 15050,
-       "job_title": "Credit Checking Cum-Sayrat Assistant",
-       "job_title_bn": "ক্রেডিট চেকিং কাম-সায়রাত সহকারী",
+       "id": 15053,
+       "job_title": "Security Guard",
+       "job_title_bn": "নিরাপত্তা প্রহরী",
+       "organization_id": 760
+      },
+      {
+       "id": 15052,
+       "job_title": "Office Support Staff",
+       "job_title_bn": "অফিস সহায়ক",
+       "organization_id": 760
+      },
+      {
+       "id": 15049,
+       "job_title": "Certificate Assistant",
+       "job_title_bn": "সার্টিফিকেট সহকারী",
        "organization_id": 760
       },
       {
@@ -2518,18 +2530,6 @@
        "id": 15047,
        "job_title": "Office Assistant Cum-Computer Typist",
        "job_title_bn": "অফিস সহকারী কাম-কম্পিউটার মুদ্রাক্ষরিক",
-       "organization_id": 760
-      },
-      {
-       "id": 15053,
-       "job_title": "Security Guard",
-       "job_title_bn": "নিরাপত্তা প্রহরী",
-       "organization_id": 760
-      },
-      {
-       "id": 15049,
-       "job_title": "Certificate Assistant",
-       "job_title_bn": "সার্টিফিকেট সহকারী",
        "organization_id": 760
       }
      ]
@@ -2581,12 +2581,6 @@
        "organization_id": 610
       },
       {
-       "id": 15032,
-       "job_title": "Security Guard",
-       "job_title_bn": "নিরাপত্তা প্রহরী",
-       "organization_id": 610
-      },
-      {
        "id": 15034,
        "job_title": "Bearer (Circuit House)",
        "job_title_bn": "বেয়ারার (সার্কিট হাউজ)",
@@ -2596,6 +2590,12 @@
        "id": 15031,
        "job_title": "Office Support Staff",
        "job_title_bn": "অফিস সহায়ক",
+       "organization_id": 610
+      },
+      {
+       "id": 15032,
+       "job_title": "Security Guard",
+       "job_title_bn": "নিরাপত্তা প্রহরী",
        "organization_id": 610
       }
      ]
@@ -2611,153 +2611,21 @@
      "job_created_at": "2026-10-18T04:42:13.048Z",
      "govt_jobs": [
       {
-       "id": 14993,
-       "job_title": "Assistant Manager(Civil)",
-       "job_title_bn": "সহকারী ব্যবস্থাপক(সিভিল)",
+       "id": 14999,
+       "job_title": "Assistant Manager(Electronics)",
+       "job_title_bn": "সহকারী ব্যবস্থাপক(ইলেক্ট্রনিক্স)",
        "organization_id": 445
       },
       {
-       "id": 15010,
-       "job_title": "Assistant Officer(Law)",
-       "job_title_bn": "সহকারী কর্মকর্তা(আইন)",
-       "organization_id": 445
-      },
-      {
-       "id": 15003,
-       "job_title": "Assistant Manager(Geochemical)",
-       "job_title_bn": "সহকারী ব্যবস্থাপক(জিওকেমিক্যাল)",
-       "organization_id": 445
-      },
-      {
-       "id": 15014,
-       "job_title": "Sub Assistant Engineer/Assistant Technical Officer(Only for BGFCL) (Electrical)",
-       "job_title_bn": "উপ-সহকারী প্রকৌশলী/সহকারী কারিগরি কর্মকর্তা(শুধুমাত্র বিজিএফসিএল এর জন্য) (ইলেক্ট্রিক্যাল)",
-       "organization_id": 445
-      },
-      {
-       "id": 14998,
-       "job_title": "Assistant Manager(Metallurgy/MME)",
-       "job_title_bn": "সহকারী ব্যবস্থাপক(মেটালার্জি/এমএমই)",
-       "organization_id": 445
-      },
-      {
-       "id": 14996,
-       "job_title": "Assistant Manager(Petroleum)",
-       "job_title_bn": "সহকারী ব্যবস্থাপক(পেট্রোলিয়াম)",
-       "organization_id": 445
-      },
-      {
-       "id": 15000,
-       "job_title": "Assistant Manager(Automobile)",
-       "job_title_bn": "সহকারী ব্যবস্থাপক(অটোমোবাইল)",
-       "organization_id": 445
-      },
-      {
-       "id": 14989,
-       "job_title": "Assistant Manager(Law)",
-       "job_title_bn": "সহকারী ব্যবস্থাপক(আইন)",
-       "organization_id": 445
-      },
-      {
-       "id": 15002,
-       "job_title": "Assistant Manager(Geophysics)",
-       "job_title_bn": "সহকারী ব্যবস্থাপক(জিওফিজিক্স)",
-       "organization_id": 445
-      },
-      {
-       "id": 14997,
-       "job_title": "Assistant Manager(IPE)",
-       "job_title_bn": "সহকারী ব্যবস্থাপক(আইপিই)",
-       "organization_id": 445
-      },
-      {
-       "id": 15013,
-       "job_title": "Sub Assistant Engineer/Assistant Technical Officer(Only for BGFCL) (Mechanical)",
-       "job_title_bn": "উপ-সহকারী প্রকৌশলী/সহকারী কারিগরি কর্মকর্তা(শুধুমাত্র বিজিএফসিএল এর জন্য) (মেকানিক্যাল)",
-       "organization_id": 445
-      },
-      {
-       "id": 15005,
-       "job_title": "Assistant Manager(Environment)",
-       "job_title_bn": "সহকারী ব্যবস্থাপক(এনভায়রনমেন্ট)",
-       "organization_id": 445
-      },
-      {
-       "id": 15023,
-       "job_title": "Assistant Officer(Technical)/Sub-Assistant Technical Officer",
-       "job_title_bn": "সহকারী কর্মকর্তা (কারিগরি)/উপ-সহকারী কারিগরি কর্মকর্তা",
-       "organization_id": 445
-      },
-      {
-       "id": 15012,
-       "job_title": "Assistant Officer(Finance)",
-       "job_title_bn": "সহকারী কর্মকর্তা(অর্থ)",
-       "organization_id": 445
-      },
-      {
-       "id": 14992,
-       "job_title": "Assistant Manager(Electrical)",
-       "job_title_bn": "সহকারী ব্যবস্থাপক(ইলেক্ট্রিক্যাল)",
-       "organization_id": 445
-      },
-      {
-       "id": 14991,
-       "job_title": "Assistant Manager(Mechanical)",
-       "job_title_bn": "সহকারী ব্যবস্থাপক(মেকানিক্যাল)",
-       "organization_id": 445
-      },
-      {
-       "id": 15018,
-       "job_title": "Sub Assistant Engineer (Automobile)",
-       "job_title_bn": "উপ-সহকারী প্রকৌশলী (অটোমোবাইল)",
-       "organization_id": 445
-      },
-      {
-       "id": 15020,
-       "job_title": "Sub Assistant Engineer (Power)",
-       "job_title_bn": "উপ-সহকারী প্রকৌশলী (পাওয়ার)",
-       "organization_id": 445
-      },
-      {
-       "id": 15019,
-       "job_title": "Assistant Technical Officer (Chemical)",
-       "job_title_bn": "সহকারী কারিগরি কর্মকর্তা (কেমিক্যাল)",
-       "organization_id": 445
-      },
-      {
-       "id": 15022,
-       "job_title": "Trainee Driller",
-       "job_title_bn": "ট্রেইনী ড্রিলার",
-       "organization_id": 445
-      },
-      {
-       "id": 14990,
-       "job_title": "Assistant Manager(Finance)",
-       "job_title_bn": "সহকারী ব্যবস্থাপক(অর্থ)",
-       "organization_id": 445
-      },
-      {
-       "id": 15001,
-       "job_title": "Assistant Manager(Geology)",
-       "job_title_bn": "সহকারী ব্যবস্থাপক(জিওলজি)",
+       "id": 15017,
+       "job_title": "Sub Assistant Engineer (Electronics)",
+       "job_title_bn": "উপ-সহকারী প্রকৌশলী (ইলেক্ট্রনিক্স)",
        "organization_id": 445
       },
       {
        "id": 15006,
        "job_title": "Assistant Manager(Medical)",
        "job_title_bn": "সহকারী ব্যবস্থাপক(চিকিৎসা)",
-       "organization_id": 445
-      },
-      {
-       "id": 15004,
-       "job_title": "Assistant Manager(Chemistry)",
-       "job_title_bn": "সহকারী ব্যবস্থাপক(কেমিস্ট্রি)",
-       "organization_id": 445
-      },
-      {
-       "id": 14999,
-       "job_title": "Assistant Manager(Electronics)",
-       "job_title_bn": "সহকারী ব্যবস্থাপক(ইলেক্ট্রনিক্স)",
        "organization_id": 445
       },
       {
@@ -2773,39 +2641,9 @@
        "organization_id": 445
       },
       {
-       "id": 15017,
-       "job_title": "Sub Assistant Engineer (Electronics)",
-       "job_title_bn": "উপ-সহকারী প্রকৌশলী (ইলেক্ট্রনিক্স)",
-       "organization_id": 445
-      },
-      {
-       "id": 15015,
-       "job_title": "Sub Assistant Engineer/Assistant Technical Officer(Only for BGFCL) (Civil)",
-       "job_title_bn": "উপ-সহকারী প্রকৌশলী/সহকারী কারিগরি কর্মকর্তা(শুধুমাত্র বিজিএফসিএল এর জন্য) (সিভিল)",
-       "organization_id": 445
-      },
-      {
-       "id": 15021,
-       "job_title": "Sub Assistant Engineer (Telecom)",
-       "job_title_bn": "উপ-সহকারী প্রকৌশলী (টেলিকম)",
-       "organization_id": 445
-      },
-      {
-       "id": 15009,
-       "job_title": "Assistant Officer(Administration)",
-       "job_title_bn": "সহকারী কর্মকর্তা(প্রশাসন)",
-       "organization_id": 445
-      },
-      {
-       "id": 15016,
-       "job_title": "Sub Assistant Engineer(Computer/IT)",
-       "job_title_bn": "উপ-সহকারী প্রকৌশলী (কম্পিউটার/আইটি)",
-       "organization_id": 445
-      },
-      {
-       "id": 14994,
-       "job_title": "Assistant Manager(CSE/IT)",
-       "job_title_bn": "সহকারী ব্যবস্থাপক(সিএসই/আইটি)",
+       "id": 14996,
+       "job_title": "Assistant Manager(Petroleum)",
+       "job_title_bn": "সহকারী ব্যবস্থাপক(পেট্রোলিয়াম)",
        "organization_id": 445
       },
       {
@@ -2815,9 +2653,171 @@
        "organization_id": 445
       },
       {
+       "id": 14991,
+       "job_title": "Assistant Manager(Mechanical)",
+       "job_title_bn": "সহকারী ব্যবস্থাপক(মেকানিক্যাল)",
+       "organization_id": 445
+      },
+      {
+       "id": 14989,
+       "job_title": "Assistant Manager(Law)",
+       "job_title_bn": "সহকারী ব্যবস্থাপক(আইন)",
+       "organization_id": 445
+      },
+      {
+       "id": 14990,
+       "job_title": "Assistant Manager(Finance)",
+       "job_title_bn": "সহকারী ব্যবস্থাপক(অর্থ)",
+       "organization_id": 445
+      },
+      {
+       "id": 15023,
+       "job_title": "Assistant Officer(Technical)/Sub-Assistant Technical Officer",
+       "job_title_bn": "সহকারী কর্মকর্তা (কারিগরি)/উপ-সহকারী কারিগরি কর্মকর্তা",
+       "organization_id": 445
+      },
+      {
+       "id": 15018,
+       "job_title": "Sub Assistant Engineer (Automobile)",
+       "job_title_bn": "উপ-সহকারী প্রকৌশলী (অটোমোবাইল)",
+       "organization_id": 445
+      },
+      {
+       "id": 15003,
+       "job_title": "Assistant Manager(Geochemical)",
+       "job_title_bn": "সহকারী ব্যবস্থাপক(জিওকেমিক্যাল)",
+       "organization_id": 445
+      },
+      {
+       "id": 14992,
+       "job_title": "Assistant Manager(Electrical)",
+       "job_title_bn": "সহকারী ব্যবস্থাপক(ইলেক্ট্রিক্যাল)",
+       "organization_id": 445
+      },
+      {
+       "id": 15016,
+       "job_title": "Sub Assistant Engineer(Computer/IT)",
+       "job_title_bn": "উপ-সহকারী প্রকৌশলী (কম্পিউটার/আইটি)",
+       "organization_id": 445
+      },
+      {
+       "id": 15019,
+       "job_title": "Assistant Technical Officer (Chemical)",
+       "job_title_bn": "সহকারী কারিগরি কর্মকর্তা (কেমিক্যাল)",
+       "organization_id": 445
+      },
+      {
+       "id": 15000,
+       "job_title": "Assistant Manager(Automobile)",
+       "job_title_bn": "সহকারী ব্যবস্থাপক(অটোমোবাইল)",
+       "organization_id": 445
+      },
+      {
+       "id": 15020,
+       "job_title": "Sub Assistant Engineer (Power)",
+       "job_title_bn": "উপ-সহকারী প্রকৌশলী (পাওয়ার)",
+       "organization_id": 445
+      },
+      {
+       "id": 15002,
+       "job_title": "Assistant Manager(Geophysics)",
+       "job_title_bn": "সহকারী ব্যবস্থাপক(জিওফিজিক্স)",
+       "organization_id": 445
+      },
+      {
+       "id": 15009,
+       "job_title": "Assistant Officer(Administration)",
+       "job_title_bn": "সহকারী কর্মকর্তা(প্রশাসন)",
+       "organization_id": 445
+      },
+      {
+       "id": 15014,
+       "job_title": "Sub Assistant Engineer/Assistant Technical Officer(Only for BGFCL) (Electrical)",
+       "job_title_bn": "উপ-সহকারী প্রকৌশলী/সহকারী কারিগরি কর্মকর্তা(শুধুমাত্র বিজিএফসিএল এর জন্য) (ইলেক্ট্রিক্যাল)",
+       "organization_id": 445
+      },
+      {
        "id": 15011,
        "job_title": "Assistant Librarian",
        "job_title_bn": "অ্যাসিস্ট্যান্ট লাইব্রেরিয়ান",
+       "organization_id": 445
+      },
+      {
+       "id": 15022,
+       "job_title": "Trainee Driller",
+       "job_title_bn": "ট্রেইনী ড্রিলার",
+       "organization_id": 445
+      },
+      {
+       "id": 15005,
+       "job_title": "Assistant Manager(Environment)",
+       "job_title_bn": "সহকারী ব্যবস্থাপক(এনভায়রনমেন্ট)",
+       "organization_id": 445
+      },
+      {
+       "id": 14997,
+       "job_title": "Assistant Manager(IPE)",
+       "job_title_bn": "সহকারী ব্যবস্থাপক(আইপিই)",
+       "organization_id": 445
+      },
+      {
+       "id": 14998,
+       "job_title": "Assistant Manager(Metallurgy/MME)",
+       "job_title_bn": "সহকারী ব্যবস্থাপক(মেটালার্জি/এমএমই)",
+       "organization_id": 445
+      },
+      {
+       "id": 15012,
+       "job_title": "Assistant Officer(Finance)",
+       "job_title_bn": "সহকারী কর্মকর্তা(অর্থ)",
+       "organization_id": 445
+      },
+      {
+       "id": 15021,
+       "job_title": "Sub Assistant Engineer (Telecom)",
+       "job_title_bn": "উপ-সহকারী প্রকৌশলী (টেলিকম)",
+       "organization_id": 445
+      },
+      {
+       "id": 15015,
+       "job_title": "Sub Assistant Engineer/Assistant Technical Officer(Only for BGFCL) (Civil)",
+       "job_title_bn": "উপ-সহকারী প্রকৌশলী/সহকারী কারিগরি কর্মকর্তা(শুধুমাত্র বিজিএফসিএল এর জন্য) (সিভিল)",
+       "organization_id": 445
+      },
+      {
+       "id": 15001,
+       "job_title": "Assistant Manager(Geology)",
+       "job_title_bn": "সহকারী ব্যবস্থাপক(জিওলজি)",
+       "organization_id": 445
+      },
+      {
+       "id": 14994,
+       "job_title": "Assistant Manager(CSE/IT)",
+       "job_title_bn": "সহকারী ব্যবস্থাপক(সিএসই/আইটি)",
+       "organization_id": 445
+      },
+      {
+       "id": 15004,
+       "job_title": "Assistant Manager(Chemistry)",
+       "job_title_bn": "সহকারী ব্যবস্থাপক(কেমিস্ট্রি)",
+       "organization_id": 445
+      },
+      {
+       "id": 15010,
+       "job_title": "Assistant Officer(Law)",
+       "job_title_bn": "সহকারী কর্মকর্তা(আইন)",
+       "organization_id": 445
+      },
+      {
+       "id": 15013,
+       "job_title": "Sub Assistant Engineer/Assistant Technical Officer(Only for BGFCL) (Mechanical)",
+       "job_title_bn": "উপ-সহকারী প্রকৌশলী/সহকারী কারিগরি কর্মকর্তা(শুধুমাত্র বিজিএফসিএল এর জন্য) (মেকানিক্যাল)",
+       "organization_id": 445
+      },
+      {
+       "id": 14993,
+       "job_title": "Assistant Manager(Civil)",
+       "job_title_bn": "সহকারী ব্যবস্থাপক(সিভিল)",
        "organization_id": 445
       }
      ]
