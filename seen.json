@@ -418,12 +418,12 @@
   "army-news | https://join.army.mil.bd/home/page/news-view/AOHLWLYG4RDJDF5OBHKV"
  ],
  "_daily": {
-  "date": "2026-11-20",
+  "date": "2026-11-21",
   "counts": {
    "Live Jobs": 351,
    "Posted Today": 0,
-   "Deadline Today": 0,
-   "Expires in 3 days": 35
+   "Deadline Today": 26,
+   "Expires in 3 days": 48
   }
  },
  "_teletalk_links": {
