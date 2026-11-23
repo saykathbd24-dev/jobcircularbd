@@ -411,7 +411,8 @@
   "teletalk | 880 | 15393",
   "teletalk | 880 | 15394",
   "teletalk | 635 | 15391",
-  "teletalk | 471 | 15395"
+  "teletalk | 471 | 15395",
+  "teletalk | 1180 | 15396"
  ],
  "Bangladesh Army": [
   "army-circular | 98TH BMA LONG COURSE | 2026-07-29",
@@ -603,6 +604,10 @@
   "15395": {
    "pdf": "https://alljobs.teletalk.com.bd/media/public/uploads/governments/jobs/advertisement-1795407152034.pdf",
    "apply": "https://dcrangamati.teletalk.com.bd/"
+  },
+  "15396": {
+   "pdf": "https://alljobs.teletalk.com.bd/media/public/uploads/governments/jobs/advertisement-1795417581230.pdf",
+   "apply": "https://itcnetrokona.teletalk.com.bd/"
   }
  }
 }
