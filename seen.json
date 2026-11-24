@@ -412,7 +412,21 @@
   "teletalk | 880 | 15394",
   "teletalk | 635 | 15391",
   "teletalk | 471 | 15395",
-  "teletalk | 1180 | 15396"
+  "teletalk | 1180 | 15396",
+  "teletalk | 277 | 15410",
+  "teletalk | 277 | 15407",
+  "teletalk | 277 | 15409",
+  "teletalk | 277 | 15408",
+  "teletalk | 711 | 15402",
+  "teletalk | 711 | 15404",
+  "teletalk | 711 | 15406",
+  "teletalk | 711 | 15405",
+  "teletalk | 711 | 15401",
+  "teletalk | 711 | 15403",
+  "teletalk | 827 | 15398",
+  "teletalk | 827 | 15399",
+  "teletalk | 827 | 15400",
+  "teletalk | 827 | 15397"
  ],
  "Bangladesh Army": [
   "army-circular | 98TH BMA LONG COURSE | 2026-07-29",
@@ -608,6 +622,22 @@
   "15396": {
    "pdf": "https://alljobs.teletalk.com.bd/media/public/uploads/governments/jobs/advertisement-1795417581230.pdf",
    "apply": "https://itcnetrokona.teletalk.com.bd/"
+  },
+  "15398": {
+   "pdf": "https://alljobs.teletalk.com.bd/media/public/uploads/governments/jobs/advertisement-1795496954394.pdf",
+   "apply": "http://divcombsl.teletalk.com.bd/"
+  },
+  "15399": {
+   "pdf": "https://alljobs.teletalk.com.bd/media/public/uploads/governments/jobs/advertisement-1795497028306.pdf",
+   "apply": "http://divcombsl.teletalk.com.bd/"
+  },
+  "15400": {
+   "pdf": "https://alljobs.teletalk.com.bd/media/public/uploads/governments/jobs/advertisement-1795497100656.pdf",
+   "apply": "http://divcombsl.teletalk.com.bd/"
+  },
+  "15397": {
+   "pdf": "https://alljobs.teletalk.com.bd/media/public/uploads/governments/jobs/advertisement-1795496880083.pdf",
+   "apply": "http://divcombsl.teletalk.com.bd/"
   }
  }
 }
