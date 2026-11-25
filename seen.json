@@ -426,7 +426,13 @@
   "teletalk | 827 | 15398",
   "teletalk | 827 | 15399",
   "teletalk | 827 | 15400",
-  "teletalk | 827 | 15397"
+  "teletalk | 827 | 15397",
+  "teletalk | 447 | 15412",
+  "teletalk | 447 | 15413",
+  "teletalk | 447 | 15411",
+  "teletalk | 447 | 15416",
+  "teletalk | 447 | 15415",
+  "teletalk | 447 | 15414"
  ],
  "Bangladesh Army": [
   "army-circular | 98TH BMA LONG COURSE | 2026-07-29",
@@ -438,11 +444,11 @@
   "army-news | https://join.army.mil.bd/home/page/news-view/AOHLWLYG4RDJDF5OBHKV"
  ],
  "_daily": {
-  "date": "2026-11-24",
+  "date": "2026-11-25",
   "counts": {
-   "Live Jobs": 323,
-   "Posted Today": 11,
-   "Deadline Today": 0,
+   "Live Jobs": 338,
+   "Posted Today": 15,
+   "Deadline Today": 15,
    "Expires in 3 days": 52
   }
  },
