@@ -440,7 +440,13 @@
   "teletalk | 803 | 15419",
   "teletalk | 803 | 15424",
   "teletalk | 803 | 15418",
-  "teletalk | 803 | 15421"
+  "teletalk | 803 | 15421",
+  "teletalk | 988 | 15426",
+  "teletalk | 988 | 15427",
+  "teletalk | 988 | 15429",
+  "teletalk | 988 | 15430",
+  "teletalk | 988 | 15428",
+  "teletalk | 988 | 15425"
  ],
  "Bangladesh Army": [
   "army-circular | 98TH BMA LONG COURSE | 2026-07-29",
@@ -684,6 +690,30 @@
   "15421": {
    "pdf": "https://alljobs.teletalk.com.bd/media/public/uploads/governments/jobs/advertisement-1795661331604.pdf",
    "apply": "https://cssylhet.teletalk.com.bd/cssylhet2026/"
+  },
+  "15426": {
+   "pdf": "https://alljobs.teletalk.com.bd/media/public/uploads/governments/jobs/advertisement-1795684672669.pdf",
+   "apply": "https://tax24.teletalk.com.bd/tax24_2026/"
+  },
+  "15427": {
+   "pdf": "https://alljobs.teletalk.com.bd/media/public/uploads/governments/jobs/advertisement-1795684751693.pdf",
+   "apply": "https://tax24.teletalk.com.bd/tax24_2026/"
+  },
+  "15429": {
+   "pdf": "https://alljobs.teletalk.com.bd/media/public/uploads/governments/jobs/advertisement-1795684924713.pdf",
+   "apply": "https://tax24.teletalk.com.bd/tax24_2026/"
+  },
+  "15430": {
+   "pdf": "https://alljobs.teletalk.com.bd/media/public/uploads/governments/jobs/advertisement-1795685004237.pdf",
+   "apply": "https://tax24.teletalk.com.bd/tax24_2026/"
+  },
+  "15428": {
+   "pdf": "https://alljobs.teletalk.com.bd/media/public/uploads/governments/jobs/advertisement-1795684826163.pdf",
+   "apply": "https://tax24.teletalk.com.bd/tax24_2026/"
+  },
+  "15425": {
+   "pdf": "https://alljobs.teletalk.com.bd/media/public/uploads/governments/jobs/advertisement-1795684599477.pdf",
+   "apply": "https://tax24.teletalk.com.bd/tax24_2026/"
   }
  }
 }
