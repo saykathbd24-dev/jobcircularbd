@@ -432,7 +432,15 @@
   "teletalk | 447 | 15411",
   "teletalk | 447 | 15416",
   "teletalk | 447 | 15415",
-  "teletalk | 447 | 15414"
+  "teletalk | 447 | 15414",
+  "teletalk | 803 | 15417",
+  "teletalk | 803 | 15420",
+  "teletalk | 803 | 15422",
+  "teletalk | 803 | 15423",
+  "teletalk | 803 | 15419",
+  "teletalk | 803 | 15424",
+  "teletalk | 803 | 15418",
+  "teletalk | 803 | 15421"
  ],
  "Bangladesh Army": [
   "army-circular | 98TH BMA LONG COURSE | 2026-07-29",
@@ -444,12 +452,12 @@
   "army-news | https://join.army.mil.bd/home/page/news-view/AOHLWLYG4RDJDF5OBHKV"
  ],
  "_daily": {
-  "date": "2026-11-25",
+  "date": "2026-11-26",
   "counts": {
-   "Live Jobs": 338,
-   "Posted Today": 15,
-   "Deadline Today": 15,
-   "Expires in 3 days": 52
+   "Live Jobs": 344,
+   "Posted Today": 21,
+   "Deadline Today": 37,
+   "Expires in 3 days": 37
   }
  },
  "_teletalk_links": {
@@ -644,6 +652,38 @@
   "15397": {
    "pdf": "https://alljobs.teletalk.com.bd/media/public/uploads/governments/jobs/advertisement-1795496880083.pdf",
    "apply": "http://divcombsl.teletalk.com.bd/"
+  },
+  "15417": {
+   "pdf": "https://alljobs.teletalk.com.bd/media/public/uploads/governments/jobs/advertisement-1795661030430.pdf",
+   "apply": "https://cssylhet.teletalk.com.bd/cssylhet2026/"
+  },
+  "15420": {
+   "pdf": "https://alljobs.teletalk.com.bd/media/public/uploads/governments/jobs/advertisement-1795661254463.pdf",
+   "apply": "https://cssylhet.teletalk.com.bd/cssylhet2026/"
+  },
+  "15422": {
+   "pdf": "https://alljobs.teletalk.com.bd/media/public/uploads/governments/jobs/advertisement-1795661403050.pdf",
+   "apply": "https://cssylhet.teletalk.com.bd/cssylhet2026/"
+  },
+  "15423": {
+   "pdf": "https://alljobs.teletalk.com.bd/media/public/uploads/governments/jobs/advertisement-1795661475776.pdf",
+   "apply": "https://cssylhet.teletalk.com.bd/cssylhet2026/"
+  },
+  "15419": {
+   "pdf": "https://alljobs.teletalk.com.bd/media/public/uploads/governments/jobs/advertisement-1795661178695.pdf",
+   "apply": "https://cssylhet.teletalk.com.bd/cssylhet2026/"
+  },
+  "15424": {
+   "pdf": "https://alljobs.teletalk.com.bd/media/public/uploads/governments/jobs/advertisement-1795661542352.pdf",
+   "apply": "https://cssylhet.teletalk.com.bd/cssylhet2026/"
+  },
+  "15418": {
+   "pdf": "https://alljobs.teletalk.com.bd/media/public/uploads/governments/jobs/advertisement-1795661101216.pdf",
+   "apply": "https://cssylhet.teletalk.com.bd/cssylhet2026/"
+  },
+  "15421": {
+   "pdf": "https://alljobs.teletalk.com.bd/media/public/uploads/governments/jobs/advertisement-1795661331604.pdf",
+   "apply": "https://cssylhet.teletalk.com.bd/cssylhet2026/"
   }
  }
 }
